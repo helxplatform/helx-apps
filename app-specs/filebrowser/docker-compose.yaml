@@ -7,12 +7,12 @@ services:
   entrypoint:
    - /bin/sh
    - -c
-   - /filebrowser config init &&  /filebrowser config set --auth.method=noauth && /filebrowser --noauth --root="/home" --address=0.0.0.0 --database=/config/filebrowser.db
+   - /filebrowser --noauth --root="/home" --address=0.0.0.0 --database=/config/filebrowser.db
   deploy:
     resources:
       limits:
-        cpus: '8'
-        memory: 64000M
+        cpus: '0.5'
+        memory: 2000M
       reservations:
-        cpus: '1'
-        memory: 4000M 
+        cpus: '0.5'
+        memory: 2000M 
