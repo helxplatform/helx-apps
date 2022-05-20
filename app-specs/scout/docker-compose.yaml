@@ -1,0 +1,18 @@
+version: "3.6"
+services:
+  scout:
+    image: muralikarthikk/cloudtop-scout:0.1.0.alpha.1
+    container_name: scout
+    entrypoint: /init
+    ports:
+      - 8080:8080
+    volumes:
+      - pvc://nfsrods:/nfsrods
+    deploy:
+      resources:
+        limits:
+          cpus: '8'
+          memory: 64000M
+        reservations:
+          cpus: '2'
+          memory: 8000M
