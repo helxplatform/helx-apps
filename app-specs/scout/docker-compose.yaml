@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   scout:
-    image: muralikarthikk/cloudtop-scout:0.1.0.alpha.2
+    image: muralikarthikk/cloudtop-scout:0.1.0.alpha.3
     container_name: scout
     entrypoint: /init
     ports:
