@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    cloud-top:
-      image: muralikarthikk/cloudtop:alpha-stretch-0.1
+      image: helxplatform/cloudtop:stretch-v0.0.1
       container_name: cloud-top
       entrypoint: /init
       ports:
