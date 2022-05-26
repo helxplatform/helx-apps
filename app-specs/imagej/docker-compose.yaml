@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   imagej:
-    image: helxplatform/cloudtop-imagej:develop-latest
+    image: helxplatform/cloudtop-imagej:stretch-v0.0.1
     container_name: imagej
     env:
      - VNC_RESOLUTION=1980x1024
