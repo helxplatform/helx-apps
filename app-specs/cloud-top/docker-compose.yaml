@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    cloud-top:
-      image: helxplatform/cloudtop:stretch-v0.0.1
+      image: helxplatform/cloudtop:jenkins-test
       container_name: cloud-top
       entrypoint: /init
       ports:
