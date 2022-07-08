@@ -1,7 +1,7 @@
 version: "3"
 services:
   backplane:
-    image: greentranslator/tranql-base
+    image: "{{ helx_registry }}/helxplatform/tranql-base:1.0.2"
     entrypoint: /usr/local/bin/gunicorn --workers=2 --bind=0.0.0.0:$BACKPLANE_PORT --name=backplane --timeout=600 tranql.backplane.server:app 
     ports:
       - "$BACKPLANE_PORT:$BACKPLANE_PORT"
@@ -14,7 +14,7 @@ services:
           cpus: '1'
           memory: 4000M 
   tranql:
-    image: greentranslator/tranql-app
+    image: "{{ helx_registry }}/helxplatform/tranql-app:1.0.2"
     environment:
       - BACKPLANE=http://localhost:8099
       - APP_PORT=$APP_PORT

@@ -1,7 +1,7 @@
 version: "3"
 services:
  filebrowser:
-  image: hurlenko/filebrowser
+  image: "{{ third_party_registry }}/hurlenko/filebrowser"
   ports:
    - 8080:8080
   entrypoint:
