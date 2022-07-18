@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   octave:
-    image: "{{ helx_registry }}/helxplatform/cloudtop-octave:develop-0.0.2"
+    image: {{ helx_registry }}helxplatform/cloudtop-octave:bullseye-v0.0.1
     container_name: octave
     env:
      - VNC_RESOLUTION=1980x1024

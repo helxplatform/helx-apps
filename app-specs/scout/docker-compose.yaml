@@ -1,8 +1,8 @@
 version: "3.6"
 services:
-  napari:
-    image: {{ helx_registry }}helxplatform/cloudtop-napari:bullseye-v0.0.1
-    container_name: napari
+  scout:
+    image: muralikarthikk/cloudtop-scout:bullseye-v0.0.6
+    container_name: scout
     entrypoint: /init
     ports:
       - 8080:8080
@@ -11,8 +11,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '8'
-          memory: 64000M
+          cpus: '2'
+          memory: 4000M
         reservations:
-          cpus: '1'
+          cpus: '2'
           memory: 4000M
