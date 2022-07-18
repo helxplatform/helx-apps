@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: heliumdatastage/rstudio-server:init-v0.4
+    image: "{{ helx_registry }}/helxplatform/rstudio-server:0.0.5"
     environment:
       - DISABLE_AUTH=true
     ports:

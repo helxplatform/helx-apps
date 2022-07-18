@@ -3,7 +3,7 @@
 version: "3"
 services:
   sas-studio:
-    image: heliumdatastage/sas-studio:0.0.2
+    image: "{{ helx_registry }}/helxplatform/sas-studio:0.0.1"
     ports:
       - 38080:38080
     deploy:

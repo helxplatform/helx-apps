@@ -3,7 +3,7 @@
 version: "3"
 services:
   nginx:
-    image: nginx:stable-alpine
+    image: "{{ third_party_registry }}/nginx:stable-alpine"
     ports:
       - 80:80
     deploy:
