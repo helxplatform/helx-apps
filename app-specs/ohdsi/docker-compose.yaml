@@ -8,7 +8,7 @@ services:
       - 8080:8080
   webapi:
     container_name: webapi
-    environment:
+    env:
       - DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
       - DATASOURCE_USERNAME=postgres
