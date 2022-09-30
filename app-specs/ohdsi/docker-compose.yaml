@@ -1,13 +1,12 @@
 version: '3.7'
 services:
   ohdsi:
-    environment:
+    env:
       - WEBAPI_URL=http://localhost:8080/WebAPI/
     image: containers.renci.org/helxplatform/ohdsi-atlas:test-0.1.0
     ports:
       - 8080:8080
   webapi:
-    container_name: webapi
     env:
       - DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
@@ -26,7 +25,6 @@ services:
       - SECURITY_PROVIDER=DisabledSecurity
     image: ohdsi/webapi:latest
   postgres:
-    container_name: postgres
-    environment:
+    env:
       - POSTGRES_PASSWORD=postgres
     image: postgres:14
