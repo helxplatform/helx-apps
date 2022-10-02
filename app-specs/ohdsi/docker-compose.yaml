@@ -27,7 +27,7 @@ services:
       - FLYWAY_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - FLYWAY_SCHEMAS=ohdsi
       - FLYWAY_PLACEHOLDERS_OHDSISCHEMA=ohdsi
-      - FLYWAY_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - FLYWAY_DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
       - FLYWAY_DATASOURCE_USERNAME=postgres
       - FLYWAY_DATASOURCE_PASSWORD=postgres
       - SECURITY_PROVIDER=DisabledSecurity
