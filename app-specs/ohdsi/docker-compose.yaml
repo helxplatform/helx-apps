@@ -10,10 +10,10 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: 1000M
+          memory: 200M
         reservations:
           cpus: '0.5'
-          memory: 1000M
+          memory: 200M
   webapi:
     env:
       - DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
@@ -36,10 +36,10 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: 1000M
+          memory: 200M
         reservations:
           cpus: '0.5'
-          memory: 1000M
+          memory: 200M
   postgres:
     env:
       - POSTGRES_PASSWORD=postgres
@@ -48,7 +48,7 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: 1000M
+          memory: 200M
         reservations:
           cpus: '0.5'
-          memory: 1000M
+          memory: 200M
