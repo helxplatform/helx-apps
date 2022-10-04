@@ -1,8 +1,6 @@
 version: '3.7'
 services:
   ohdsi:
-    env:
-      - WEBAPI_URL=http://localhost:8080/WebAPI/
     image: containers.renci.org/helxplatform/ohdsi-atlas:test-0.1.1
     ports:
       - 8080:8080
