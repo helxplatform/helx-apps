@@ -3,7 +3,7 @@ services:
   ohdsi:
     image: containers.renci.org/helxplatform/ohdsi-atlas:test-0.1.3
     ports:
-      - 8080:8080
+      - 8081:8081
     deploy:
       resources:
         limits:
