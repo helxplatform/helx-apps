@@ -15,9 +15,6 @@ services:
   webapi:
     env:
       - DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
-      - DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
-      - DATASOURCE_USERNAME=postgres
-      - DATASOURCE_PASSWORD=postgres
       - DATASOURCE_OHDSI_SCHEMA=ohdsi
       - SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA=ohdsi
       - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
@@ -25,23 +22,8 @@ services:
       - FLYWAY_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
       - FLYWAY_SCHEMAS=ohdsi
       - FLYWAY_PLACEHOLDERS_OHDSISCHEMA=ohdsi
-      - FLYWAY_DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
-      - FLYWAY_DATASOURCE_USERNAME=postgres
-      - FLYWAY_DATASOURCE_PASSWORD=postgres
       - SECURITY_PROVIDER=DisabledSecurity
     image: ohdsi/webapi:latest
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 500M
-        reservations:
-          cpus: '0.5'
-          memory: 500M
-  postgres:
-    env:
-      - POSTGRES_PASSWORD=postgres
-    image: postgres:14
     deploy:
       resources:
         limits:
