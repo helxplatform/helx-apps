@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+  ohdsi:
+    image: containers.renci.org/helxplatform/ohdsi-atlas:0.1.0
+    ports:
+      - 8081:8081
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1500M
+        reservations:
+          cpus: '1'
+          memory: 1500M
+  webapi:
+    env:
+      - DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
+      - DATASOURCE_OHDSI_SCHEMA=ohdsi
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA=ohdsi
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_BATCH_REPOSITORY_TABLEPREFIX=ohdsi.BATCH_
+      - FLYWAY_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
+      - FLYWAY_SCHEMAS=ohdsi
+      - FLYWAY_PLACEHOLDERS_OHDSISCHEMA=ohdsi
+      - SECURITY_PROVIDER=DisabledSecurity
+    image: ohdsi/webapi:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1500M
+        reservations:
+          cpus: '1'
+          memory: 1500M
