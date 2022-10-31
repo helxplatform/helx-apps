@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "{{ helx_registry }}/helxplatform/rstudio:0.1.0"
+    image: "containers.renci.org/helxplatform/rstudio:0.1.0"
     environment:
       - DISABLE_AUTH=true
     ports:
