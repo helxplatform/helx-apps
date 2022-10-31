@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio:0.1.1"
+    image: "containers.renci.org/helxplatform/rstudio:0.1.2"
     ports:
       - 8787:8787
     deploy:
