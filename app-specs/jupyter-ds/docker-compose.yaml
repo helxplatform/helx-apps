@@ -6,7 +6,8 @@ version: "3"
 services:
   jupyter-ds:
     # image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:sterling"
-    image: "{{ helx_registry }}/helxplatform/jupyter-datascience:sterling"
+    # image: "{{ helx_registry }}/helxplatform/jupyter-datascience:sterling"
+    image: "{{ helx_registry }}/helxplatform/jupyter-datascience:sterling-ez"
     entrypoint:
       - /bin/bash
       - -c
