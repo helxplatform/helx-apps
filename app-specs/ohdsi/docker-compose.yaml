@@ -28,7 +28,7 @@ services:
       resources:
         limits:
           cpus: '1'
-          memory: 6000M
+          memory: 10000M
         reservations:
           cpus: '1'
-          memory: 6000M
+          memory: 10000M
