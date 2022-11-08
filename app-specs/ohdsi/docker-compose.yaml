@@ -23,7 +23,7 @@ services:
       - FLYWAY_SCHEMAS=webapi
       - FLYWAY_PLACEHOLDERS_OHDSISCHEMA=webapi
       - SECURITY_PROVIDER=DisabledSecurity
-      - JAVA_OPTS="-Xmx8g
+      - JAVA_OPTS=-Xmx8g
     image: ohdsi/webapi:latest
     deploy:
       resources:
