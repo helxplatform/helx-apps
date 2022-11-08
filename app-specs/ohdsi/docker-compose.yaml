@@ -23,12 +23,13 @@ services:
       - FLYWAY_SCHEMAS=webapi
       - FLYWAY_PLACEHOLDERS_OHDSISCHEMA=webapi
       - SECURITY_PROVIDER=DisabledSecurity
+      - JAVA_OPTS=-Xmx6g
     image: ohdsi/webapi:latest
     deploy:
       resources:
         limits:
           cpus: '1'
-          memory: 3000M
+          memory: 9G
         reservations:
           cpus: '1'
-          memory: 3000M
+          memory: 9G
