@@ -7,11 +7,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2'
-          memory: 2500M
+          cpus: '1'
+          memory: 2000M
         reservations:
-          cpus: '2'
-          memory: 2500M
+          cpus: '1'
+          memory: 2000M
   webapi:
     env:
       - DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
@@ -27,8 +27,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2'
-          memory: 2500M
+          cpus: '1'
+          memory: 2000M
         reservations:
-          cpus: '2'
-          memory: 2500M
+          cpus: '1'
+          memory: 2000M
