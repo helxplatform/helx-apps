@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   atlas:
-    image: containers.renci.org/helxplatform/ohdsi-atlas:test-0.2.2
+    image: containers.renci.org/helxplatform/ohdsi-atlas:0.1.0
     ports:
       - 8081:8081
     deploy:
@@ -23,7 +23,7 @@ services:
       - FLYWAY_SCHEMAS=webapi
       - FLYWAY_PLACEHOLDERS_OHDSISCHEMA=webapi
       - SECURITY_PROVIDER=DisabledSecurity
-    image: containers.renci.org/helxplatform/ohdsi-webapi:dev-0.2.1
+    image: containers.renci.org/helxplatform/ohdsi-webapi:0.2.0
     deploy:
       resources:
         limits:
