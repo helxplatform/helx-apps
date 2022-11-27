@@ -24,6 +24,7 @@ services:
       - FLYWAY_PLACEHOLDERS_OHDSISCHEMA=webapi
       - SECURITY_PROVIDER=DisabledSecurity
       - JAVA_OPTS=-Xmx6g
+      - xxx={{ username }}
     image: ohdsi/webapi:latest
     deploy:
       resources:
