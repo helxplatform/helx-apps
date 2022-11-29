@@ -47,14 +47,14 @@ services:
   #   A version of Spark compatible with Hail is installed.
   #   It integrates Hail into Spark and Spark into Jupyter.
   jupyter:
-    image: heliumdatastage/jupyter-hail:latest
+    image: "{{ helx_registry }}/helxplatform/jupyter-hail:latest"
     ports:
       - '${jupyter_port}:8000'
 
   # This is the bitnami spark container, a minimalist, ubuntu based, non-root image with
   # good configuration options and support for recent spark versions.
   spark:
-    image: heliumdatastage/spark
+    image: "{{ helx_registry }}/helxplatform/spark:latest"
     environment:
       - SPARK_MODE=master
       - SPARK_MASTER_HOST=0.0.0.0
@@ -80,7 +80,7 @@ services:
   #   Number of instances is controlled by the cluster_worker_replicas setting.
   #   
   spark-worker:
-    image: heliumdatastage/spark
+    image: "{{ helx_registry }}/helxplatform/spark:latest"
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-${app_id}:${spark_master_port}

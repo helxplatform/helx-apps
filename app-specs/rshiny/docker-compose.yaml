@@ -5,7 +5,7 @@
 version: "3.0"
 services:
   rshiny:
-    image: rocker/shiny:3.4.4
+    image: "{{ third_party_registry }}/rocker/shiny:3.4.4"
     ports:
       - 3838:3838
 #    volumes:

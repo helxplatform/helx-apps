@@ -5,7 +5,7 @@
 version: "3.0"
 services:
   gsforge:
-    image: systemsgenetics/gsforge_interactive:v0.5
+    image: "{{ third_party_registry }}/systemsgenetics/gsforge_interactive:v0.5"
     entrypoint:
       - /bin/bash
       - -c

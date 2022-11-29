@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
   xena:
-    image: quay.io/coverbeck/xenahub:v0.3
+    image: "{{ third_party_registry }}/quay.io/coverbeck/xenahub:v0.3"
     container_name: xena
     ports:
       - ${HTTP_PORT:-7222}:7222 # http,  format is host port:container port
