@@ -7,7 +7,7 @@ services:
       container_name: cloud-top
       entrypoint: /init
       ports:
-        - 3000:8080
+        - 8080:3030
       volumes:
          - pvc://helx-sidecar-test/sidecar:/sidecar
       deploy:
