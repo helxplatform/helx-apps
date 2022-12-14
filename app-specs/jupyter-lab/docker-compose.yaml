@@ -1,0 +1,17 @@
+version: "0.1.0"
+services:
+  jupyter-lab:
+    image: "{{ helx_registry }}/helxplatform/jupyter-lab:0.1.0"
+    container_name: jupyter-lab
+    env:
+     - USERNAME=${USER_NAME}
+    ports:
+      - 8888:8888
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 4000M
+        reservations:
+          cpus: "1"
+          memory: 4000M
