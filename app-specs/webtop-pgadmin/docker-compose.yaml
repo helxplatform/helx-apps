@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+
+   webtop:
+      image: "containers.renci.org/helxplatform/webtop/pgadmin:latest"
+      container_name: webtop-pgadmin
+      entrypoint: /init
+      ports:
+        - 3000:3000
+      volumes:
+         - pvc://helx-sidecar-test/sidecar:/sidecar
+      deploy:
+        resources:
+          limits:
+            cpus: '2'
+            memory: 2048M
+          reservations:
+            cpus: '0.5'
+            memory: 512M 
