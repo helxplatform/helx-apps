@@ -4,7 +4,8 @@ services:
    cloud-top:
       # image: "{{ helx_registry }}/helxplatform/cloudtop:develop-v0.0.43"
       # image: "linuxserver/webtop"
-      image: "lscr.io/linuxserver/webtop:ubuntu-mate"
+      # image: "lscr.io/linuxserver/webtop:ubuntu-mate"
+      image: "{{ helx_registry }}/helxplatform/webtop/base:latest"
       container_name: cloud-top
       entrypoint: /init
       ports:
