@@ -1,10 +1,8 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "{{ helx_registry }}/helxplatform/jupyter-lab:develop"
+    image: "{{ helx_registry }}/helxplatform/jupyter-lab:v0.1.0"
     container_name: jupyter-lab
-    env:
-     - USERNAME=${USER_NAME}
     ports:
       - 8888:8888
     deploy:
