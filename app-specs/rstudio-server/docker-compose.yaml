@@ -3,16 +3,14 @@
 version: "3"
 services:
   rstudio-server:
-    image: "{{ helx_registry }}/helxplatform/rstudio-server:0.0.5"
-    environment:
-      - DISABLE_AUTH=true
+    image: "containers.renci.org/helxplatform/rstudio:0.1.6"
     ports:
-      - 8787:8787
+      - 8080:8080
     deploy:
       resources:
         limits:
-          cpus: '4'
-          memory: 16000M
+          cpus: '2'
+          memory: 4000M
         reservations:
           cpus: '1'
           memory: 1000M 
