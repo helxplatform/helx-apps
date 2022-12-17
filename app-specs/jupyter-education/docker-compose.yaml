@@ -7,7 +7,8 @@ services:
   jupyter-education:
     # image: "{{ helx_registry }}/helxplatform/jupyter-education:0.0.5-3"
     # image: "containers.renci.org/helxplatform/jupyter-education:0.0.5-4" # seems to work eventually
-    image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:sterling-ez"
+    image: "{{ helx_registry }}/helxplatform/jupyter-education:0.0.5-4" # seems to work eventually
+    # image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:sterling-ez" # my old image I was testing with
     entrypoint:
       - /bin/bash
       - -c
