@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    webtop:
-      image: "containers.renci.org/helxplatform/webtop/base:latest"
+      image: "{{ helx_registry }}/helxplatform/webtop/base:latest"
       container_name: webtop
       entrypoint: /init
       ports:
