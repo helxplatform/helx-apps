@@ -5,15 +5,12 @@
 version: "3"
 services:
   jupyter-education:
-    # image: "{{ helx_registry }}/helxplatform/jupyter-education:0.0.5-3"
-    # image: "containers.renci.org/helxplatform/jupyter-education:0.0.5-4" # seems to work eventually
-    image: "{{ helx_registry }}/helxplatform/jupyter-education:0.0.5-4" # seems to work eventually
-    # image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:sterling-ez" # my old image I was testing with
+    image: "{{ helx_registry }}/helxplatform/jupyter-education:0.0.5-4"
     entrypoint:
       - /bin/bash
       - -c
-      - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
       # - start-jupyter-edu.sh
+      - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
     ports:
       - 8888:8888
     deploy:
