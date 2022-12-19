@@ -3,7 +3,6 @@ services:
 
    cloud-top:
       image: "{{ helx_registry }}/helxplatform/cloudtop:develop-v0.0.43"
-      image: "containers.renci.org/helxplatform/webtop/base:latest"
       container_name: cloud-top
       entrypoint: /init
       ports:
