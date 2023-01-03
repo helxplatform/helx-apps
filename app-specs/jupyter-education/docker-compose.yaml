@@ -5,12 +5,12 @@
 version: "3"
 services:
   jupyter-education:
-    image: "{{ helx_registry }}/helxplatform/jupyter-education:0.0.5-4"
+    image: "muralikarthikk/jupyter-ds-git:0.2"
     entrypoint:
       - /bin/bash
       - -c
-      # - start-jupyter-edu.sh
-      - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
+      - start-jupyter-edu.sh
+      #- start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
     ports:
       - 8888:8888
     deploy:
