@@ -5,7 +5,7 @@
 version: "3"
 services:
   jupyter-education:
-    image: "muralikarthikk/jupyter-ds-git:0.2"
+    image: "muralikarthikk/jupyter-ds-git:0.3"
     entrypoint:
       - /bin/bash
       - -c
