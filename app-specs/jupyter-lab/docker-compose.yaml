@@ -1,7 +1,7 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "{{ helx_registry }}/helxplatform/jupyter-lab:v0.1.0"
+    image: "{{ helx_registry }}/helxplatform/jupyter-lab:v0.2.0"
     container_name: jupyter-lab
     ports:
       - 8888:8888
