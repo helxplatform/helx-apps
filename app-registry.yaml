@@ -140,6 +140,10 @@ contexts:
         services:
           octave : 8080
         count: 1
+  helx:
+    extends:
+      - common
+    name: HeLx App Registry
   braini:
     extends:
       - common
