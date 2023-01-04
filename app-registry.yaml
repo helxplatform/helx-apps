@@ -399,7 +399,7 @@ contexts:
         count: 1
       webtop:
         name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop. -- PJL Test text here.
+        description: Webtop is a cloud native, browser accessible Linux desktop.
         details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
         docs: https://github.com/linuxserver/docker-webtop
         services:
