@@ -153,6 +153,7 @@ contexts:
     extends:
       - common
     webtop-octave:
+      # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
         fsGroup: 0
         runAsUser: 0
