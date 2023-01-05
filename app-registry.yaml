@@ -51,7 +51,12 @@ repositories:
   helx_apps:
     # This is the Dockstore app prototype repository. GA4GH TRS in future?
     description: Main repository for HeLx Apps and Tools
-    url: https://github.com/helxplatform/helx-apps/raw/external-app-registry/app-specs
+    # URL is in the form of raw access of files from GitHub.
+    # url: https://github.com/[corporation]/[project]/[branch]/[app specs directory]
+    # url: https://github.com/helxplatform/helx-apps/raw/external-app-registry/app-specs
+    # To use the same git repo as this file is in just specify the directory.
+    # url: app-specs
+    url: app-specs
 settings:
   helx_registry: containers.renci.org
   third_party_registry: docker.io
