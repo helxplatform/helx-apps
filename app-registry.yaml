@@ -152,7 +152,7 @@ contexts:
         details: GNU Octave is a high-level language, primarily intended for numerical computations.
         docs: https://www.gnu.org/software/octave 
         services:
-          webtop-octave : 8080
+          webtop-octave : "3000"
         count: 1
   helx:
     extends:
