@@ -123,11 +123,6 @@ contexts:
     name: HeLx Common App Registry
     mixin:
       - sys
-    webtop-octave:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
     apps:
       jupyter-ds:
         name: Jupyter Data Science
@@ -157,6 +152,11 @@ contexts:
   helx:
     extends:
       - common
+    webtop-octave:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     name: HeLx App Registry
   braini:
     extends:
