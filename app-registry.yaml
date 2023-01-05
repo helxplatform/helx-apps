@@ -119,6 +119,11 @@ contexts:
     name: HeLx Common App Registry
     mixin:
       - sys
+    webtop-octave:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     apps:
       jupyter-ds:
         name: Jupyter Data Science
@@ -137,7 +142,7 @@ contexts:
         services:
           filebrowser: "8888"
         count: 1
-      octave:
+      webtop-octave:
         name: Octave
         description: A scientific programming language largely compatible with MATLAB.
         details: GNU Octave is a high-level language, primarily intended for numerical computations.
