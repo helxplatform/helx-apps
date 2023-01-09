@@ -79,6 +79,8 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+            # I don't think the readiness probe is grabbed from here.  The
+            # extra '/lab' does not show up in the describe pod command.
             readinessProbe:
               httpGet:
                 path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/lab"
@@ -143,16 +145,7 @@ contexts:
         services:
           jupyter-ds : "8888"
         proxy-rewrite-rule: True
-        count: -1
-      jupyter-lab:
-        name: Jupyter Lab
-        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
-        details: Includes Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-lab: "8888"
-        proxy-rewrite-rule: True
-        count: -1
+        count: 1
       filebrowser:
         name: File Browser
         description: File Browser - a utility for browsing files through a web interface
@@ -172,6 +165,11 @@ contexts:
   helx:
     extends:
       - common
+    webtop:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     webtop-octave:
       # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
@@ -179,6 +177,15 @@ contexts:
         runAsUser: 0
         runAsGroup: 0
     name: HeLx App Registry
+    apps:
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop: "3000"
+        count: 1
   braini:
     extends:
       - common
