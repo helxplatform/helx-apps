@@ -79,6 +79,7 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+            readinessProbe: none
       jupyter-education:
         ext:
           kube:
