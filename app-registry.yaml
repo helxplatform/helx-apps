@@ -149,11 +149,10 @@ contexts:
         description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
         details: Includes Python.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        conn_string: "lab"
         services:
           jupyter-lab: "8888"
         proxy-rewrite-rule: True
-        count: 1
+        count: -1
       filebrowser:
         name: File Browser
         description: File Browser - a utility for browsing files through a web interface
