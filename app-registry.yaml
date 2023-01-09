@@ -72,6 +72,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-lab:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-education:
         ext:
           kube:
@@ -133,6 +140,16 @@ contexts:
           jupyter-ds : "8888"
         proxy-rewrite-rule: True
         count: -1
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        conn_string: "lab"
+        services:
+          jupyter-lab: "8888"
+        proxy-rewrite-rule: True
+        count: 1
       filebrowser:
         name: File Browser
         description: File Browser - a utility for browsing files through a web interface
