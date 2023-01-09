@@ -81,7 +81,7 @@ contexts:
               period: 5
             readinessProbe:
               httpGet:
-                path: "/"
+                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}"
                 port: "{{ system_port }}"
       jupyter-education:
         ext:
