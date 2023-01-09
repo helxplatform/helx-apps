@@ -1,7 +1,8 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "{{ helx_registry }}/helxplatform/jupyter-lab:v0.1.0"
+    # image: "{{ helx_registry }}/helxplatform/jupyter-lab:v0.1.0"
+    image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:v0.0.4"
     container_name: jupyter-lab
     entrypoint:
       - /bin/bash
