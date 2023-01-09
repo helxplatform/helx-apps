@@ -79,10 +79,10 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-            readinessProbe:
-              httpGet:
-                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}"
-                port: "{{ system_port }}"
+            # readinessProbe:
+            #   httpGet:
+            #     path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}"
+            #     port: "{{ system_port }}"
       jupyter-education:
         ext:
           kube:
