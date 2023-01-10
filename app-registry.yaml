@@ -186,6 +186,25 @@ contexts:
         services:
           webtop: "3000"
         count: 1
+      blackbalsam:
+        name: Blackbalsam
+        description: An A.I., visualization, and parallel computing environment.
+        details: A.I.(Tensorflow,Keras,PyTorch,Gensim) Vis(Plotly,Bokeh,Seaborn) Compute(Spark).
+        docs: https://github.com/stevencox/blackbalsam
+        serviceAccount: spark
+        services:
+          blackbalsam : 8888
+        proxy-rewrite-rule: True
+        count: 1
+      hail:
+        name: Hail / Jupyter Workspace
+        description: A notebook computing interface to a large single node Hail genomics workspace.
+        details: Instantiates Apache Spark on a single cloud node for small to medium scale exploration.
+        docs: https://github.com/helxplatform/helx-hail # TODO: Make proper docs.
+        services:
+          hail : 8000
+        proxy-rewrite-rule: True
+        count: 1
   braini:
     extends:
       - common
