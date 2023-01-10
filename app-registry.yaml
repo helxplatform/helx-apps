@@ -166,12 +166,22 @@ contexts:
     extends:
       - common
     webtop:
+      # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
     webtop-octave:
-      # The securityContext section needs to be in the primary context, not in an extended context.
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    blackbalsam:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    hail:
       securityContext:
         fsGroup: 0
         runAsUser: 0
