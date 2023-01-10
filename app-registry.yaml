@@ -81,10 +81,10 @@ contexts:
               period: 5
             # I don't think the readiness probe is grabbed from here.  The
             # extra '/lab' does not show up in the describe pod command.
-            readinessProbe:
-              httpGet:
-                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/lab"
-                port: "{{ system_port }}"
+            # readinessProbe:
+            #   httpGet:
+            #     path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/lab"
+            #     port: "{{ system_port }}"
       jupyter-education:
         ext:
           kube:
@@ -213,6 +213,15 @@ contexts:
         docs: https://github.com/helxplatform/helx-hail # TODO: Make proper docs.
         services:
           hail : 8000
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-lab: "8888"
         proxy-rewrite-rule: True
         count: 1
   braini:
