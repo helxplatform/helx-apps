@@ -6,10 +6,10 @@ version: "3"
 services:
   jupyter-datascience-db:
     image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.0.5"
-    #entrypoint:
-    #  - /bin/bash
-    #  - -c
-    #  - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
+    entrypoint:
+      - /bin/bash
+      - -c
+      - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
     ports:
       - 8888:8888
     volumes:
@@ -17,8 +17,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '8'
-          memory: 64000M
+          cpus: 1
+          memory: 4000M
         reservations:
-          cpus: '1'
+          cpus: 500m
           memory: 4000M
