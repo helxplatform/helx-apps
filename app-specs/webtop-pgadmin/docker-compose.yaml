@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    webtop-pgadmin:
-      image: "{{ helx_registry }}/helxplatform/webtop/pgadmin:202301122232"
+      image: "{{ helx_registry }}/helxplatform/webtop/pgadmin:202301122243"
       container_name: webtop-pgadmin
       entrypoint: /init
       ports:
