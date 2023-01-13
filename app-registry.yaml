@@ -165,6 +165,16 @@ contexts:
   helx:
     extends:
       - common
+    blackbalsam:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    hail:
+      securityContext:
+        fsGroup: 1136
+        runAsUser: 1000
+        runAsGroup: 1136
     webtop:
       # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
@@ -176,26 +186,13 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
-    blackbalsam:
+    webtop-pgadmin:
       securityContext:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
-    hail:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 1000
-        runAsGroup: 1136
     name: HeLx App Registry
     apps:
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop: "3000"
-        count: 1
       blackbalsam:
         name: Blackbalsam
         description: An A.I., visualization, and parallel computing environment.
@@ -223,6 +220,22 @@ contexts:
         services:
           jupyter-lab: "8888"
         proxy-rewrite-rule: True
+        count: 1
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop: "3000"
+        count: 1
+      webtop-pgadmin:
+        name: Webtop pgAdmin
+        description: Webtop pgAdmin is a cloud native, browser accessible Linux desktop with database libraries added.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop-pgadmin: "3000"
         count: 1
   braini:
     extends:
