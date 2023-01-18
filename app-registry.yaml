@@ -165,16 +165,6 @@ contexts:
   helx:
     extends:
       - common
-    blackbalsam:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    hail:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 1000
-        runAsGroup: 1136
     webtop:
       # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
@@ -193,25 +183,6 @@ contexts:
         runAsGroup: 0
     name: HeLx App Registry
     apps:
-      blackbalsam:
-        name: Blackbalsam
-        description: An A.I., visualization, and parallel computing environment.
-        details: A.I.(Tensorflow,Keras,PyTorch,Gensim) Vis(Plotly,Bokeh,Seaborn) Compute(Spark).
-        docs: https://github.com/stevencox/blackbalsam
-        serviceAccount: spark
-        services:
-          blackbalsam : 8888
-        proxy-rewrite-rule: True
-        count: 1
-      hail:
-        name: Hail / Jupyter Workspace
-        description: A notebook computing interface to a large single node Hail genomics workspace.
-        details: Instantiates Apache Spark on a single cloud node for small to medium scale exploration.
-        docs: https://github.com/helxplatform/helx-hail # TODO: Make proper docs.
-        services:
-          hail : 8000
-        proxy-rewrite-rule: True
-        count: 1
       jupyter-lab:
         name: Jupyter Lab
         description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
@@ -287,6 +258,11 @@ contexts:
       - common
       - blackbalsam
     name: BioData Catalyst App Registry
+    hail:
+      securityContext:
+        fsGroup: 1136
+        runAsUser: 1000
+        runAsGroup: 1136
     apps:
       hail:
         name: Hail / Jupyter Workspace
@@ -343,6 +319,11 @@ contexts:
     extends:
       - common
     name: RENCI Blackbalsam Registry
+    blackbalsam:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     apps:
       blackbalsam:
         name: Blackbalsam
