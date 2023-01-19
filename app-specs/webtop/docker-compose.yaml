@@ -3,7 +3,7 @@ services:
 
    webtop:
       # image: "{{ helx_registry }}/helxplatform/webtop/base:v0.0.1"
-      image: "{{ helx_registry }}/helxplatform/webtop/base:202301191830"
+      image: "{{ helx_registry }}/helxplatform/webtop/base:202301191834"
       container_name: webtop
       entrypoint: /init
       ports:
