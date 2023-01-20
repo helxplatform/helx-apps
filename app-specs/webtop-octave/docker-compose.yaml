@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    webtop-octave:
-      image: "{{ helx_registry }}/helxplatform/webtop/octave:v0.0.1"
+      image: "{{ helx_registry }}/helxplatform/webtop/octave:202301201213"
       container_name: webtop-octave
       entrypoint: /init
       ports:
