@@ -79,12 +79,6 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-            # I don't think the readiness probe is grabbed from here.  The
-            # extra '/lab' does not show up in the describe pod command.
-            # readinessProbe:
-            #   httpGet:
-            #     path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/lab"
-            #     port: "{{ system_port }}"
       jupyter-education:
         ext:
           kube:
