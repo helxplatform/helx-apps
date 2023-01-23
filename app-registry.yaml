@@ -170,22 +170,8 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
-    webtop-pgadmin:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
     name: HeLx App Registry
     apps:
-      jupyter-lab:
-        name: Jupyter Lab
-        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
-        details: Includes Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-lab: "8888"
-        proxy-rewrite-rule: True
-        count: 1
       webtop:
         name: Webtop
         description: Webtop is a cloud native, browser accessible Linux desktop.
@@ -193,14 +179,6 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop: "3000"
-        count: 1
-      webtop-pgadmin:
-        name: Webtop pgAdmin
-        description: Webtop pgAdmin is a cloud native, browser accessible Linux desktop with database libraries added.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop-pgadmin: "3000"
         count: 1
   braini:
     extends:
@@ -386,13 +364,13 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-education:
-        name: Jupyter Data Science for Education
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
-        details: Includes R, Julia, and Python.
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
-          jupyter-education: "8888"
+          jupyter-lab: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
@@ -451,13 +429,13 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-education:
-        name: Jupyter Data Science for Education
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
-        details: Includes R, Julia, and Python.
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
-          jupyter-education: "8888"
+          jupyter-lab: "8888"
         proxy-rewrite-rule: True
         count: 1
       rstudio-server:
