@@ -79,13 +79,6 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-education:
-        ext:
-          kube:
-            livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
-              delay: 5
-              period: 5
       cloud-top:
         ext:
           kube:
