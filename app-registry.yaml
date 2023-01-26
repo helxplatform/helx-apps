@@ -455,6 +455,11 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
+    pgadmin:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     mixin:
       - sys
     apps:
