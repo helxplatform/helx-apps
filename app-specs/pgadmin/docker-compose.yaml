@@ -7,7 +7,7 @@ services:
       entrypoint:
       - /bin/bash
       - -c
-      - SCRIPT_NAME="$NB_PREFIX" /entrypoint.sh
+      - SCRIPT_NAME="$NB_PREFIX" && /entrypoint.sh
       ports:
         - 80:80
       volumes:
