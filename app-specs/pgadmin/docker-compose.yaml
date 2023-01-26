@@ -7,6 +7,7 @@ services:
       # entrypoint: /init
       env:
         - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+        - PGADMIN_DEFAULT_EMAIL=user@domain.com
       ports:
         - 80:80
       volumes:
