@@ -4,7 +4,10 @@ services:
    pgadmin:
       image: "docker.io/dpage/pgadmin4:2023-01-16-3"
       container_name: pgadmin
-      entrypoint: /entrypoint.sh
+      entrypoint:
+        - /bin/sh
+        - -c
+        - /entrypoint.sh
       ports:
         - 80:80
       volumes:
