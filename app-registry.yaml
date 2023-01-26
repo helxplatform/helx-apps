@@ -452,6 +452,11 @@ contexts:
     name: UNC Helx for Education CHIP690
     mixin:
       - sys
+    webtop:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     webtop-pgadmin-eduhelx-chip690:
       securityContext:
         fsGroup: 0
@@ -513,4 +518,12 @@ contexts:
         services:
           pgadmin: "80"
         proxy-rewrite-rule: False
+        count: 1
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop: "3000"
         count: 1
