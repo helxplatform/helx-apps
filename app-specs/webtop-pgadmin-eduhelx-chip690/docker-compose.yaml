@@ -3,7 +3,7 @@ services:
 
    webtop-pgadmin-eduhelx-chip690:
       image: "{{ helx_registry }}/helxplatform/webtop/pgadmin:eduhelx-chip690-v0.0.2"
-      container_name: webtop-pgadmin
+      container_name: webtop-pgadmin-eduhelx-chip690
       entrypoint: /init
       ports:
         - 3000:3000
