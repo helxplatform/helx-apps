@@ -510,6 +510,10 @@ contexts:
         description: pgAdmin - A database administration program for PostgreSQL.
         details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
         docs: https://pgadmin.org/
+        env:
+          - SCRIPT_NAME: $NV_PREFIX
+          - PGADMIN_DEFAULT_PASSWORD: "SuperSecret"
+          - PGADMIN_DEFAULT_EMAIL: "user@domain.com"
         services:
           pgadmin: "80"
         proxy-rewrite-rule: False

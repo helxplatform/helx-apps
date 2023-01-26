@@ -5,10 +5,6 @@ services:
       image: "docker.io/dpage/pgadmin4:2023-01-16-3"
       container_name: pgadmin
       # entrypoint: /init
-      env:
-        - PGADMIN_DEFAULT_PASSWORD=SuperSecret
-        - PGADMIN_DEFAULT_EMAIL=user@domain.com
-        - SCRIPT_NAME=${{ NB_PREFIX }}
       ports:
         - 80:80
       volumes:
