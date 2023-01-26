@@ -450,7 +450,9 @@ contexts:
         count: 1
   eduhelx-chip690:
     name: UNC Helx for Education CHIP690
-    webtop-pgadmin-eduhlex-chip690:
+    mixin:
+      - sys
+    webtop-pgadmin-eduhelx-chip690:
       securityContext:
         fsGroup: 0
         runAsUser: 0
@@ -460,17 +462,12 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
-    mixin:
-      - sys
+    rstudio-server:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     apps:
-      atlas:
-        name: ATLAS
-        description: ATLAS is a free, publicly available, web-based tool developed by the OHDSI community that facilitates the design and execution of analyses on standardized, patient-level, observational data in the CDM format.
-        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI.
-        docs: https://ohdsi.org/software-tools/
-        services:
-          atlas: "8081"
-        count: 1
       webtop-pgadmin-eduhelx-chip690:
         name: Webtop pgAdmin
         description: Webtop pgAdmin is a cloud native, browser accessible Linux desktop with database libraries added.
