@@ -511,7 +511,7 @@ contexts:
         details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
         docs: https://pgadmin.org/
         env:
-          SCRIPT_NAME: "$NB_PREFIX"
+          SCRIPT_NAME: "{{ NB_PREFIX }}"
           PGADMIN_DEFAULT_PASSWORD: "SuperSecret"
           PGADMIN_DEFAULT_EMAIL: "user@domain.com"
         services:
