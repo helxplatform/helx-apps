@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+
+   pgadmin:
+      image: "docker.io/dpage/pgadmin4:2023-01-16-3"
+      container_name: pgadmin
+      # entrypoint: /init
+      env:
+        - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+      ports:
+        - 80:80
+      volumes:
+        - pvc://helx-sidecar-test/sidecar:/sidecar
+      deploy:
+        resources:
+          limits:
+            cpus: '2'
+            memory: 2048M
+          reservations:
+            cpus: '.5'
+            memory: 512M 

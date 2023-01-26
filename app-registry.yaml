@@ -503,3 +503,11 @@ contexts:
         services:
           filebrowser: "8888"
         count: 1
+      pgadmin:
+        name: pgAdmin
+        description: pgAdmin - A database administration program for PostgreSQL.
+        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+        docs: https://pgadmin.org/
+        services:
+          pgadmin: "80"
+        count: 1
