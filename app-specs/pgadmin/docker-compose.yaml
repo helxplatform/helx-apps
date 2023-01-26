@@ -7,7 +7,7 @@ services:
       entrypoint:
       - /busybox/sh
       - -c
-      - SCRIPT_NAME="$NB_PREFIX" && /entrypoint.sh
+      - /entrypoint.sh
       ports:
         - 80:80
       volumes:
