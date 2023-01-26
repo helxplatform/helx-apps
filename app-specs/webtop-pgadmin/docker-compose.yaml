@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    webtop-pgadmin:
-      image: "{{ helx_registry }}/helxplatform/webtop/pgadmin:v0.0.2"
+      image: "{{ helx_registry }}/helxplatform/webtop/pgadmin:eduhelx-chip690-v0.0.2"
       container_name: webtop-pgadmin
       entrypoint: /init
       ports:
