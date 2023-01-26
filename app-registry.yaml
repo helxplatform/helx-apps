@@ -512,5 +512,4 @@ contexts:
         docs: https://pgadmin.org/
         services:
           pgadmin: "80"
-        proxy-rewrite-rule: False
         count: 1
