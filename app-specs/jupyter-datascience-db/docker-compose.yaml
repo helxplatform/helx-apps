@@ -5,9 +5,9 @@
 version: "3"
 services:
   jupyter-datascience-db:
-    image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.0.8"
+    image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.0.9"
     entrypoint:
-      - /bin/bash /usr/local/bin/start-jupyter-datascience-db.sh
+      - /usr/local/bin/start-jupyter-datascience-db.sh
 #      - /bin/bash
 #      - -c
 #      - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*" --notebook-dir="/home/$USER"
