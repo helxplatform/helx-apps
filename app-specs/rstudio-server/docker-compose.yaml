@@ -6,6 +6,8 @@ services:
     image: "containers.renci.org/helxplatform/rstudio:0.1.6"
     ports:
       - 8080:8080
+    volumes:
+        - pvc://eduhelx-sandbox-projects-pvc:/projects
     deploy:
       resources:
         limits:
