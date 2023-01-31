@@ -8,9 +8,6 @@ services:
     image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.0.14"
     entrypoint:
       - /usr/local/bin/start-jupyter-datascience-db.sh
-#      - /bin/bash
-#      - -c
-#      - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*" --notebook-dir="/home/$USER"
     ports:
       - 8888:8888
     volumes:
