@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   pgadmin:
-    image: "containers.renci.org/helxplatform/pgadmin4:202302061443"
+    image: "containers.renci.org/helxplatform/pgadmin4:202302061453"
     container_name: pgadmin
     # entrypoint:
     #   - /bin/sh
