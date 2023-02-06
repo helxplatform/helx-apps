@@ -6,7 +6,7 @@ services:
     entrypoint:
       - /bin/sh
       - -c
-      - ./start-pgadmin.sh
+      - /start-pgadmin.sh
     ports:
       - 80:80
     deploy:
