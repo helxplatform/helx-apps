@@ -1,7 +1,6 @@
 version: '3.6'
 services:
   pgadmin:
-    # image: "containers.renci.org/helxplatform/pgadmin4:202302061950" # eduhelx-dev
     image: "containers.renci.org/helxplatform/pgadmin4:202302062059"
     container_name: pgadmin
     ports:
