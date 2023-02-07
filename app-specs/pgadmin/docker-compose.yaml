@@ -1,12 +1,8 @@
 version: '3.6'
 services:
   pgadmin:
-    image: "containers.renci.org/helxplatform/pgadmin4:202302061926"
+    image: "containers.renci.org/helxplatform/pgadmin4:202302061938"
     container_name: pgadmin
-    # entrypoint:
-    #   - /bin/sh
-    #   - -c
-    #   - /start-pgadmin.sh
     ports:
       - 80:80
     deploy:
