@@ -518,7 +518,7 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
-    name: HeLx App Registry
+    name: Testing App Registry
     apps:
       jupyter-datascience-db:
         name: Jupyter Data Science with SQLAlchemy
