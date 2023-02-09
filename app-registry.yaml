@@ -111,11 +111,11 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      webtop-pgadmin:
+      webtop-octave:
         ext:
           kube:
             readinessProbe: none
-      webtop-octave:
+      webtop-pgadmin:
         ext:
           kube:
             readinessProbe: none
@@ -225,30 +225,25 @@ contexts:
   bdc:
     extends:
       - common
-      - blackbalsam
     name: BioData Catalyst App Registry
-    hail:
+    webtop:
       securityContext:
-        fsGroup: 1136
-        runAsUser: 1000
-        runAsGroup: 1136
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    webtop-octave:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     apps:
-      hail:
-        name: Hail / Jupyter Workspace
-        description: A notebook computing interface to a large single node Hail genomics workspace.
-        details: Instantiates Apache Spark on a single cloud node for small to medium scale exploration.
-        docs: https://github.com/helxplatform/helx-hail # TODO: Make proper docs.
-        services:
-          hail : 8000
-        count: -1
-        proxy-rewrite-rule: True
-      cloud-top:
-        name: Cloud Top
-        description: CloudTop is a cloud native, browser accessible Linux desktop.
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
         details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://helxplatform.github.io/cloudtop-docs/
+        docs: https://github.com/linuxserver/docker-webtop
         services:
-          cloud-top : 8080
+          webtop: "3000"
         count: 1
   scidas:
     extends:
@@ -454,13 +449,6 @@ contexts:
         count: 1
   eduhelx-chip690:
     name: UNC Helx for Education CHIP690
-    mixin:
-      - sys
-    webtop-pgadmin:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
     pgadmin:
       securityContext:
         fsGroup: 0
@@ -471,15 +459,9 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
+    mixin:
+      - sys
     apps:
-      webtop-pgadmin:
-        name: Webtop pgAdmin
-        description: Webtop pgAdmin is a cloud native, browser accessible Linux desktop with database libraries added.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop-pgadmin: "3000"
-        count: 1
       rstudio-server:
         name: RStudio Server
         description: An integrated development environment for R.
