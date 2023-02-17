@@ -370,9 +370,6 @@ contexts:
         description: File Browser - a utility for browsing files through a web interface
         details: File Browser provides a web interface for browsing files in a cloud environment.
         docs: https://filebrowser.org/
-        securityContext:
-          fsGroup: 1000
-          runAsUser: 1000
         services:
           filebrowser: "8888"
         count: 1
@@ -485,9 +482,6 @@ contexts:
         description: File Browser - a utility for browsing files through a web interface
         details: File Browser provides a web interface for browsing files in a cloud environment.
         docs: https://filebrowser.org/
-        securityContext:
-          fsGroup: 1000
-          runAsUser: 1000
         services:
           filebrowser: "8888"
         count: 1
