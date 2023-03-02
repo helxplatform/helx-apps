@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    webtop-pgadmin:
-      image: "{{ helx_registry }}/helxplatform/webtop/pgadmin:202212152341"
+      image: "{{ helx_registry }}/helxplatform/webtop/pgadmin:eduhelx-chip690-v0.0.2"
       container_name: webtop-pgadmin
       entrypoint: /init
       ports:
@@ -13,7 +13,7 @@ services:
         resources:
           limits:
             cpus: '2'
-            memory: 2048M
+            memory: 8192M
           reservations:
-            cpus: '1'
-            memory: 1024M 
+            cpus: '2'
+            memory: 8192M
