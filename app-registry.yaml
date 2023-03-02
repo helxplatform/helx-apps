@@ -507,22 +507,22 @@ contexts:
     pgadmin:
       securityContext:
         runAsUser: 1015180002
-        runAsGroup: 1015180002
+        runAsGroup:
         fsGroup: 1015180002
     rstudio-server:
       securityContext:
         runAsUser: 1015180002
-        runAsGroup: 1015180002
+        runAsGroup:
         fsGroup: 1015180002
     webtop:
       securityContext:
         runAsUser: 1015180002
-        runAsGroup: 1015180002
+        runAsGroup:
         fsGroup: 1015180002
     webtop-octave:
       securityContext:
         runAsUser: 1015180002
-        runAsGroup: 1015180002
+        runAsGroup:
         fsGroup: 1015180002
     name: Testing App Registry
     apps:
