@@ -508,22 +508,22 @@ contexts:
       securityContext:
         runAsUser: 1015180002
         runAsGroup:
-        fsGroup: 1015180002
+        fsGroup:
     rstudio-server:
       securityContext:
         runAsUser: 1015180002
         runAsGroup:
-        fsGroup: 1015180002
+        fsGroup:
     webtop:
       securityContext:
         runAsUser: 1015180002
         runAsGroup:
-        fsGroup: 1015180002
+        fsGroup:
     webtop-octave:
       securityContext:
         runAsUser: 1015180002
         runAsGroup:
-        fsGroup: 1015180002
+        fsGroup:
     name: Testing App Registry
     apps:
       jupyter-datascience-db:
