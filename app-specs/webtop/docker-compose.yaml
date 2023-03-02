@@ -10,10 +10,10 @@ services:
       volumes:
          - pvc://helx-sidecar-test/sidecar:/sidecar
       deploy:
-        resources:
-          limits:
-            cpus: '4'
-            memory: 2048M
-          reservations:
-            cpus: '.5'
-            memory: 256M
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4096M
+        reservations:
+          cpus: '.5'
+          memory: 256M 

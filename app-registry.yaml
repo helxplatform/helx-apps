@@ -506,24 +506,24 @@ contexts:
       - common
     pgadmin:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        runAsUser: 1015180002
         runAsGroup: 0
+        fsGroup: 0
     rstudio-server:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        runAsUser: 1015180002
         runAsGroup: 0
+        fsGroup: 0
     webtop:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        runAsUser: 1015180002
         runAsGroup: 0
+        fsGroup: 0
     webtop-octave:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        runAsUser: 1015180002
         runAsGroup: 0
+        fsGroup: 0
     name: Testing App Registry
     apps:
       jupyter-datascience-db:
