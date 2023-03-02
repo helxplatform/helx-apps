@@ -1,15 +1,15 @@
 version: '3.6'
 services:
 
-   webtop-octave:
-      image: "{{ helx_registry }}/helxplatform/webtop/octave:v0.0.2"
-      container_name: webtop-octave
-      entrypoint: /init
-      ports:
-        - 3000:3000
-      volumes:
-         - pvc://helx-sidecar-test/sidecar:/sidecar
-      deploy:
+  webtop-octave:
+    image: "{{ helx_registry }}/helxplatform/webtop/octave:v0.0.2"
+    container_name: webtop-octave
+    entrypoint: /init
+    ports:
+      - 3000:3000
+    volumes:
+        - pvc://helx-sidecar-test/sidecar:/sidecar
+    deploy:
       resources:
         limits:
           cpus: '2'
