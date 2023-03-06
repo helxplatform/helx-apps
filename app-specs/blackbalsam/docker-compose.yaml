@@ -5,8 +5,9 @@
 version: "3"
 services:
   blackbalsam:
-    #image: blackbalsam/jupyter-spark:0.0.8
-    image: "{{ helx_registry }}/helxplatform/blackbalsam:py3.7-v0.0.15"
+    # image: blackbalsam/jupyter-spark:0.0.8
+    # image: "{{ third_party_registry }}/helxplatform/blackbalsam:py3.7-v0.0.15"
+    image: "docker.io/helxplatform/blackbalsam:py3.7-v0.0.15"
     entrypoint:
       - /bin/bash
       - -c
