@@ -7,13 +7,13 @@ services:
       entrypoint: /init
       ports:
         - 3000:3000
-      volumes:
-         - pvc://helx-sidecar-test/sidecar:/sidecar
+    volumes:
+        - pvc://projects-pvc:/projects
       deploy:
         resources:
           limits:
             cpus: '2'
             memory: 2048M
           reservations:
-            cpus: '1'
-            memory: 1024M 
+            cpus: '.5'
+            memory: 1024M

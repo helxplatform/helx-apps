@@ -7,8 +7,8 @@ services:
       entrypoint: /init
       ports:
         - 3000:3000
-      volumes:
-         - pvc://eduhelx-sandbox-projects-pvc:/projects
+    volumes:
+        - pvc://projects-pvc:/projects
       deploy:
         resources:
           limits:
@@ -16,4 +16,4 @@ services:
             memory: 2048M
           reservations:
             cpus: '.5'
-            memory: 1024M 
+            memory: 1024M

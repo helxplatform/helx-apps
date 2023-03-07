@@ -163,6 +163,11 @@ contexts:
   helx:
     extends:
       - common
+    rstudio-server:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     webtop:
       # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
@@ -176,6 +181,15 @@ contexts:
         runAsGroup: 0
     name: HeLx App Registry
     apps:
+      rstudio-server:
+        name: RStudio Server
+        description: An integrated development environment for R.
+        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+        docs: https://www.rstudio.com/
+        proxy-rewrite-rule: True
+        services:
+          rstudio-server: "8080"
+        count: 1
       webtop:
         name: Webtop
         description: Webtop is a cloud native, browser accessible Linux desktop.

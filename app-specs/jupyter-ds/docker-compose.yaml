@@ -13,12 +13,12 @@ services:
     ports:
       - 8888:8888
     volumes:
-         - pvc://helx-sidecar-test/sidecar:/sidecar
+        - pvc://projects-pvc:/projects
     deploy:
-      resources:
-        limits:
-          cpus: '8'
-          memory: 64000M
-        reservations:
-          cpus: '1'
-          memory: 4000M 
+        resources:
+          limits:
+            cpus: '2'
+            memory: 2048M
+          reservations:
+            cpus: '.5'
+            memory: 1024M
