@@ -507,8 +507,8 @@ contexts:
     pgadmin:
       securityContext:
         runAsUser: 1015180002
-        runAsGroup: ""
-        fsGroup: ""
+        # runAsGroup: ""
+        # fsGroup: ""
     rstudio-server:
       securityContext:
         runAsUser: 1015180002
