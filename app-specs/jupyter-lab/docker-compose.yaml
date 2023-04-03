@@ -3,7 +3,7 @@ services:
   jupyter-lab:
     image: "{{ helx_registry }}/helxplatform/jupyter-lab:develop"
     container_name: jupyter-lab
-    user: "jovyan:1136"
+    user: "30000:1136"
     entrypoint:
       - /bin/bash
       - -c
