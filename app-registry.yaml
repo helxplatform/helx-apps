@@ -187,14 +187,16 @@ contexts:
   braini:
     extends:
       - common
-      - blackbalsam
     name: BRAIN-I App Registry
     jupyter-ds:
       securityContext:
         fsGroup: 0
-    blackbalsam:
+    webtop:
+      # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
         fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     apps:
       imagej:
         name: ImageJ Viewer
@@ -213,13 +215,13 @@ contexts:
         services:
           napari : 8080
         count: 1
-      cloud-top:
-        name: Cloud Top
-        description: CloudTop is a cloud native, browser accessible Linux desktop.
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
         details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://helxplatform.github.io/cloudtop-docs/
+        docs: https://github.com/linuxserver/docker-webtop
         services:
-          cloud-top : 8080
+          webtop: "3000"
         count: 1
       scout:
         name: SCOUT
