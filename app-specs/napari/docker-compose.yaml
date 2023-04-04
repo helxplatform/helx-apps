@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   napari:
-    image: "{{ third_party_registry }}helxplatform/cloudtop-napari:bullseye-v0.0.1"
+    image: "{{ third_party_registry }}/helxplatform/cloudtop-napari:bullseye-v0.0.1"
     container_name: napari
     entrypoint: /init
     ports:
