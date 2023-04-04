@@ -400,9 +400,9 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
           jupyter-lab: "8888"
-        securityContext:
-          runAsUser: 30000
-          fsGroup: 1136
+        # securityContext:
+        #   runAsUser: 30000
+        #   fsGroup: 1136
         proxy-rewrite-rule: True
         gitea-integration: True
         count: 1
