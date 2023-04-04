@@ -190,7 +190,9 @@ contexts:
     name: BRAIN-I App Registry
     jupyter-ds:
       securityContext:
-        fsGroup: 0
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
     webtop:
       # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
