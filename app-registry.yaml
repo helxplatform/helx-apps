@@ -79,7 +79,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-lab:
+      jupyter-datascience-db:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5      jupyter-lab:
         ext:
           kube:
             livenessProbe:
