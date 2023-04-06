@@ -10,5 +10,5 @@ ext:
   kube:
     readinessProbe:
       httpGet:
-        path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}"
+        path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}"/
         port: "{{ system_port }}"
