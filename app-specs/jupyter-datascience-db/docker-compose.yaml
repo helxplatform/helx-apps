@@ -7,7 +7,7 @@ services:
   jupyter-datascience-db:
     # image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.0.16"
     # image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:arbitrary-user-id"
-    image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:94d281e"
+    image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:34459b5"
     # entrypoint:
     #   - /usr/local/bin/start-jupyter-datascience-db.sh
     ports:
