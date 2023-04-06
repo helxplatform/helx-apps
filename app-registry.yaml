@@ -72,6 +72,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-datascience-db:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-education:
         ext:
           kube:
@@ -79,13 +86,7 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-datascience-db:
-        ext:
-          kube:
-            livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
-              delay: 5
-              period: 5      jupyter-lab:
+      jupyter-lab:
         ext:
           kube:
             livenessProbe:
