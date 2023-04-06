@@ -511,6 +511,11 @@ contexts:
   testing:
     extends:
       - common
+    jupyter-datascience-db:
+      securityContext:
+        runAsUser: 1015180002
+        runAsGroup: ""
+        fsGroup: ""
     pgadmin:
       securityContext:
         runAsUser: 1015180002
