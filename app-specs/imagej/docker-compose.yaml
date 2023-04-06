@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   imagej:
-    image: {{ helx_registry }}/helxplatform/cloudtop-imagej:stretch-v0.0.3
+    image: "{{ helx_registry }}/helxplatform/cloudtop-imagej:stretch-v0.0.3"
     container_name: imagej
     env:
      - VNC_RESOLUTION=1980x1024

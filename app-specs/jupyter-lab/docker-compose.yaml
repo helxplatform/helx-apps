@@ -1,0 +1,20 @@
+version: "0.1.0"
+services:
+  jupyter-lab:
+    image: "{{ helx_registry }}/helxplatform/jupyter-lab:develop"
+    container_name: jupyter-lab
+    user: "jovyan:1136"
+    entrypoint:
+      - /bin/bash
+      - -c
+      - start-jupyter-lab.sh
+    ports:
+      - 8888:8888
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 4000M
+        reservations:
+          cpus: "1"
+          memory: 4000M
