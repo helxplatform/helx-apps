@@ -545,7 +545,7 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
           jupyter-datascience-db: "8888"
-        # proxy-rewrite-rule: True
+        proxy-rewrite-rule: True
         count: 1
       jupyter-lab:
         name: Jupyter Lab
