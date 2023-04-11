@@ -514,8 +514,8 @@ contexts:
     jupyter-datascience-db:
       securityContext:
         runAsUser: 1015180002
-        runAsGroup:
-        fsGroup:
+        runAsGroup: ""
+        fsGroup: ""
     pgadmin:
       securityContext:
         runAsUser: 1015180002
