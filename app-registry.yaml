@@ -516,6 +516,11 @@ contexts:
         runAsUser: 1015180002
         runAsGroup: ""
         fsGroup: ""
+    jupyter-minimal-notebook:
+      securityContext:
+        runAsUser: 1015180002
+        runAsGroup: ""
+        fsGroup: ""
     pgadmin:
       securityContext:
         runAsUser: 1015180002
@@ -543,6 +548,15 @@ contexts:
         description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data with SQLAlchemy support.
         details: Includes R, Julia, and Python.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-datascience-db: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-minimal-notebook:
+        name: Jupyter Minimal Notebook
+        description: Jupyter Minimal Notebook - A minimal Jupyter notebook that has the base apps and some command-line tools.
+        details: Includes Notebook, Jupyter Lab and Jupyter Hub with some command line tools.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-minimal-notebook
         services:
           jupyter-datascience-db: "8888"
         proxy-rewrite-rule: True
