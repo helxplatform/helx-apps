@@ -516,6 +516,11 @@ contexts:
         runAsUser: 1015180002
         runAsGroup: ""
         fsGroup: ""
+    jupyter-ds:
+      securityContext:
+        runAsUser: 1015180002
+        runAsGroup: ""
+        fsGroup: ""
     jupyter-minimal-notebook:
       securityContext:
         runAsUser: 1015180002
