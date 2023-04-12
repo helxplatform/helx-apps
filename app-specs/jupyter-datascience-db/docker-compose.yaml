@@ -5,7 +5,7 @@
 version: "3"
 services:
   jupyter-datascience-db:
-    image: "{{ helx_registry }}/helxplatform/jupyter/datascience-db-notebook:202304112330"
+    image: "{{ helx_registry }}/helxplatform/jupyter/datascience-db-notebook:202304121045"
     ports:
       - 8888:8888
     deploy:
