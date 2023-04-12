@@ -6,7 +6,7 @@ version: "3"
 services:
   jupyter-ds:
     # image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:v0.0.5"
-    image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:202304112016"
+    image: "{{ helx_registry }}/helxplatform/jupyter/datascience-notebook:202304112109"
     # entrypoint:
     #   - /bin/bash
     #   - -c
