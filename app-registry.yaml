@@ -521,6 +521,11 @@ contexts:
         runAsUser: 1015180002
         runAsGroup: ""
         fsGroup: ""
+    jupyter-helx-notebook:
+      securityContext:
+        runAsUser: 1015180002
+        runAsGroup: ""
+        fsGroup: ""
     jupyter-minimal-notebook:
       securityContext:
         runAsUser: 1015180002
@@ -553,6 +558,15 @@ contexts:
         description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data with SQLAlchemy support.
         details: Includes R, Julia, and Python.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-datascience-db: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-helx-notebook:
+        name: Jupyter SciPy Notebook built for HeLx
+        description: Jupyter SciPy Notebook
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
           jupyter-datascience-db: "8888"
         proxy-rewrite-rule: True
