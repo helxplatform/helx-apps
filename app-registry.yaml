@@ -570,8 +570,8 @@ contexts:
         proxy-rewrite-rule: True
         count: 1
       jupyter-helx-notebook:
-        name: Jupyter SciPy Notebook built for HeLx
-        description: Jupyter SciPy Notebook
+        name: Jupyter Notebook Customized for HeLx
+        description: Based on the Jupyter SciPy Notebook.
         details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
