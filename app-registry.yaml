@@ -578,7 +578,7 @@ contexts:
         count: 1
       jupyter-helx-db-notebook:
         name: Jupyter Notebook Customized for HeLx with database utilities.
-        description: Based on the Jupyter SciPy Notebook.
+        description: Based on the Jupyter SciPy Notebook with some additional utilies for connecting with databases.
         details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
