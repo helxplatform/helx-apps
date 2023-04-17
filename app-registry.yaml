@@ -527,42 +527,42 @@ contexts:
       - common
     jupyter-datascience-db:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
     jupyter-ds:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
     jupyter-helx-notebook:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
     jupyter-minimal-notebook:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
     pgadmin:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         # runAsGroup: ""
         # fsGroup: ""
     rstudio-server:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
     webtop:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
     webtop-octave:
       securityContext:
-        runAsUser: 1015180002
+        runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
     name: Testing App Registry
