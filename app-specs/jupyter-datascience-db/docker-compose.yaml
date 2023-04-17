@@ -6,6 +6,8 @@ version: "3"
 services:
   jupyter-datascience-db:
     image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.1.0"
+    entrypoint:
+      - /usr/local/bin/start-jupyter-datascience-db.sh
     ports:
       - 8888:8888
     deploy:
