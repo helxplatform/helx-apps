@@ -577,8 +577,8 @@ contexts:
         proxy-rewrite-rule: True
         count: 1
       jupyter-helx-db-notebook:
-        name: Jupyter Notebook Customized for HeLx with database utilities.
-        description: Based on the Jupyter SciPy Notebook with some additional utilies for connecting with databases.
+        name: Jupyter HeLx Db Notebook
+        description: Based on the Jupyter SciPy Notebook with some additional utilities for connecting with databases.
         details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
@@ -586,7 +586,7 @@ contexts:
         proxy-rewrite-rule: True
         count: 1
       jupyter-helx-notebook:
-        name: Jupyter Notebook Customized for HeLx
+        name: Jupyter HeLx Notebook
         description: Based on the Jupyter SciPy Notebook.
         details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
