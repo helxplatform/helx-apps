@@ -528,8 +528,8 @@ contexts:
     jupyter-datascience-db:
       securityContext:
         runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+        runAsGroup: 1136
+        fsGroup: 1136
     jupyter-ds:
       securityContext:
         runAsUser: 30000
