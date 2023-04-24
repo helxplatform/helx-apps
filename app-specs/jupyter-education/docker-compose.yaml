@@ -15,6 +15,7 @@ services:
       - 8888:8888
     volumes:
         - pvc://eduhelx-sandbox-projects-pvc:/projects
+        - pvc://projects-pvc:/projects
     deploy:
       resources:
         limits:

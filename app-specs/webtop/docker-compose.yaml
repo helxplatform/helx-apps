@@ -9,6 +9,7 @@ services:
         - 3000:3000
       volumes:
          - pvc://eduhelx-sandbox-projects-pvc:/projects
+         - pvc://projects-pvc:/projects
       deploy:
         resources:
           limits:
