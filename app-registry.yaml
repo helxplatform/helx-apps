@@ -240,7 +240,7 @@ contexts:
         details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
         docs: https://github.com/linuxserver/docker-webtop
         services:
-          webtop: "3000"
+          webtop-image-apps: "3000"
         count: 1
       scout:
         name: SCOUT
