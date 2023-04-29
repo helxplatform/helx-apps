@@ -118,6 +118,10 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      webtop-image-apps:
+        ext:
+          kube:
+            readinessProbe: none
       webtop-octave:
         ext:
           kube:
@@ -199,6 +203,11 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
+    webtop-image-apps:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     apps:
       imagej:
         name: ImageJ Viewer
@@ -224,6 +233,14 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop: "3000"
+        count: 1
+      webtop-image-apps:
+        name: Webtop Image Apps
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop-image-apps: "3000"
         count: 1
       scout:
         name: SCOUT
