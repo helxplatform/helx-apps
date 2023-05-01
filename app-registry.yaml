@@ -182,36 +182,27 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
-    pgadmin:
-      name: pgAdmin
-      description: pgAdmin - A database administration program for PostgreSQL.
-      details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
-      docs: https://pgadmin.org/
-      services:
-        pgadmin: "80"
-      proxy-rewrite-rule: True
-      count: 1
-    webtop:
-      # The securityContext section needs to be in the primary context, not in an extended context.
+    webtop-octave:
       securityContext:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
-    webtop-image-apps:
-      name: Webtop Image Apps
-      description: Webtop is a cloud native, browser accessible Linux desktop.
-      details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
-      docs: https://github.com/linuxserver/docker-webtop
-      services:
-        webtop-image-apps: "3000"
-      count: 1
-    webtop-octave:
+    webtop:
       securityContext:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
     name: HeLx App Registry
     apps:
+      pgadmin:
+        name: pgAdmin
+        description: pgAdmin - A database administration program for PostgreSQL.
+        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+        docs: https://pgadmin.org/
+        services:
+          pgadmin: "80"
+        proxy-rewrite-rule: True
+        count: 1
       rstudio-server:
         name: RStudio Server
         description: An integrated development environment for R.
@@ -228,6 +219,14 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop: "3000"
+        count: 1
+      webtop-image-apps:
+        name: Webtop Image Apps
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop-image-apps: "3000"
         count: 1
   braini:
     extends:
