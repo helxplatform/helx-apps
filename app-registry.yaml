@@ -169,9 +169,9 @@ contexts:
       - common
     pgadmin:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 1136
+        runAsUser: 30000
+        runAsGroup: 1136
     rstudio-server:
       securityContext:
         fsGroup: 0
