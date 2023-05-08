@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   pgadmin:
-    image: "containers.renci.org/helxplatform/pgadmin4:202305081932"
+    image: "containers.renci.org/helxplatform/pgadmin4:202305081948"
     container_name: pgadmin
     ports:
       - 80:80
