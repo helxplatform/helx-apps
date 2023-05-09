@@ -5,6 +5,7 @@ services:
     container_name: pgadmin
     ports:
       - 80:80
+    entrypoint: sleep infinity
     deploy:
       resources:
         limits:
