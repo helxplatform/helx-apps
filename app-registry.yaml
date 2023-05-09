@@ -200,7 +200,7 @@ contexts:
         details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
         docs: https://pgadmin.org/
         services:
-          pgadmin: "80"
+          pgadmin: "8080"
         proxy-rewrite-rule: True
         count: 1
       rstudio-server:
