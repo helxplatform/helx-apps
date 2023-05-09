@@ -79,6 +79,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-helx-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-lab:
         ext:
           kube:
@@ -139,13 +146,13 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-ds:
-        name: Jupyter Data Science
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
-        details: Includes R, Julia, and Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+      jupyter-helx-notebook:
+        name: Jupyter HeLx Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-ds : "8888"
+          jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
@@ -167,6 +174,11 @@ contexts:
   helx:
     extends:
       - common
+    jupyter-helx-notebook:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     pgadmin:
       securityContext:
         fsGroup: 1136
