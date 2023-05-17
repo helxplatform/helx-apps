@@ -156,7 +156,7 @@ contexts:
       jupyter-helx-tensorflow-notebook:
         name: Jupyter HeLx Tensorflow Notebook
         description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.
+        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
           jupyter-helx-tensorflow-notebook: "8888"
