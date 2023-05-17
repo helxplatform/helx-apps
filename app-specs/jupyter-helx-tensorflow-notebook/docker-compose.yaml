@@ -1,0 +1,17 @@
+version: "3"
+services:
+  jupyter-helx-tensorflow-notebook:
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:202305162120"
+    ports:
+      - 8888:8888
+    volumes:
+        - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4096M
+        reservations:
+          cpus: '.5'
+          memory: 250M
+

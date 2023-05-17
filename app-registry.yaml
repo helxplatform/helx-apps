@@ -86,6 +86,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-helx-tensorflow-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-lab:
         ext:
           kube:
@@ -146,13 +153,13 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-helx-notebook:
-        name: Jupyter HeLx Notebook
+      jupyter-helx-tensorflow-notebook:
+        name: Jupyter HeLx Tensorflow Notebook
         description: Based on the Jupyter SciPy Notebook.
         details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-helx-notebook: "8888"
+          jupyter-helx-tensorflow-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
@@ -174,7 +181,7 @@ contexts:
   helx:
     extends:
       - common
-    jupyter-helx-notebook:
+    jupyter-helx-tensorflow-notebook:
       securityContext:
         runAsUser: 30000
         runAsGroup: ""
