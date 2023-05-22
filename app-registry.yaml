@@ -651,6 +651,11 @@ contexts:
         runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
+    jupyter-helx-tensorflow-nb:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     jupyter-helx-notebook:
       securityContext:
         runAsUser: 30000
