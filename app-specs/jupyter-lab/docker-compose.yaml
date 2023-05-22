@@ -3,10 +3,11 @@ services:
   jupyter-lab:
     image: "{{ helx_registry }}/helxplatform/jupyter-lab:develop"
     container_name: jupyter-lab
+    user: "jovyan:1136"
     entrypoint:
       - /bin/bash
       - -c
-      - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
+      - start-jupyter-lab.sh
     ports:
       - 8888:8888
     deploy:

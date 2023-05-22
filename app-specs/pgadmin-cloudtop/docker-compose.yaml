@@ -2,7 +2,7 @@ version: '3.6'
 services:
 
    pgadmin-cloud-top:
-      image: "{{ helx_registry }}/helxplatform/pgadmin-cloudtop:0.0.3-dev
+      image: "{{ helx_registry }}/helxplatform/pgadmin-cloudtop:0.0.3-dev"
       container_name: pgadmin-cloudtop
       entrypoint: /init
       ports:

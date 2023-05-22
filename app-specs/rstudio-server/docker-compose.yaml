@@ -5,12 +5,14 @@ services:
   rstudio-server:
     image: "containers.renci.org/helxplatform/rstudio-server:v0.0.1"
     ports:
-      - 8787:8787
+      - 8080:8080
+    volumes:
+        - pvc://projects-pvc:/projects
     deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4096M
-        reservations:
-          cpus: '.1'
-          memory: 50M
+        resources:
+          limits:
+            cpus: '2'
+            memory: 2048M
+          reservations:
+            cpus: '.5'
+            memory: 1024M

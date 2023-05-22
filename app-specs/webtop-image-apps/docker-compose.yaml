@@ -1,8 +1,9 @@
 version: '3.6'
 services:
-   webtop:
-      image: "{{ helx_registry }}/helxplatform/webtop/base:v0.0.2"
-      container_name: webtop
+
+   webtop-image-apps:
+      image: "{{ helx_registry }}/helxplatform/webtop/image-apps:develop"
+      container_name: webtop-image-apps
       entrypoint: /init
       ports:
         - 3000:3000
@@ -14,5 +15,5 @@ services:
             cpus: '2'
             memory: 2048M
           reservations:
-            cpus: '.5'
-            memory: 1024M
+            cpus: '1'
+            memory: 1024M 

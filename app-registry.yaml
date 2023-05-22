@@ -86,6 +86,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-helx-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-helx-db-notebook:
         ext:
           kube:
@@ -93,7 +100,7 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-helx-notebook:
+      jupyter-helx-tensorflow-nb:
         ext:
           kube:
             livenessProbe:
@@ -139,6 +146,10 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      webtop-image-apps:
+        ext:
+          kube:
+            readinessProbe: none
       webtop-octave:
         ext:
           kube:
@@ -156,13 +167,13 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-ds:
-        name: Jupyter Data Science
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
-        details: Includes R, Julia, and Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+      jupyter-helx-tensorflow-nb:
+        name: Jupyter HeLx Tensorflow Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-ds : "8888"
+          jupyter-helx-tensorflow-nb: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
@@ -184,8 +195,22 @@ contexts:
   helx:
     extends:
       - common
-    webtop:
-      # The securityContext section needs to be in the primary context, not in an extended context.
+    jupyter-helx-tensorflow-nb:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
+    pgadmin:
+      securityContext:
+        fsGroup: 1136
+        runAsUser: 30000
+        runAsGroup: 1136
+    rstudio-server:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    webtop-image-apps:
       securityContext:
         fsGroup: 0
         runAsUser: 0
@@ -195,8 +220,31 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
+    webtop:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     name: HeLx App Registry
     apps:
+      pgadmin:
+        name: pgAdmin
+        description: pgAdmin - A database administration program for PostgreSQL.
+        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+        docs: https://pgadmin.org/
+        services:
+          pgadmin: "8080"
+        proxy-rewrite-rule: True
+        count: 1
+      rstudio-server:
+        name: RStudio Server
+        description: An integrated development environment for R.
+        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+        docs: https://www.rstudio.com/
+        proxy-rewrite-rule: True
+        services:
+          rstudio-server: "8080"
+        count: 1
       webtop:
         name: Webtop
         description: Webtop is a cloud native, browser accessible Linux desktop.
@@ -205,17 +253,34 @@ contexts:
         services:
           webtop: "3000"
         count: 1
+      webtop-image-apps:
+        name: Webtop Image Apps
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop-image-apps: "3000"
+        count: 1
   braini:
     extends:
       - common
-      - blackbalsam
     name: BRAIN-I App Registry
     jupyter-ds:
       securityContext:
-        fsGroup: 0
-    blackbalsam:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+    webtop:
+      # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
         fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    webtop-image-apps:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     apps:
       imagej:
         name: ImageJ Viewer
@@ -234,13 +299,21 @@ contexts:
         services:
           napari : 8080
         count: 1
-      cloud-top:
-        name: Cloud Top
-        description: CloudTop is a cloud native, browser accessible Linux desktop.
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
         details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://helxplatform.github.io/cloudtop-docs/
+        docs: https://github.com/linuxserver/docker-webtop
         services:
-          cloud-top : 8080
+          webtop: "3000"
+        count: 1
+      webtop-image-apps:
+        name: Webtop Image Apps
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop-image-apps: "3000"
         count: 1
       scout:
         name: SCOUT
@@ -384,6 +457,49 @@ contexts:
     mixin:
       - sys
     apps:
+      jupyter-education:
+        name: Jupyter Data Science for Education
+        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
+        details: Includes R, Julia, and Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-education: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      filebrowser:
+        name: File Browser
+        description: File Browser - a utility for browsing files through a web interface
+        details: File Browser provides a web interface for browsing files in a cloud environment.
+        docs: https://filebrowser.org/
+        services:
+          filebrowser: "8888"
+        count: 1
+      cloud-top:
+        name: Cloud Top
+        description: CloudTop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+        docs: https://helxplatform.github.io/cloudtop-docs/
+        services:
+          cloud-top: 8080
+        count: 1
+  eduhelx-dev:
+    name: EduHeLx Dev
+    mixin:
+      - sys
+    apps:
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-lab: "8888"
+        securityContext:
+          runAsUser: 1000
+          fsGroup: 1136
+        proxy-rewrite-rule: True
+        gitea-integration: True
+        count: 1
       jupyter-education:
         name: Jupyter Data Science for Education
         description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
