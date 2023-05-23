@@ -1,15 +1,15 @@
 version: '3.6'
 services:
   pgadmin:
-    image: "containers.renci.org/helxplatform/pgadmin4:202302062059"
+    image: "containers.renci.org/helxplatform/pgadmin4:0.0.5"
     container_name: pgadmin
     ports:
-      - 80:80
+      - 8080:8080
     deploy:
       resources:
         limits:
           cpus: '2'
-          memory: 8192M
+          memory: 4096M
         reservations:
-          cpus: '2'
-          memory: 8192M
+          cpus: '1'
+          memory: 2048M
