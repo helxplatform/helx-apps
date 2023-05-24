@@ -18,4 +18,4 @@ services:
           cpus: '.5'
           memory: 250M
           ephemeralstorage: 256Mi
-
+          gpu: 1
