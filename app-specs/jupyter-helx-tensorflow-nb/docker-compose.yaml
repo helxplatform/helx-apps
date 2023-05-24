@@ -11,10 +11,11 @@ services:
         limits:
           cpus: '2'
           memory: 4096M
-          ephemeral-storage: 4096Mi
+          ephemeralstorage: 4096Mi
+          gpu: 1
           # nvidia.com/mig-1g.5gb: 1
         reservations:
           cpus: '.5'
           memory: 250M
-          ephemeral-storage: 256Mi
+          ephemeralstorage: 256Mi
 
