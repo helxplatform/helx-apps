@@ -12,10 +12,10 @@ services:
           cpus: '2'
           memory: 4096M
           ephemeralstorage: 4096Mi
-          gpu: 1
+          nvidia.com/gpu: 1
           # nvidia.com/mig-1g.5gb: 1
         reservations:
           cpus: '.5'
           memory: 250M
           ephemeralstorage: 256Mi
-          gpu: 1
+          nvidia.com/gpu: 1
