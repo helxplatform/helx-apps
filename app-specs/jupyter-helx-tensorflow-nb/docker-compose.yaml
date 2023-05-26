@@ -17,7 +17,8 @@ services:
           # nvidia.com/mig-1g.5gb: 1
           devices:
             - capabilities: ["gpu"]
-              count: 1        reservations:
+              count: 1
+        reservations:
           cpus: '.5'
           memory: 250M
           ephemeralstorage: 256Mi
