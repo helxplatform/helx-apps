@@ -19,5 +19,5 @@ services:
           cpus: '.5'
           memory: 250M
           ephemeralstorage: 256Mi
-          gpus: '1'
+          gpus: '0'
           # nvidia.com/gpu: 1
