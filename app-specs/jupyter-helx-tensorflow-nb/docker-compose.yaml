@@ -15,27 +15,27 @@ services:
           # gpus: '1'
           # nvidia.com/gpu: 1
           # nvidia.com/mig-1g.5gb: 1
-          # devices:
-          #   - capabilities: ["gpu"]
-          #     count: 1
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
           # devices:
           #   - capabilities: "gpu"
           #     count: 1
-          devices:
-            capabilities: "gpu"
-            count: "1"
+          # devices:
+          #   capabilities: "gpu"
+          #   count: "1"
         reservations:
           cpus: '.5'
           memory: 250M
           ephemeralstorage: 256Mi
           # gpus: '0'
           # nvidia.com/gpu: 1
-          # devices:
-          #   - capabilities: ["gpu"]
-          #     count: 0
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
           # devices:
           #   - capabilities: "gpu"
           #     count: 0
-          devices:
-            capabilities: "gpu"
-            count: "0"
+          # devices:
+          #   capabilities: "gpu"
+          #   count: "0"
