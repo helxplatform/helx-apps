@@ -18,9 +18,12 @@ services:
           # devices:
           #   - capabilities: ["gpu"]
           #     count: 1
+          # devices:
+          #   - capabilities: "gpu"
+          #     count: 1
           devices:
-            - capabilities: "gpu"
-              count: 1
+            capabilities: "gpu"
+            count: "1"
         reservations:
           cpus: '.5'
           memory: 250M
@@ -30,6 +33,9 @@ services:
           # devices:
           #   - capabilities: ["gpu"]
           #     count: 0
+          # devices:
+          #   - capabilities: "gpu"
+          #     count: 0
           devices:
-            - capabilities: "gpu"
-              count: 0
+            capabilities: "gpu"
+            count: "0"
