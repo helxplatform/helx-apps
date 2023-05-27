@@ -32,7 +32,7 @@ services:
           # nvidia.com/gpu: 1
           devices:
             - capabilities: ["gpu"]
-              count: "0"
+              count: "1"
           # devices:
           #   - capabilities: "gpu"
           #     count: 0
