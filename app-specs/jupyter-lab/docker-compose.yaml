@@ -1,7 +1,7 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "{{ helx_registry }}/helxplatform/jupyter-lab:develop"
+    image: "{{ helx_registry }}/helxplatform/jupyter-lab:jupyter-helx-notebook-base"
     container_name: jupyter-lab
     user: "30000:1136"
     entrypoint:
