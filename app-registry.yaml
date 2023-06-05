@@ -473,9 +473,10 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
           jupyter-lab: "8888"
-        # securityContext:
-        #   runAsUser: 30000
-        #   fsGroup: 1136
+        securityContext:
+          runAsUser: 30000
+          runAsGroup: 0
+          fsGroup: 0
         proxy-rewrite-rule: True
         gitea-integration: True
         count: 1
@@ -485,9 +486,9 @@ contexts:
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
         securityContext:
-          fsGroup: 0
           runAsUser: 0
           runAsGroup: 0
+          fsGroup: 0
         proxy-rewrite-rule: True
         services:
           rstudio-server: "8080"
