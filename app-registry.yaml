@@ -638,7 +638,7 @@ contexts:
           pgadmin: "80"
         proxy-rewrite-rule: True
         count: 1
-  testing:
+  testing-big:
     extends:
       - common
     jupyter-datascience-db:
@@ -758,7 +758,7 @@ contexts:
         services:
           webtop: "3000"
         count: 1
-  cuda:
+  testing:
     jupyter-helx-tensorflow-nb:
       securityContext:
         runAsUser: 30000
