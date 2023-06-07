@@ -758,3 +758,34 @@ contexts:
         services:
           webtop: "3000"
         count: 1
+  cuda:
+    jupyter-helx-tensorflow-nb:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
+    jupyter-helx-notebook:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
+    name: CUDA Testing App Registry
+    apps:
+      jupyter-helx-tensorflow-nb:
+        name: Jupyter HeLx Tensorflow Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-tensorflow-nb: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-helx-notebook:
+        name: Jupyter HeLx Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
