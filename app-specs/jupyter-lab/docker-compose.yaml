@@ -1,13 +1,13 @@
 version: "3"
 services:
   jupyter-lab:
-    image: "{{ helx_registry }}/helxplatform/jupyter-lab:v0.3.1"
+    image: helxplatform/jupyter-lab:use-base-helx-notebook"
     container_name: jupyter-lab
-    user: "30000:0"
-    entrypoint:
-      - /bin/bash
-      - -c
-      - start-jupyter-lab.sh
+    # user: "30000:1136"
+    # entrypoint:
+    #   - /bin/bash
+    #   - -c
+    #   - start-jupyter-lab.sh
     ports:
       - 8888:8888
     deploy:
