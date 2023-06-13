@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-lab:
-    image: helxplatform/jupyter-lab:use-base-helx-notebook"
+    image: helxplatform/jupyter-lab:use-base-helx-notebook
     container_name: jupyter-lab
     # user: "30000:1136"
     # entrypoint:
