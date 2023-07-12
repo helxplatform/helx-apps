@@ -475,7 +475,7 @@ contexts:
           jupyter-lab: "8888"
         securityContext:
           runAsUser: 30000
-          runAsGroup: 0
+          runAsGroup: 1136
           fsGroup: 0
         proxy-rewrite-rule: True
         gitea-integration: True
