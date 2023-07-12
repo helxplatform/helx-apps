@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-helx-tensorflow-nb:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:202305162120"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:f7d9bba-202306231436"
     ports:
       - 8888:8888
     volumes:
@@ -11,7 +11,14 @@ services:
         limits:
           cpus: '2'
           memory: 4096M
+          ephemeralStorage: 512Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
         reservations:
           cpus: '.5'
           memory: 250M
-
+          ephemeralStorage: 128Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
