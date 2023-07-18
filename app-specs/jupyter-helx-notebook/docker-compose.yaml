@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-helx-notebook:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:d7166ac-202307071846-dirty"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:0.0.2"
     ports:
       - 8888:8888
     volumes:
