@@ -762,7 +762,7 @@ contexts:
     jupyter-helx-tensorflow-nb:
       securityContext:
         runAsUser: 30000
-        runAsGroup: ""
+        runAsGroup: 0
         fsGroup: ""
     jupyter-helx-notebook:
       securityContext:
