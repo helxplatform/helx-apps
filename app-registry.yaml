@@ -645,7 +645,7 @@ contexts:
           pgadmin: "80"
         proxy-rewrite-rule: True
         count: 1
-  testing-big:
+  testing:
     extends:
       - common
     jupyter-datascience-db:
@@ -664,6 +664,11 @@ contexts:
         runAsGroup: ""
         fsGroup: ""
     jupyter-helx-notebook:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
+    jupyter-helx-py38-nb:
       securityContext:
         runAsUser: 30000
         runAsGroup: ""
@@ -722,6 +727,24 @@ contexts:
           jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
+      jupyter-helx-py38-nb:
+        name: Jupyter HeLx Notebook with Python 3.8
+        description: Based on the Jupyter Tensorflow notebook with Python 3.8.
+        details: Includes TotalSegmentator and torch-radon.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-py38-nb: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-helx-tensorflow-nb:
+        name: Jupyter HeLx Tensorflow Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-tensorflow-nb: "8888"
+        proxy-rewrite-rule: True
+        count: 1
       jupyter-minimal-notebook:
         name: Jupyter Minimal Notebook
         description: Jupyter Minimal Notebook - A minimal Jupyter notebook that has the base apps and some command-line tools.
@@ -764,49 +787,4 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop: "3000"
-        count: 1
-  testing:
-    jupyter-helx-tensorflow-nb:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: 0
-        fsGroup: ""
-    jupyter-helx-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-helx-py38-nb:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    name: CUDA Testing App Registry
-    apps:
-      jupyter-helx-tensorflow-nb:
-        name: Jupyter HeLx Tensorflow Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-tensorflow-nb: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      jupyter-helx-notebook:
-        name: Jupyter HeLx Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      jupyter-helx-py38-nb:
-        name: Jupyter HeLx Notebook with Python 3.8
-        description: Based on the Jupyter Tensorflow notebook with Python 3.8.
-        details: Includes TotalSegmentator and torch-radon.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-py38-nb: "8888"
-        proxy-rewrite-rule: True
         count: 1
