@@ -504,7 +504,7 @@ contexts:
         services:
           cloud-top: 8080
         count: 1
-  order-d:
+  ordrd:
     name: UNC Clenical Health Records Analysis
     pgadmin:
       securityContext:
