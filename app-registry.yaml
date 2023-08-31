@@ -504,6 +504,60 @@ contexts:
         services:
           cloud-top: 8080
         count: 1
+  order-d:
+    name: UNC Clenical Health Records Analysis
+    pgadmin:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    rstudio-server:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    mixin:
+      - sys
+    apps:
+      rstudio-server:
+        name: RStudio Server
+        description: An integrated development environment for R.
+        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+        docs: https://www.rstudio.com/
+        proxy-rewrite-rule: True
+        services:
+          rstudio-server: "8080"
+        count: 1
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-lab: "8888"
+        securityContext:
+          runAsUser: 1000
+          fsGroup: 1136
+        proxy-rewrite-rule: True
+        gitea-integration: True
+        count: 1
+      filebrowser:
+        name: File Browser
+        description: File Browser - a utility for browsing files through a web interface
+        details: File Browser provides a web interface for browsing files in a cloud environment.
+        docs: https://filebrowser.org/
+        services:
+          filebrowser: "8888"
+        count: 1
+      pgadmin:
+        name: pgAdmin
+        description: pgAdmin - A database administration program for PostgreSQL.
+        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+        docs: https://pgadmin.org/
+        services:
+          pgadmin: "80"
+        proxy-rewrite-rule: True
+        count: 1
   tracs:
     name: TraCS
     mixin:
