@@ -65,14 +65,26 @@ contexts:
   # Other contexts can extend it to include these apps.
   sys:
     apps:
-      jupyter-ds:
+      atlas:
+        ext:
+          kube:
+            readinessProbe: none
+      cloud-top:
+        ext:
+          kube:
+            readinessProbe: none
+      imagej:
+        ext:
+          kube:
+            readinessProbe: none
+      jupyter-datascience-db:
         ext:
           kube:
             livenessProbe:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-datascience-db:
+      jupyter-ds:
         ext:
           kube:
             livenessProbe:
@@ -86,14 +98,14 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-helx-notebook:
+      jupyter-helx-db-notebook:
         ext:
           kube:
             livenessProbe:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-helx-db-notebook:
+      jupyter-helx-notebook:
         ext:
           kube:
             livenessProbe:
@@ -107,13 +119,6 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-helx-py38-nb:
-        ext:
-          kube:
-            livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
-              delay: 5
-              period: 5
       jupyter-lab:
         ext:
           kube:
@@ -121,18 +126,6 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      cloud-top:
-        ext:
-          kube:
-            readinessProbe: none
-      scout:
-        ext:
-          kube:
-            readinessProbe: none
-      imagej:
-        ext:
-          kube:
-            readinessProbe: none
       napari:
         ext:
           kube:
@@ -141,11 +134,19 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      atlas:
+      pgadmin:
         ext:
           kube:
             readinessProbe: none
       rstudio-server:
+        ext:
+          kube:
+            readinessProbe: none
+      scout:
+        ext:
+          kube:
+            readinessProbe: none
+      slicer:
         ext:
           kube:
             readinessProbe: none
@@ -162,10 +163,6 @@ contexts:
           kube:
             readinessProbe: none
       webtop-pgadmin:
-        ext:
-          kube:
-            readinessProbe: none
-      pgadmin:
         ext:
           kube:
             readinessProbe: none
@@ -668,11 +665,6 @@ contexts:
         runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
-    jupyter-helx-py38-nb:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
     jupyter-minimal-notebook:
       securityContext:
         runAsUser: 30000
@@ -730,15 +722,6 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
           jupyter-helx-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      jupyter-helx-py38-nb:
-        name: Jupyter HeLx Notebook with Python 3.8
-        description: Based on the Jupyter Tensorflow notebook with Python 3.8.
-        details: Includes TotalSegmentator and torch-radon.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-py38-nb: "8888"
         proxy-rewrite-rule: True
         count: 1
       jupyter-helx-tensorflow-nb:
