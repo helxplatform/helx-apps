@@ -9,8 +9,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2'
-          memory: 4096M
+          cpus: '4'
+          memory: 8192M
           ephemeralStorage: 4096Mi
           devices:
             - capabilities: ["gpu"]
