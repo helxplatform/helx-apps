@@ -1,0 +1,24 @@
+version: "3"
+services:
+  slicer:
+    image: "{{ helx_registry }}/helxplatform/slicer:82d053a-202309011316-dirty"
+    ports:
+      - 6901:6901
+    volumes:
+        - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4096M
+          ephemeralStorage: 4096Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
+        reservations:
+          cpus: '.5'
+          memory: 250M
+          ephemeralStorage: 256Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
