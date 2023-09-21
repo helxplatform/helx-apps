@@ -112,6 +112,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-helx-pytorch-nb:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-helx-tensorflow-nb:
         ext:
           kube:
@@ -655,6 +662,11 @@ contexts:
         runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
+    jupyter-helx-pytorch-nb:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     jupyter-helx-tensorflow-nb:
       securityContext:
         runAsUser: 30000
@@ -722,6 +734,15 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
           jupyter-helx-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-helx-pytorch-nb:
+        name: Jupyter HeLx pyTorch Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes pyTorch.
+        docs: https://pytorch.org/
+        services:
+          jupyter-helx-pytorch-nb: "8888"
         proxy-rewrite-rule: True
         count: 1
       jupyter-helx-tensorflow-nb:
