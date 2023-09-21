@@ -133,7 +133,7 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-nvidia-tensorflow-nb:
+      jupyter-nvidia-tf-nb:
         ext:
           kube:
             livenessProbe:
@@ -689,7 +689,7 @@ contexts:
         runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
-    jupyter-nvidia-tensorflow-nb:
+    jupyter-nvidia-tf-nb:
       securityContext:
         runAsUser: 30000
         runAsGroup: ""
@@ -775,13 +775,13 @@ contexts:
           jupyter-minimal-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
-      jupyter-nvidia-tensorflow-nb:
+      jupyter-nvidia-tf-nb:
         name: Jupyter NVIDIA Tensorflow Notebook
         description: NVIDIA's Tensorflow image.
         details: Tensorflow image built by NVIDIA with CUDA support.
         docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
         services:
-          jupyter-nvidia-tensorflow-nb: "8888"
+          jupyter-nvidia-tf-nb: "8888"
         proxy-rewrite-rule: True
         count: 1
       jupyter-lab:
