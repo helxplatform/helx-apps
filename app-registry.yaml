@@ -691,7 +691,7 @@ contexts:
         fsGroup: ""
     jupyter-nvidia-tf-nb:
       securityContext:
-        runAsUser: 30000
+        runAsUser: 0
         runAsGroup: ""
         fsGroup: ""
     pgadmin:
