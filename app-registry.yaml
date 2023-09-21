@@ -133,6 +133,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-nvidia-tensorflow-nb:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       napari:
         ext:
           kube:
@@ -682,6 +689,11 @@ contexts:
         runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
+    jupyter-nvidia-tensorflow-nb:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     pgadmin:
       securityContext:
         runAsUser: 30000
@@ -761,6 +773,15 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-minimal-notebook
         services:
           jupyter-minimal-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-nvidia-tensorflow-nb:
+        name: Jupyter NVIDIA Tensorflow Notebook
+        description: NVIDIA's Tensorflow image.
+        details: Tensorflow image built by NVIDIA with CUDA support.
+        docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
+        services:
+          jupyter-nvidia-tensorflow-nb: "8888"
         proxy-rewrite-rule: True
         count: 1
       jupyter-lab:

@@ -1,0 +1,29 @@
+---
+version: "3"
+services:
+  jupyter-nvidia-tensorflow-nb:
+    image: "nvcr.io/nvidia/tensorflow:23.08-tf2-py3"
+    entrypoint:
+      - /bin/bash
+      - -c
+      - jupyter-lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
+    ports:
+      - 8888:8888
+    volumes:
+        - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8192M
+          ephemeralStorage: 4096Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
+        reservations:
+          cpus: '.5'
+          memory: 250M
+          ephemeralStorage: 256Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
