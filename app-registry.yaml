@@ -682,17 +682,17 @@ contexts:
     rstudio-server:
       securityContext:
         fsGroup:
-        runAsUser: 1000790321
+        runAsUser: 1000790020
         runAsGroup:
     webtop:
       securityContext:
         fsGroup:
-        runAsUser: 1000790322
+        runAsUser: 1000790020
         runAsGroup:
     webtop-octave:
       securityContext:
         fsGroup:
-        runAsUser: 1000790323
+        runAsUser: 1000790020
         runAsGroup:
     name: Testing App Registry
     apps:
