@@ -676,7 +676,7 @@ contexts:
       - common
     pgadmin:
       securityContext:
-        fsGroup: 10007903020
+        fsGroup:
         runAsUser: 10007903020
         runAsGroup:
     rstudio-server:
@@ -686,12 +686,12 @@ contexts:
         runAsGroup:
     webtop:
       securityContext:
-        fsGroup: 10007903022
+        fsGroup:
         runAsUser: 10007903022
         runAsGroup:
     webtop-octave:
       securityContext:
-        fsGroup: 10007903023
+        fsGroup:
         runAsUser: 10007903023
         runAsGroup:
     name: Testing App Registry
