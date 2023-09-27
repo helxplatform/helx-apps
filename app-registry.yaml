@@ -678,22 +678,22 @@ contexts:
       securityContext:
         fsGroup: 10007903020
         runAsUser: 10007903020
-        runAsGroup: 10007903020
+        runAsGroup:
     rstudio-server:
       securityContext:
-        fsGroup: 10007903021
+        fsGroup:
         runAsUser: 10007903021
-        runAsGroup: 10007903021
+        runAsGroup:
     webtop:
       securityContext:
         fsGroup: 10007903022
         runAsUser: 10007903022
-        runAsGroup: 10007903022
+        runAsGroup:
     webtop-octave:
       securityContext:
         fsGroup: 10007903023
         runAsUser: 10007903023
-        runAsGroup: 10007903023
+        runAsGroup:
     name: Testing App Registry
     apps:
       jupyter-datascience-db:
