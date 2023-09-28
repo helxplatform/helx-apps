@@ -144,6 +144,13 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      nvidia-tensorflow:
+        ext:
+          kube:
+            readinessProbe:
+              httpGet:
+                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/"
+                port: "{{ system_port }}"
       octave:
         ext:
           kube:
@@ -694,6 +701,11 @@ contexts:
         runAsUser: 0
         runAsGroup: ""
         fsGroup: ""
+    nvidia-tensorflow:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: ""
+        fsGroup: ""
     pgadmin:
       securityContext:
         runAsUser: 30000
@@ -791,6 +803,15 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
           jupyter-lab: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      nvidia-tensorflow:
+        name: NVIDIA Tensorflow
+        description: The TensorFlow NGC Container is optimized for GPU acceleration, and contains a validated set of libraries that enable and optimize GPU performance.
+        details: Includes support for using Tensorflow with CUDA.
+        docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
+        services:
+          nvidia-tensorflow: "8888"
         proxy-rewrite-rule: True
         count: 1
       pgadmin:
