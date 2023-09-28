@@ -676,24 +676,24 @@ contexts:
       - common
     pgadmin:
       securityContext:
-        fsGroup:
+        # fsGroup:
         runAsUser: 1000790320
         # runAsGroup:
     rstudio-server:
       securityContext:
-        fsGroup:
+        # fsGroup:
         runAsUser: 1000790020
-        runAsGroup:
+        # runAsGroup:
     webtop:
       securityContext:
-        fsGroup:
+        # fsGroup:
         runAsUser: 1000790020
-        runAsGroup:
+        # runAsGroup:
     webtop-octave:
       securityContext:
-        fsGroup:
+        # fsGroup:
         runAsUser: 1000790020
-        runAsGroup:
+        # runAsGroup:
     name: Testing App Registry
     apps:
       jupyter-datascience-db:
