@@ -1,7 +1,7 @@
 version: "3"
 services:
   nvidia-tensorflow-root:
-    image: "{{ helx_registry }}/helxplatform/helx-nvidia-tensorflow:latest"
+    image: "{{ helx_registry }}/helxplatform/helx-nvidia-tensorflow:0.0.1"
     ports:
       - 8888:7681
     volumes:
