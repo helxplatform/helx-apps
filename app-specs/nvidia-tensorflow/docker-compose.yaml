@@ -3,7 +3,7 @@ services:
   nvidia-tensorflow:
     image: "{{ helx_registry }}/helxplatform/helx-nvidia-tensorflow:latest"
     ports:
-      - 8888:8888
+      - 8888:7681
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
