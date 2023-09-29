@@ -827,7 +827,7 @@ contexts:
         proxy-rewrite-rule: True
         count: 1
       nvidia-tensorflow-root:
-        name: NVIDIA Tensorflow
+        name: NVIDIA Tensorflow running as root
         description: Includes support for using Tensorflow with CUDA.  Opens a tmux (terminal multiplexer) in a web terminal interface.
         details: The TensorFlow NGC Container is optimized for GPU acceleration, and contains a validated set of libraries that enable and optimize GPU performance.
         docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
