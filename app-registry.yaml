@@ -150,7 +150,7 @@ contexts:
             readinessProbe:
               httpGet:
                 path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/"
-                port: "{{ system_port }}"
+                port: "7681"
       octave:
         ext:
           kube:
