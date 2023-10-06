@@ -209,7 +209,7 @@ contexts:
       securityContext:
         fsGroup: 1136
         runAsUser: 30000
-        runAsGroup: 0
+        runAsGroup: ""
     webtop-image-apps:
       securityContext:
         fsGroup: 0
