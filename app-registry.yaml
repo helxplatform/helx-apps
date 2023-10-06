@@ -239,8 +239,8 @@ contexts:
         runAsGroup: 1136
     rstudio-server:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        fsGroup: 1136
+        runAsUser: 30000
         runAsGroup: 0
     webtop-image-apps:
       securityContext:
@@ -275,7 +275,7 @@ contexts:
         docs: https://www.rstudio.com/
         proxy-rewrite-rule: True
         services:
-          rstudio-server: "8080"
+          rstudio-server: "8787"
         count: 1
       webtop:
         name: Webtop
