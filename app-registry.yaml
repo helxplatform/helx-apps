@@ -861,6 +861,7 @@ contexts:
         services:
           rstudio-rocker: "8080"
         count: 1
+        proxy-rewrite-rule: True
       rstudio-server:
         name: RStudio Server
         description: An integrated development environment for R.
@@ -869,6 +870,7 @@ contexts:
         services:
           rstudio-server: "8787"
         count: 1
+        proxy-rewrite-rule: True
       slicer:
         name: Slicer
         description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
