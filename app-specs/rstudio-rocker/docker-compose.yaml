@@ -2,7 +2,7 @@
 # Docker compose formatted system.
 version: "3"
 services:
-  rstudio-server:
+  rstudio-rocker:
     image: "containers.renci.org/helxplatform/rstudio:0.1.6"
     ports:
       - 8080:8080
