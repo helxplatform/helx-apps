@@ -503,8 +503,8 @@ contexts:
         runAsGroup: 0
     rstudio-server:
       securityContext:
-        fsGroup: 1000
-        runAsUser: 1000
+        fsGroup: 0
+        runAsUser: 0
         runAsGroup: 0
     mixin:
       - sys
@@ -516,7 +516,7 @@ contexts:
         docs: https://www.rstudio.com/
         proxy-rewrite-rule: True
         services:
-          rstudio-server: "8787"
+          rstudio-server: "8080"
         count: 1
       jupyter-datascience-db:
         name: Jupyter Data Science with SQLAlchemy
@@ -554,8 +554,8 @@ contexts:
         runAsGroup: 0
     rstudio-server:
       securityContext:
-        fsGroup: 1000
-        runAsUser: 1000
+        fsGroup: 0
+        runAsUser: 0
         runAsGroup: 0
     webtop:
       securityContext:
@@ -603,7 +603,7 @@ contexts:
         docs: https://www.rstudio.com/
         proxy-rewrite-rule: True
         services:
-          rstudio-server: "8787"
+          rstudio-server: "8080"
         count: 1
       webtop:
         name: Webtop
