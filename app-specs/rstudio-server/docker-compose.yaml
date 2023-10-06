@@ -5,7 +5,7 @@ services:
   rstudio-server:
     image: "containers.renci.org/helxplatform/rstudio-server:v0.0.1"
     ports:
-      - 8080:8080
+      - 8787
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
