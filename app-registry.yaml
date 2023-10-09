@@ -868,7 +868,7 @@ contexts:
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
         services:
-          rstudio-server: "8787"
+          rstudio-server: "8888"
         count: 1
         # proxy-rewrite-rule: True
       slicer:
