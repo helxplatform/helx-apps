@@ -27,6 +27,12 @@ services:
         limits:
           cpus: 150m
           memory: 256Mi
-        reservations:
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
+      reservations:
           cpus: 75m
           memory: 128Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
