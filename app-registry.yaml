@@ -506,16 +506,6 @@ contexts:
         count: 1
   ordrd:
     name: UNC Clenical Health Records Analysis
-    pgadmin:
-      securityContext:
-        fsGroup: 10007903013
-        runAsUser: 10007903013
-        runAsGroup: 10007903013
-    rstudio-server:
-      securityContext:
-        fsGroup: 10007903014
-        runAsUser: 10007903014
-        runAsGroup: 10007903014
     mixin:
       - sys
     apps:
@@ -535,9 +525,6 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
           jupyter-lab: "8888"
-        securityContext:
-          runAsUser: 10007903015
-          fsGroup: 10007903015
         proxy-rewrite-rule: True
         gitea-integration: True
         count: 1
