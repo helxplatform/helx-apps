@@ -174,7 +174,7 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      rstudio-server-nginx:
+      rstudio-server-w-nginx:
         ext:
           kube:
             readinessProbe: none
@@ -739,8 +739,13 @@ contexts:
     rstudio-server:
       securityContext:
         runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+        runAsGroup: 0
+        fsGroup: 1136
+    rstudio-server-w-nginx:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     slicer:
       securityContext:
         runAsUser: 30000
@@ -875,15 +880,15 @@ contexts:
           rstudio-server: "8787"
         count: 1
         # proxy-rewrite-rule: True
-      rstudio-server-nginx:
+      rstudio-server-w-nginx:
         name: RStudio Server with a Nginx sidecar
         description: An integrated development environment for R.
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
         services:
-          rstudio-server-nginx: "8888"
+          rstudio-server-w-nginx: "8888"
         count: 1
-        # proxy-rewrite-rule: True
+        proxy-rewrite-rule: True
       slicer:
         name: Slicer
         description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
