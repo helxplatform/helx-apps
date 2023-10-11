@@ -508,26 +508,6 @@ contexts:
     name: UNC Clenical Health Records Analysis
     mixin:
       - sys
-    filebrowser:
-      securityContext:
-        # fsGroup:
-        runAsUser: 1000790020
-        # runAsGroup:
-    jupyter-helx-notebook:
-      securityContext:
-        # fsGroup:
-        runAsUser: 1000790020
-        # runAsGroup:
-    pgadmin:
-      securityContext:
-        # fsGroup:
-        runAsUser: 1000790020
-        # runAsGroup:
-    rstudio-server:
-      securityContext:
-        # fsGroup:
-        runAsUser: 1000790020
-        # runAsGroup:
     apps:
       filebrowser:
         name: File Browser
