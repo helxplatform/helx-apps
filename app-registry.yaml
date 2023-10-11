@@ -237,14 +237,14 @@ contexts:
       - common
     jupyter-helx-tensorflow-nb:
       securityContext:
+        fsGroup: 1136
         runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+        runAsGroup: 0
     pgadmin:
       securityContext:
         fsGroup: 1136
         runAsUser: 30000
-        runAsGroup: 1136
+        runAsGroup: 0
     rstudio-server:
       securityContext:
         fsGroup: 1136
@@ -252,18 +252,18 @@ contexts:
         runAsGroup: 0
     webtop-image-apps:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        fsGroup: 1136
+        runAsUser: 30000
         runAsGroup: 0
     webtop-octave:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        fsGroup: 1136
+        runAsUser: 30000
         runAsGroup: 0
     webtop:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        fsGroup: 1136
+        runAsUser: 30000
         runAsGroup: 0
     name: HeLx App Registry
     apps:
@@ -307,20 +307,20 @@ contexts:
     name: BRAIN-I App Registry
     jupyter-ds:
       securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
+        runAsUser: 1000790306
+        runAsGroup: 1000790306
+        fsGroup: 1000790306
     webtop:
       # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 1000790307
+        runAsUser: 1000790307
+        runAsGroup: 1000790307
     webtop-image-apps:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 1000790308
+        runAsUser: 1000790308
+        runAsGroup: 1000790308
     apps:
       imagej:
         name: ImageJ Viewer
@@ -369,14 +369,14 @@ contexts:
     name: BioData Catalyst App Registry
     webtop:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 1000790309
+        runAsUser: 1000790309
+        runAsGroup: 1000790309
     webtop-octave:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 1000790310
+        runAsUser: 1000790310
+        runAsGroup: 1000790310
     apps:
       webtop:
         name: Webtop
@@ -426,9 +426,9 @@ contexts:
     name: RENCI Blackbalsam Registry
     blackbalsam:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 1000790311
+        runAsUser: 10007903011
+        runAsGroup: 10007903011
     apps:
       blackbalsam:
         name: Blackbalsam
@@ -535,8 +535,8 @@ contexts:
         services:
           jupyter-lab: "8888"
         securityContext:
-          runAsUser: 1000
-          fsGroup: 1136
+          runAsUser: 10007903012
+          fsGroup: 10007903012
         proxy-rewrite-rule: True
         gitea-integration: True
         count: 1
@@ -565,6 +565,60 @@ contexts:
         services:
           cloud-top: 8080
         count: 1
+  ordrd:
+    name: UNC Clenical Health Records Analysis
+    pgadmin:
+      securityContext:
+        fsGroup: 10007903013
+        runAsUser: 10007903013
+        runAsGroup: 10007903013
+    rstudio-server:
+      securityContext:
+        fsGroup: 10007903014
+        runAsUser: 10007903014
+        runAsGroup: 10007903014
+    mixin:
+      - sys
+    apps:
+      rstudio-server:
+        name: RStudio Server
+        description: An integrated development environment for R.
+        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+        docs: https://www.rstudio.com/
+        proxy-rewrite-rule: True
+        services:
+          rstudio-server: "8080"
+        count: 1
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-lab: "8888"
+        securityContext:
+          runAsUser: 10007903015
+          fsGroup: 10007903015
+        proxy-rewrite-rule: True
+        gitea-integration: True
+        count: 1
+      filebrowser:
+        name: File Browser
+        description: File Browser - a utility for browsing files through a web interface
+        details: File Browser provides a web interface for browsing files in a cloud environment.
+        docs: https://filebrowser.org/
+        services:
+          filebrowser: "8888"
+        count: 1
+      pgadmin:
+        name: pgAdmin
+        description: pgAdmin - A database administration program for PostgreSQL.
+        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+        docs: https://pgadmin.org/
+        services:
+          pgadmin: "80"
+        proxy-rewrite-rule: True
+        count: 1
   tracs:
     name: TraCS
     mixin:
@@ -591,14 +645,14 @@ contexts:
     name: UNC Helx for Education Sandbox
     webtop:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 10007903016
+        runAsUser: 10007903016
+        runAsGroup: 10007903016
     rstudio-server:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 10007903017
+        runAsUser: 10007903017
+        runAsGroup: 10007903017
     mixin:
       - sys
     apps:
@@ -632,14 +686,14 @@ contexts:
     name: UNC Helx for Education CHIP690
     pgadmin:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 10007903018
+        runAsUser: 10007903018
+        runAsGroup: 10007903018
     rstudio-server:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 10007903019
+        runAsUser: 10007903019
+        runAsGroup: 10007903019
     mixin:
       - sys
     apps:
@@ -728,39 +782,24 @@ contexts:
         fsGroup: ""
     pgadmin:
       securityContext:
-        runAsUser: 30000
-        # runAsGroup: ""
-        # fsGroup: ""
-    rstudio-rocker:
-      securityContext:
-        runAsUser: 0
-        runAsGroup: 0
-        fsGroup: 0
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
     rstudio-server:
       securityContext:
-        runAsUser: 30000
-        runAsGroup: 0
-        fsGroup: 1136
-    rstudio-server-w-nginx:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: 0
-        fsGroup: 1136
-    slicer:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
     webtop:
       securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
     webtop-octave:
       securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
     name: Testing App Registry
     apps:
       jupyter-datascience-db:
