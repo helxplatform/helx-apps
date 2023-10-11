@@ -176,34 +176,34 @@ contexts:
       - common
     jupyter-helx-notebook:
       securityContext:
-        runAsUser: 1000790300
-        runAsGroup: 1000790300
-        fsGroup: 1000790300
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     pgadmin:
       securityContext:
-        fsGroup: 1000790301
-        runAsUser: 1000790301
-        runAsGroup: 1000790301
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     rstudio-server:
       securityContext:
-        fsGroup: 1000790302
-        runAsUser: 1000790302
-        runAsGroup: 1000790302
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     webtop-image-apps:
       securityContext:
-        fsGroup: 1000790303
-        runAsUser: 1000790303
-        runAsGroup: 1000790303
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     webtop-octave:
       securityContext:
-        fsGroup: 1000790304
-        runAsUser: 1000790304
-        runAsGroup: 1000790304
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     webtop:
       securityContext:
-        fsGroup: 1000790305
-        runAsUser: 1000790305
-        runAsGroup: 1000790305
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     name: HeLx App Registry
     apps:
       pgadmin:
@@ -246,20 +246,20 @@ contexts:
     name: BRAIN-I App Registry
     jupyter-ds:
       securityContext:
-        runAsUser: 1000790306
-        runAsGroup: 1000790306
-        fsGroup: 1000790306
+        # runAsUser: 1000790306
+        # runAsGroup: 1000790306
+        # fsGroup: 1000790306
     webtop:
       # The securityContext section needs to be in the primary context, not in an extended context.
       securityContext:
-        fsGroup: 1000790307
-        runAsUser: 1000790307
-        runAsGroup: 1000790307
+        # fsGroup: 1000790307
+        # runAsUser: 1000790307
+        # runAsGroup: 1000790307
     webtop-image-apps:
       securityContext:
-        fsGroup: 1000790308
-        runAsUser: 1000790308
-        runAsGroup: 1000790308
+        # fsGroup: 1000790308
+        # runAsUser: 1000790308
+        # runAsGroup: 1000790308
     apps:
       imagej:
         name: ImageJ Viewer
@@ -308,14 +308,14 @@ contexts:
     name: BioData Catalyst App Registry
     webtop:
       securityContext:
-        fsGroup: 1000790309
-        runAsUser: 1000790309
-        runAsGroup: 1000790309
+        # fsGroup: 1000790309
+        # runAsUser: 1000790309
+        # runAsGroup: 1000790309
     webtop-octave:
       securityContext:
-        fsGroup: 1000790310
-        runAsUser: 1000790310
-        runAsGroup: 1000790310
+        # fsGroup: 1000790310
+        # runAsUser: 1000790310
+        # runAsGroup: 1000790310
     apps:
       webtop:
         name: Webtop
@@ -365,9 +365,9 @@ contexts:
     name: RENCI Blackbalsam Registry
     blackbalsam:
       securityContext:
-        fsGroup: 1000790311
-        runAsUser: 10007903011
-        runAsGroup: 10007903011
+        # fsGroup: 1000790311
+        # runAsUser: 10007903011
+        # runAsGroup: 10007903011
     apps:
       blackbalsam:
         name: Blackbalsam
@@ -474,8 +474,8 @@ contexts:
         services:
           jupyter-lab: "8888"
         securityContext:
-          runAsUser: 10007903012
-          fsGroup: 10007903012
+          # runAsUser: 10007903012
+          # fsGroup: 10007903012
         proxy-rewrite-rule: True
         gitea-integration: True
         count: 1
@@ -508,26 +508,27 @@ contexts:
     name: UNC Clenical Health Records Analysis
     mixin:
       - sys
+    filebrowser:
+      securityContext:
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
+    jupyter-helx-notebook:
+      securityContext:
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
+    pgadmin:
+      securityContext:
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
+    rstudio-server:
+      securityContext:
+        # fsGroup:
+        runAsUser: 1000790020
+        # runAsGroup:
     apps:
-      rstudio-server:
-        name: RStudio Server
-        description: An integrated development environment for R.
-        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
-        docs: https://www.rstudio.com/
-        proxy-rewrite-rule: True
-        services:
-          rstudio-server: "8080"
-        count: 1
-      jupyter-lab:
-        name: Jupyter Lab
-        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
-        details: Includes Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-lab: "8888"
-        proxy-rewrite-rule: True
-        gitea-integration: True
-        count: 1
       filebrowser:
         name: File Browser
         description: File Browser - a utility for browsing files through a web interface
@@ -536,14 +537,32 @@ contexts:
         services:
           filebrowser: "8888"
         count: 1
+      jupyter-helx-notebook:
+        name: Jupyter HeLx Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
         details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
         docs: https://pgadmin.org/
         services:
-          pgadmin: "80"
+          pgadmin: "8080"
         proxy-rewrite-rule: True
+        count: 1
+      rstudio-server:
+        name: RStudio Server
+        description: An integrated development environment for R.
+        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+        docs: https://www.rstudio.com/
+        proxy-rewrite-rule: True
+        services:
+          rstudio-server: "8787"
         count: 1
   tracs:
     name: TraCS
@@ -571,14 +590,14 @@ contexts:
     name: UNC Helx for Education Sandbox
     webtop:
       securityContext:
-        fsGroup: 10007903016
-        runAsUser: 10007903016
-        runAsGroup: 10007903016
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     rstudio-server:
       securityContext:
-        fsGroup: 10007903017
-        runAsUser: 10007903017
-        runAsGroup: 10007903017
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     mixin:
       - sys
     apps:
@@ -612,14 +631,14 @@ contexts:
     name: UNC Helx for Education CHIP690
     pgadmin:
       securityContext:
-        fsGroup: 10007903018
-        runAsUser: 10007903018
-        runAsGroup: 10007903018
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     rstudio-server:
       securityContext:
-        fsGroup: 10007903019
-        runAsUser: 10007903019
-        runAsGroup: 10007903019
+        runAsUser: 30000
+        runAsGroup: 0
+        fsGroup: 1136
     mixin:
       - sys
     apps:
