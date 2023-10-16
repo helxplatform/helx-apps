@@ -137,10 +137,6 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      pgadmin:
-        ext:
-          kube:
-            readinessProbe: none
   common:
     name: HeLx Common App Registry
     mixin:
