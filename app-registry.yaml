@@ -121,9 +121,10 @@ contexts:
         ext:
           kube:
             readinessProbe:
-              port: 8787
-              delay: 5
-              period: 5
+              tcpSocket:
+                port: 8787
+                delay: 5
+                period: 5
       webtop:
         ext:
           kube:
