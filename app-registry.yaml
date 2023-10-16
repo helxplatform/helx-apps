@@ -117,10 +117,13 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      # rstudio-server:
-      #   ext:
-      #     kube:
-      #       readinessProbe: none
+      rstudio-server:
+        ext:
+          kube:
+            readinessProbe:
+              cmd: ["pgrep", "rsession" ]
+              delay: 5
+              period: 5
       webtop:
         ext:
           kube:
