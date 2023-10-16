@@ -117,10 +117,10 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      rstudio-server:
-        ext:
-          kube:
-            readinessProbe: none
+      # rstudio-server:
+      #   ext:
+      #     kube:
+      #       readinessProbe: none
       webtop:
         ext:
           kube:
