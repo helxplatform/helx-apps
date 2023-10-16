@@ -123,8 +123,8 @@ contexts:
             readinessProbe:
               tcpSocket:
                 port: 8787
-              initialDelaySeconds: 5
-              periodSeconds: 5
+              delay: 5
+              period: 5
       webtop:
         ext:
           kube:
