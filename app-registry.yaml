@@ -140,6 +140,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-r-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       napari:
         ext:
           kube:
@@ -716,6 +723,11 @@ contexts:
         runAsUser: 0
         runAsGroup: ""
         fsGroup: ""
+    jupyter-r-notebook:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     nvidia-tensorflow:
       securityContext:
         runAsUser: 30000
@@ -833,6 +845,15 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
           jupyter-lab: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-r-notebook:
+        name: Jupyter R Notebook
+        description: Jupyter R Notebook - A Jupyter notebook with popular R packages.
+        details: Includes Notebook, Jupyter Lab, R interpreter, and misc packages from conda-forge.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-r-notebook
+        services:
+          jupyter-r-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       nvidia-tensorflow:
