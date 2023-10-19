@@ -3,8 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    # image: "containers.renci.org/helxplatform/rstudio-server:15584dc-202310161854-dirty" # host path = /
-    image: "containers.renci.org/helxplatform/rstudio-server:15584dc-202310092009" # host path = NB_PREFIX
+    image: "containers.renci.org/helxplatform/rstudio-server:e5b66fe-202310191417-dirty
     ports:
       - 8787:8787
     volumes:
