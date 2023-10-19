@@ -900,7 +900,7 @@ contexts:
         services:
           rstudio-server: "8787"
         count: 1
-        # proxy-rewrite-rule: True
+        proxy-rewrite-rule: True
       rstudio-server-w-nginx:
         name: RStudio Server with a Nginx sidecar
         description: An integrated development environment for R.
