@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:jeffw
+    image: "containers.renci.org/helxplatform/rstudio-server:jeffw"
     ports:
       - 8787:8787
     volumes:
