@@ -7,7 +7,7 @@ services:
     entrypoint:
       - /bin/bash
       - -c
-      - /usr/local/bin/start-jupyter-lab.sh
+      - start-jupyter-lab.sh
     ports:
       - 8888:8888
     deploy:
