@@ -59,7 +59,7 @@ repositories:
     url: app-specs
 settings:
   helx_registry: containers.renci.org
-  third_party_registry: docker.io
+  third_party_registry: containers.renci.org
 contexts:
   # The common context provides a convenient base set of applications.
   # Other contexts can extend it to include these apps.
