@@ -2,12 +2,10 @@
 # Docker compose formatted system.
 version: "3"
 services:
-  rstudio-server:
+  rstudio-server-w-nginx:
     # image: "containers.renci.org/helxplatform/rstudio-server:v0.0.1"
     # image: "containers.renci.org/helxplatform/rstudio-server:806cbbe-202310061350-dirty"
     image: "containers.renci.org/helxplatform/rstudio-server:latest"
-    ports:
-      - 8787:8787
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
