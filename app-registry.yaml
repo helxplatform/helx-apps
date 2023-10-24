@@ -128,7 +128,8 @@ contexts:
         ext:
           kube:
             readinessProbe:
-              tcpSocket:
+              httpGet:
+                path: /
                 port: 8787
               delay: 5
               period: 5
@@ -556,10 +557,12 @@ contexts:
         description: An integrated development environment for R.
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
-        # proxy-rewrite-rule: True
         services:
           rstudio-server: "8787"
         count: 1
+        proxy-rewrite:
+          enabled: true
+          target: /
   tracs:
     name: TraCS
     mixin:
