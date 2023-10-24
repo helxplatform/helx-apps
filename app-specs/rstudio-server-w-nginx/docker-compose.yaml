@@ -2,7 +2,7 @@
 # Docker compose formatted system.
 version: "3"
 services:
-  rstudio-server-w-nginx:
+  rstudio-server:
     # image: "containers.renci.org/helxplatform/rstudio-server:v0.0.1"
     # image: "containers.renci.org/helxplatform/rstudio-server:806cbbe-202310061350-dirty"
     image: "containers.renci.org/helxplatform/rstudio-server:latest"
@@ -18,7 +18,7 @@ services:
           reservations:
             cpus: '.5'
             memory: 1024M
-  rstudio-server-nginx:
+  nginx:
     image: "containers.renci.org/helxplatform/rstudio-server-nginx:latest"
     ports:
       - 8080:8080

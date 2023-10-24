@@ -907,9 +907,9 @@ contexts:
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
         services:
-          rstudio-server-w-nginx: "8080"
+          nginx: "8080"
         count: 1
-        proxy-rewrite-rule: True
+        # proxy-rewrite-rule: True
       slicer:
         name: Slicer
         description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
