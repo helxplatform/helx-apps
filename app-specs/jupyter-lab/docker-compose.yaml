@@ -3,6 +3,7 @@ services:
   jupyter-lab:
     image: "{{ helx_registry }}/helxplatform/jupyter-lab:spring-0.2.1"
     container_name: jupyter-lab
+    user: "1000800040:0"
     entrypoint:
       - /bin/bash
       - -c
