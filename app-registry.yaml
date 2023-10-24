@@ -180,7 +180,11 @@ contexts:
       rstudio-server:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              tcpSocket:
+                port: 8787
+              delay: 5
+              period: 5
       rstudio-server-w-nginx:
         ext:
           kube:
