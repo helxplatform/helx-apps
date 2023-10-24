@@ -181,14 +181,20 @@ contexts:
         ext:
           kube:
             readinessProbe:
-              tcpSocket:
+              httpGet:
+                path: /
                 port: 8787
               delay: 5
               period: 5
       rstudio-server-w-nginx:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              httpGet:
+                path: /
+                port: 8787
+              delay: 5
+              period: 5
       scout:
         ext:
           kube:
