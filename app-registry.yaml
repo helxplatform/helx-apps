@@ -128,7 +128,7 @@ contexts:
         ext:
           kube:
             readinessProbe:
-              tcpSocket:
+              httpGet: 
                 port: 8787
               delay: 5
               period: 5
