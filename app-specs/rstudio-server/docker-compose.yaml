@@ -4,10 +4,9 @@ version: "3"
 services:
   rstudio-server:
     image: "containers.renci.org/helxplatform/rstudio-server:684c192-202310251353-dirty"
-    env:
-      - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
-      - RSTUDIO_SERVER_BASE_PATH=/
-      - RSTUDIO_LOG_LEVEL=debug
+    # env:
+    #   - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
+    #   - RSTUDIO_LOG_LEVEL=debug
     ports:
       - 8787:8787
     volumes:
