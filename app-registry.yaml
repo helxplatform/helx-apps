@@ -561,7 +561,7 @@ contexts:
           rstudio-server: "8787"
         count: 1
         proxy-rewrite:
-          enabled: true
+          enabled: True
           target: /
   tracs:
     name: TraCS
