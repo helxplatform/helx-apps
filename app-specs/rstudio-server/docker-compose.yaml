@@ -3,11 +3,10 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:ashe-testing"
-    env:
-      - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
-      - RSTUDIO_SERVER_BASE_PATH=/
-      - RSTUDIO_LOG_LEVEL=info
+    image: "containers.renci.org/helxplatform/rstudio-server:v0.0.4"
+    # env:
+    #   - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
+    #   - RSTUDIO_LOG_LEVEL=debug
     ports:
       - 8787:8787
     volumes:
