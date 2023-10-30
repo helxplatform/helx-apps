@@ -1,7 +1,7 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "{{ helx_registry }}/helxplatform/jupyter-lab:spring-0.3.0"
+    image: "{{ helx_registry }}/helxplatform/jupyter-lab:spring-0.3.2"
     container_name: jupyter-lab
     user: "1000800040:0"
     entrypoint:
