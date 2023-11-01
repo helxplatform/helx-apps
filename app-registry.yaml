@@ -241,10 +241,12 @@ contexts:
         description: An integrated development environment for R.
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
-        # proxy-rewrite-rule: True
         services:
           rstudio-server: "8787"
         count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
       webtop:
         name: Webtop
         description: Webtop is a cloud native, browser accessible Linux desktop.
