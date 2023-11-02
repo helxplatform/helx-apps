@@ -18,4 +18,4 @@ services:
           memory: 6000M
         reservations:
           cpus: "1"
-          memory: 6000M
+          memory: 2000M
