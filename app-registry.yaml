@@ -142,6 +142,10 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      slicer:
+        ext:
+          kube:
+            readinessProbe: none
       webtop:
         ext:
           kube:
@@ -205,6 +209,11 @@ contexts:
         fsGroup: 1136
         runAsUser: 30000
         runAsGroup: 1136
+    slicer:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     rstudio-server:
       securityContext:
         fsGroup: 1136
@@ -247,6 +256,14 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+      slicer:
+        name: Slicer
+        description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
+        details: 3D Slicer is a free, open source software for visualization, processing, segmentation, registration, and analysis of medical, biomedical, and other 3D images and meshes; and planning and navigating image-guided procedures.
+        docs: https://www.slicer.org/
+        services:
+          slicer: "6901"
+        count: 1
       webtop:
         name: Webtop
         description: Webtop is a cloud native, browser accessible Linux desktop.

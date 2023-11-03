@@ -1,0 +1,24 @@
+version: "3"
+services:
+  slicer:
+    image: "{{ helx_registry }}/helxplatform/slicer:working-w-headless-user"
+    ports:
+      - 6901:6901
+    volumes:
+        - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 16384M
+          ephemeralStorage: 2048Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
+        reservations:
+          cpus: '.5'
+          memory: 8192M
+          ephemeralStorage: 1024Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
