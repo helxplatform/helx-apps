@@ -72,6 +72,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-datascience-db:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-education:
         ext:
           kube:
@@ -80,6 +87,13 @@ contexts:
               delay: 5
               period: 5
       jupyter-helx-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
+      jupyter-helx-db-notebook:
         ext:
           kube:
             livenessProbe:
@@ -202,9 +216,9 @@ contexts:
         fsGroup: ""
     rstudio-server:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        fsGroup: 1136
+        runAsUser: 30000
+        runAsGroup: ""
     webtop-image-apps:
       securityContext:
         fsGroup: 0
@@ -236,10 +250,12 @@ contexts:
         description: An integrated development environment for R.
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
-        proxy-rewrite-rule: True
         services:
-          rstudio-server: "8080"
+          rstudio-server: "8787"
         count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
       slicer:
         name: Slicer
         description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
@@ -644,26 +660,46 @@ contexts:
   testing:
     extends:
       - common
+    jupyter-datascience-db:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: 1136
+        fsGroup: 1136
+    jupyter-ds:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
+    jupyter-helx-notebook:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
+    jupyter-minimal-notebook:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     pgadmin:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        runAsUser: 30000
+        # runAsGroup: ""
+        # fsGroup: ""
     rstudio-server:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     webtop:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     webtop-octave:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     name: Testing App Registry
     apps:
       jupyter-datascience-db:
@@ -673,6 +709,33 @@ contexts:
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
           jupyter-datascience-db: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-helx-db-notebook:
+        name: Jupyter HeLx Db Notebook
+        description: Based on the Jupyter SciPy Notebook with some additional utilities for connecting with databases.
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-db-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-helx-notebook:
+        name: Jupyter HeLx Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-minimal-notebook:
+        name: Jupyter Minimal Notebook
+        description: Jupyter Minimal Notebook - A minimal Jupyter notebook that has the base apps and some command-line tools.
+        details: Includes Notebook, Jupyter Lab and Jupyter Hub with some command line tools.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-minimal-notebook
+        services:
+          jupyter-minimal-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       jupyter-lab:
@@ -690,7 +753,7 @@ contexts:
         details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
         docs: https://pgadmin.org/
         services:
-          pgadmin: "80"
+          pgadmin: "8080"
         proxy-rewrite-rule: True
         count: 1
       rstudio-server:
@@ -698,9 +761,8 @@ contexts:
         description: An integrated development environment for R.
         details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
         docs: https://www.rstudio.com/
-        proxy-rewrite-rule: True
         services:
-          rstudio-server: "8080"
+          rstudio-server: "8787"
         count: 1
       webtop:
         name: Webtop

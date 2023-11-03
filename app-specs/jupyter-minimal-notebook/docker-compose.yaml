@@ -1,0 +1,21 @@
+---
+# Docker compose formatted system.
+# NOTE: NB_PREFIX has to be set to "/" as an environment variable if running locally. 
+# If running via tycho from HeLx AppStore, tycho will set the variable.
+version: "3"
+services:
+  jupyter-minimal-notebook:
+    image: "{{ helx_registry }}/helxplatform/jupyter/docker-stacks/minimal-notebook:latest"
+    entrypoint:
+      # - start.sh jupyter lab --LabApp.token= --ip="*" --NotebookApp.base_url=${NB_PREFIX} --NotebookApp.allow_origin="*"
+      - jupyter lab --IdentityProvider.token=  --ServerApp.ip="*" --ServerApp.base_url=${NB_PREFIX} --ServerApp.allow_origin="*" --ServerApp.root_dir="/home/$USER" --no-browser --ServerApp.default_url=${NB_PREFIX}/lab
+    ports:
+      - 8888:8888
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4096M
+        reservations:
+          cpus: '.1'
+          memory: 50M
