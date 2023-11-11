@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:v0.0.4"
+    image: "containers.renci.org/helxplatform/rstudio-server:ordrd-v0.0.1"
     # env:
     #   - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
     #   - RSTUDIO_LOG_LEVEL=debug
