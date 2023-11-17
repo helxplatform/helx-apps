@@ -1,13 +1,13 @@
 version: "3"
 services:
   filebrowser:
-    image: "{{ helx_registry }}/helxplatform/filebrowser:v.2.24.0"
+    image: "{{ helx_registry }}/helxplatform/third-party/filebrowser"
     ports:
       - 8080:8080
     entrypoint:
       - /bin/sh
       - -c
-      - /filebrowser --noauth --root="/home" --address=0.0.0.0 --database=/config/filebrowser.db
+      - /filebrowser --noauth --root="/home" --address=0.0.0.0 --database=/database/filebrowser.db
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
