@@ -7,7 +7,7 @@ services:
     entrypoint:
       - /bin/sh
       - -c
-      - /filebrowser --noauth --root="/home" --address=0.0.0.0 --database="/home/{{ env['username'] }}/.filebrowser/filebrowser.db"
+      - /filebrowser --noauth --root=/home --address=0.0.0.0 --database=/home/{{ env["username"] }}/.filebrowser/filebrowser.db
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
