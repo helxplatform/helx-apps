@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "{{ helx_registry }}/helxplatform/filebrowser:v2.25.0"
+    image: "filebrowser:v2.26.0"
     ports:
       - 8080:8080
     entrypoint:
