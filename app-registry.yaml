@@ -60,7 +60,7 @@ repositories:
 settings:
   helx_registry: containers.renci.org
   third_party_registry: docker.io
-  helx_user: "\{\{ username \}\}"
+  helx_user: "{{ username }}"
 contexts:
   # The common context provides a convenient base set of applications.
   # Other contexts can extend it to include these apps.
