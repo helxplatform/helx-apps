@@ -1,7 +1,7 @@
 version: "3"
 services:
   slicer:
-    image: "{{ helx_registry }}/helxplatform/slicer:63490c9-202312051105-dirty"
+    image: "{{ helx_registry }}/helxplatform/slicer:working-w-hdls-usr-monai"
     ports:
       - 6901:6901
     volumes:
@@ -11,7 +11,7 @@ services:
         limits:
           cpus: '4'
           memory: 16384M
-          ephemeralStorage: 1024Mi
+          ephemeralStorage: 2048Mi
           devices:
             - capabilities: ["gpu"]
               count: "1"
