@@ -1,7 +1,7 @@
 version: "3"
 services:
   slicer:
-    image: "{{ helx_registry }}/helxplatform/slicer:working-w-headless-user"
+    image: "{{ helx_registry }}/helxplatform/slicer:working-w-hdls-usr-monai"
     ports:
       - 6901:6901
     volumes:
