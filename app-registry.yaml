@@ -534,15 +534,6 @@ contexts:
           jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
-      jupyter-r-notebook:
-        name: Jupyter R Notebook
-        description: Jupyter R Notebook - A Jupyter notebook with popular R packages.
-        details: Includes Notebook, Jupyter Lab, R interpreter, and misc packages from conda-forge.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-r-notebook
-        services:
-          jupyter-r-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
@@ -744,4 +735,13 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop: "3000"
+        count: 1
+      jupyter-r-notebook:
+        name: Jupyter R Notebook
+        description: Jupyter R Notebook - A Jupyter notebook with popular R packages.
+        details: Includes Notebook, Jupyter Lab, R interpreter, and misc packages from conda-forge.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-r-notebook
+        services:
+          jupyter-r-notebook: "8888"
+        proxy-rewrite-rule: True
         count: 1
