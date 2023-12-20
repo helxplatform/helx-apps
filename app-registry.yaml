@@ -622,13 +622,13 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-lab:
-        name: Jupyter Lab
-        description: Jupyter Lab - A Jupyter notebook for exploring and visualizing data.
-        details: Includes Python and packages from the scientific Python ecosystem.
+      jupyter-helx-notebook:
+        name: Jupyter HeLx Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-lab: "8888"
+          jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
