@@ -6,6 +6,10 @@ services:
       - 8888:8888
     volumes:
         - pvc://projects-pvc:/projects
+    # These env vars might be good if a GPU is not in use.  Maybe other times too.
+    # env:
+    #   - TF_ENABLE_ONEDNN_OPTS=0
+    #   - TF_CPP_MIN_LOG_LEVEL='2'
     deploy:
       resources:
         limits:
