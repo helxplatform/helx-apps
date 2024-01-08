@@ -629,24 +629,34 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-helx-notebook:
+      # jupyter-helx-notebook:
+      #   name: Jupyter HeLx Notebook
+      #   description: Based on the Jupyter SciPy Notebook.
+      #   details: Includes popular packages from the scientific Python ecosystem.
+      #   docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+      #   services:
+      #     jupyter-helx-notebook: "8888"
+      #   proxy-rewrite-rule: True
+      #   count: 1
+      # The jupyter-helx-tensorflow-nb modified with info from jupyter-helx-notebook.
+      jupyter-helx-tensorflow-nb:
         name: Jupyter HeLx Notebook
         description: Based on the Jupyter SciPy Notebook.
         details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-helx-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      jupyter-helx-tensorflow-nb:
-        name: Jupyter HeLx Tensorflow Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
           jupyter-helx-tensorflow-nb: "8888"
         proxy-rewrite-rule: True
         count: 1
+      # jupyter-helx-tensorflow-nb:
+      #   name: Jupyter HeLx Tensorflow Notebook
+      #   description: Based on the Jupyter SciPy Notebook.
+      #   details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+      #   docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+      #   services:
+      #     jupyter-helx-tensorflow-nb: "8888"
+      #   proxy-rewrite-rule: True
+      #   count: 1
       filebrowser:
         name: File Browser
         description: File Browser - a utility for browsing files through a web interface
