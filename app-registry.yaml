@@ -475,8 +475,8 @@ contexts:
         services:
           jupyter-lab: "8888"
         securityContext:
-          runAsUser: 1000
-          fsGroup: 1136
+          runAsUser: 1001
+          fsGroup: 0
         proxy-rewrite-rule: True
         gitea-integration: True
         count: 1
