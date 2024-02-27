@@ -617,7 +617,7 @@ contexts:
           pgadmin: "80"
         proxy-rewrite-rule: True
         count: 1
-  edu720-azure:
+  eduhelx-data720:
     name: UNC Helx for Education DATA720
     mixin:
       - sys
