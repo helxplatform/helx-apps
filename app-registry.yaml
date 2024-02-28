@@ -146,7 +146,7 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-helx-notebook:
+      helx-helx-notebook:
         name: Jupyter HeLx Notebook
         description: Based on the Jupyter SciPy Notebook.
         details: Includes popular packages from the scientific Python ecosystem.
@@ -212,4 +212,4 @@ contexts:
         count: 1
         proxy-rewrite:
           enabled: True
-          # target: /
+          target: /
