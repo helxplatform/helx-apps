@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-helx-tensorflow-nb:
-    image: "docker.io/helxplatform/helx-tensorflow-notebook:latest"
+    image: "docker.io/helxplatform/helx-tensorflow-notebook:v0.1.1"
     ports:
       - 8888:8888
     volumes:
