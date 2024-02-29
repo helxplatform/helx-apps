@@ -140,7 +140,10 @@ contexts:
       pgadmin:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              httpGet:
+                path: "/misc/ping"
+                port: "{{ system_port }}"
   common:
     name: HeLx Common App Registry
     mixin:
