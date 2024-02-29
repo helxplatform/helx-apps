@@ -143,7 +143,7 @@ contexts:
             readinessProbe:
               httpGet:
                 path: "/misc/ping"
-                port: "{{ system_port }}"
+                port: "8080"
   common:
     name: HeLx Common App Registry
     mixin:
