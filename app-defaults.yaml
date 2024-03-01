@@ -8,8 +8,7 @@
 #  system_port: The port the app is listening on; there can be multiple ports and if so is undefined
 ext:
   kube:
-#     readinessProbe:
-#       httpGet:
-#         path: 
-#         # path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}"
-#         port: "{{ system_port }}"
+    readinessProbe:
+      httpGet:
+        path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}"
+        port: "{{ system_port }}"
