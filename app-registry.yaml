@@ -137,10 +137,10 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      pgadmin:
-        ext:
-          kube:
-            readinessProbe: none
+      # pgadmin:
+      #   ext:
+      #     kube:
+      #       readinessProbe: none
               # httpGet:
               #   path: "/misc/ping"
               #   port: "8080"
