@@ -1,13 +1,14 @@
-# helx-apps
+# Helx-Apps
+Helx-Apps is used by HeLxPlatform to dynamically ingest various application combinations during deployments. The branches specify deployment contexts and should not be deleted. Presently, these branches and their contexts created within the [app-registry](https://github.com/helxplatform/helx-apps/blob/edu720-azure/app-registry.yaml) file also correspond with the settings of Appstore during deployment. See [djangoSettings](https://github.com/helxplatform/appstore-chart/blob/f508eab0990efb683951c1242b0914412f2f6698/values.yaml#L93) in the appstore chart. 
 
-A place to collect "app" spec files in the [Compose](https://docs.docker.com/compose/compose-file/) format.
-These are long-running, interactive web services rather than batch workflows.
+# App-Specs
+This repo generally exists to collect "app" spec files in the [Compose](https://docs.docker.com/compose/compose-file/) format. However, to faciliate robust usage of the Kubernetes environments these applications are destined, slight deviations to the compose spec were necessary. 
 
 See the Google doc ["App" Definition Proposal](https://docs.google.com/document/d/16IUgwDTlqsxn72NZZzwtrBNAi-4B4OjSA9r-QTFL5w0/edit) for more information.
 
 ## Overview
 
-Spec files are created in an app specific directory under `dockstore-yaml-proposals`.
+Spec files are created in an app specific directory under [app-specs](https://github.com/helxplatform/helx-apps/tree/develop/app-specs).
 
 Each app should be represented via the Compose file format [version 3](https://docs.docker.com/compose/compose-file/compose-file-v3/)
 containing the service image, ports etc.
