@@ -3,7 +3,6 @@ services:
   jupyter-lab:
     image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/eduhelx-data720:latest"
     container_name: jupyter-lab
-    user: "1001:0"
     entrypoint:
       - /init.sh
     ports:
