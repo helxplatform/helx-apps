@@ -6,7 +6,7 @@ services:
       - 8888:8888
     volumes:
         - pvc://projects-pvc:/projects
-        - pvc://persistent-scratch:/scratch
+        # - pvc://persistent-scratch:/scratch
     deploy:
       resources:
         limits:
