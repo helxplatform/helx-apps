@@ -698,91 +698,91 @@ contexts:
   testing:
     extends:
       - common
-    jupyter-datascience-db:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: 1136
-        fsGroup: 1136
-    jupyter-ds:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-helx-pytorch-nb:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-helx-tensorflow-nb:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-helx-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-minimal-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-nvidia-tf-nb:
-      securityContext:
-        runAsUser: 0
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-r-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    nvidia-tensorflow:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+    # jupyter-datascience-db:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: 1136
+    #     fsGroup: 1136
+    # jupyter-ds:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # jupyter-helx-pytorch-nb:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # jupyter-helx-tensorflow-nb:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # jupyter-helx-notebook:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # jupyter-minimal-notebook:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # jupyter-nvidia-tf-nb:
+    #   securityContext:
+    #     runAsUser: 0
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # jupyter-r-notebook:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # nvidia-tensorflow:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
     nvidia-tensorflow-root:
       securityContext:
         runAsUser: 0
         runAsGroup: ""
         fsGroup: ""
-    pgadmin:
-      securityContext:
-        runAsUser: 30000
-        # runAsGroup: ""
-        # fsGroup: ""
+    # pgadmin:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     # runAsGroup: ""
+    #     # fsGroup: ""
     rstudio-rocker:
       securityContext:
         runAsUser: 0
         runAsGroup: 0
         fsGroup: 0
-    rstudio-server:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: 0
-        fsGroup: 1136
-    rstudio-server-w-nginx:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: 0
-        fsGroup: 1136
-    slicer:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    webtop:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    webtop-octave:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
+    # rstudio-server:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: 0
+    #     fsGroup: 1136
+    # rstudio-server-w-nginx:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: 0
+    #     fsGroup: 1136
+    # slicer:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # webtop:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
+    # webtop-octave:
+    #   securityContext:
+    #     runAsUser: 30000
+    #     runAsGroup: ""
+    #     fsGroup: ""
     name: Testing App Registry
     apps:
       jupyter-datascience-db:
