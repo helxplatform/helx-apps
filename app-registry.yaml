@@ -94,12 +94,12 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-            readinessProbe:
-              httpGet:
-                path: /lab
-                port: 8888
-              delay: 5
-              period: 5
+            # readinessProbe:
+            #   httpGet:
+            #     path: /lab
+            #     port: 8888
+            #   delay: 5
+            #   period: 5
       cloud-top:
         ext:
           kube:
