@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-helx-pytorch-nb:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-pytorch-notebook:202404091804-pytorch-nightly"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-pytorch-notebook:202405021800-pytorch-nightly"
     ports:
       - 8888:8888
     volumes:
