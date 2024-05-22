@@ -1,7 +1,7 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "docker.io/frostyfan109/minimal-poetry-notebook:test0"
+    image: "{{ helx_registry }}/helxplatform/jupyter-lab:develop"
     container_name: jupyter-lab
     user: "jovyan:1136"
     entrypoint:

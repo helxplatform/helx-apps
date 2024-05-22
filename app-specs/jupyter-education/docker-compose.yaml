@@ -5,7 +5,7 @@
 version: "3"
 services:
   jupyter-education:
-    image: "docker.io/frostyfan109/minimal-poetry-notebook:test0"
+    image: "docker.io/frostyfan109/minimal-poetry-notebook:test1"
     entrypoint:
       - /bin/bash
       - -c
