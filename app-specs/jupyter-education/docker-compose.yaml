@@ -5,7 +5,7 @@
 version: "3"
 services:
   jupyter-education:
-    image: "{{ helx_registry }}/helxplatform/jupyter-education:v0.0.6"
+    image: "docker.io/frostyfan109/minimal-poetry-notebook:test0"
     entrypoint:
       - /bin/bash
       - -c
