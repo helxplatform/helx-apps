@@ -1,0 +1,17 @@
+version: "0.1.0"
+services:
+  jupyter-lab-professor:
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/jupyter-lab-professor:v0.0.3"
+    container_name: jupyter-lab-professor
+    entrypoint:
+      - /init.sh
+    ports:
+      - 8888:8888
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: 8000M
+        reservations:
+          cpus: "1"
+          memory: 4000M
