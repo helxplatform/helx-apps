@@ -508,6 +508,52 @@ contexts:
         services:
           cloud-top: 8080
         count: 1
+  eduhelx-dev-student:
+    name: EduHeLx Dev Student
+    mixin:
+      - sys
+    apps:
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-lab: "8888"
+        proxy-rewrite-rule: True
+        gitea-integration: True
+        count: 1
+      filebrowser:
+        name: File Browser
+        description: File Browser - a utility for browsing files through a web interface
+        details: File Browser provides a web interface for browsing files in a cloud environment.
+        docs: https://filebrowser.org/
+        services:
+          filebrowser: "8888"
+        count: 1
+  eduhelx-dev-professor:
+    name: EduHeLx Dev Professor
+    mixin:
+      - sys
+    apps:
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-lab: "8888"
+        proxy-rewrite-rule: True
+        gitea-integration: True
+        count: 1
+      filebrowser:
+        name: File Browser
+        description: File Browser - a utility for browsing files through a web interface
+        details: File Browser provides a web interface for browsing files in a cloud environment.
+        docs: https://filebrowser.org/
+        services:
+          filebrowser: "8888"
+        count: 1
   tracs:
     name: TraCS
     mixin:
