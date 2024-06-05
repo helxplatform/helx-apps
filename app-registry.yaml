@@ -215,4 +215,3 @@ contexts:
         count: 1
         proxy-rewrite:
           enabled: True
-          target: /
