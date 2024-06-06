@@ -212,6 +212,6 @@ contexts:
         docs: https://www.rstudio.com/
         services:
           rstudio-server: "8787"
+        proxy-rewrite-rule: True
         count: 1
-        proxy-rewrite:
-          enabled: True
+        
