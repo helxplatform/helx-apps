@@ -552,7 +552,6 @@ contexts:
         services:
           jupyter-lab-professor: "8888"
         proxy-rewrite-rule: True
-        gitea-integration: True
         count: 1
       filebrowser:
         name: File Browser
