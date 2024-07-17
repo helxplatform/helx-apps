@@ -1,7 +1,7 @@
 version: "0.1.0"
 services:
   jupyter-lab-professor:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/jupyter-lab-professor:v0.0.4"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/jupyter-lab-professor:merge-control.0"
     container_name: jupyter-lab-professor
     entrypoint:
       - /init.sh
