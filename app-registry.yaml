@@ -488,7 +488,6 @@ contexts:
         services:
           jupyter-lab: "8888"
         proxy-rewrite-rule: True
-        gitea-integration: True
         count: 1
       jupyter-education:
         name: Jupyter Data Science for Education
@@ -528,7 +527,6 @@ contexts:
         services:
           jupyter-lab: "8888"
         proxy-rewrite-rule: True
-        gitea-integration: True
         count: 1
       filebrowser:
         name: File Browser
