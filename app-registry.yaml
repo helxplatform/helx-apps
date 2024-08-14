@@ -527,7 +527,7 @@ contexts:
         services:
           rstudio-server: 8080
         count: 1
-     filebrowser:
+      filebrowser:
         name: File Browser
         description: File Browser - a utility for browsing files through a web interface
         details: File Browser provides a web interface for browsing files in a cloud environment.
