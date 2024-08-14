@@ -507,6 +507,13 @@ contexts:
         count: 1
   tracs:
     name: TraCS
+    rstudio-server:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
+    mixin:
+      - sys
     mixin:
       - sys
     apps:
@@ -534,21 +541,13 @@ contexts:
         docs: https://filebrowser.org/
         services:
           filebrowser: "8888"
-      pgadmin:
-        name: pgAdmin
-        description: pgAdmin - A database administration program for PostgreSQL.
-        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
-        docs: https://pgadmin.org/
+      jupyter-datascience-db:
+        name: Jupyter Data Science with SQLAlchemy
+        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data with SQLAlchemy support.
+        details: Includes R, Julia, and Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
         services:
-          pgadmin: "80"
-        proxy-rewrite-rule: True
-      jupyter-helx-tensorflow-nb:
-        name: Jupyter HeLx Tensorflow Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-tensorflow-nb: "8888"
+          jupyter-datascience-db: "8888"
         proxy-rewrite-rule: True
         count: 1
   eduhelx-sandbox:
