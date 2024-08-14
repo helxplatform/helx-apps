@@ -541,6 +541,7 @@ contexts:
         docs: https://filebrowser.org/
         services:
           filebrowser: "8888"
+        count: 1
       jupyter-datascience-db:
         name: Jupyter Data Science with SQLAlchemy
         description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data with SQLAlchemy support.
