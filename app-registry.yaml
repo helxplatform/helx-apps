@@ -196,6 +196,15 @@ contexts:
         services:
           filebrowser: "8888"
         count: 1
+      cloudbeaver:
+        name: cloudbeaver
+        description: cloudbeaver - A database administration program for multiple databases.
+        details: For testing 
+        docs: https://github.com/dbeaver/cloudbeaver
+        services:
+          pgadmin: "8978"
+        proxy-rewrite-rule: True
+        count: 1
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
@@ -212,9 +221,7 @@ contexts:
         docs: https://www.rstudio.com/
         services:
           rstudio-server: "8787"
-        proxy-rewrite-rule: False
-        # proxy-rewrite:
-        #   enabled: True
-        #   target: /
         count: 1
-        
+        proxy-rewrite:
+          enabled: True
+          target: /
