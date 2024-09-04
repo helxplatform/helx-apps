@@ -4,17 +4,13 @@ services:
     image: "{{ helx_registry }}/helxplatform/third-party/cloudbeaver:0.0.1"
     ports:
       - 8978:8978
-    # entrypoint:
-    #   - /bin/sh
-    #   - -c
-    #   - /filebrowser --noauth --root="/home" --address=0.0.0.0 --database=/config/filebrowser.db
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
-        resources:
-          limits:
-            cpus: '4'
-            memory: 4000M
-          reservations:
-            cpus: '1'
-            memory: 2000M
+      resources:
+        limits:
+          cpus: '4'
+          memory: 4000M
+        reservations:
+          cpus: '1'
+          memory: 2000M
