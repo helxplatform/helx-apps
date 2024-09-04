@@ -202,7 +202,7 @@ contexts:
         details: For testing 
         docs: https://github.com/dbeaver/cloudbeaver
         services:
-          pgadmin: "8978"
+          cloudbeaver: "8978"
         proxy-rewrite-rule: True
         count: 1
       pgadmin:
