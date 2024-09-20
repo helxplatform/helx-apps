@@ -1,9 +1,9 @@
 version: "3"
 services:
   cloudbeaver:
-    image: "{{ helx_registry }}/helxplatform/third-party/cloudbeaver:0.0.1"
+    image: "{{ helx_registry }}/helxplatform/third-party/cloudbeaver:0.0.2"
     ports:
-      - 8979:8978
+      - 8978:8978
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
