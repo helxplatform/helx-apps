@@ -140,7 +140,7 @@ contexts:
       cloudbeaver:
         ext:
           kube:
-            readiness: none
+            readinessProbe: none
       # pgadmin:
       #   ext:
       #     kube:
