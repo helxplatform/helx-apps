@@ -137,6 +137,10 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      cloudbeaver:
+        ext:
+          kube:
+            readiness: none
       # pgadmin:
       #   ext:
       #     kube:
