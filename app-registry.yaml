@@ -209,9 +209,7 @@ contexts:
           cloudbeaver: "8978"
         count: 1
         # same as Rstudio needs
-        proxy-rewrite:
-          enabled: True
-          target: /
+        proxy-rewrite-rule: True
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
