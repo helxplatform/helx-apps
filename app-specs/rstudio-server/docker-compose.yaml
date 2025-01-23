@@ -3,7 +3,8 @@
 version: "3"
 services:
   rstudio-server:
-    image: "joshuaseals/rstudio-server:latest"
+    image: "containers.renci.org/helxplatform/rstudio-server:ordrd-v0.0.3"
+    # image: "joshuaseals/rstudio-server:latest"
     # env:
     #   - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
     #   - RSTUDIO_LOG_LEVEL=debug
@@ -18,7 +19,7 @@ services:
             memory: 12G
           reservations:
             cpus: '1'
-            memory: 12G
+            memory: 6G
 # ---
 # # Docker compose formatted system.
 # version: "3"
