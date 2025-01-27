@@ -208,7 +208,7 @@ contexts:
         services:
           cloudbeaver: "8978"
         count: 1
-        same as Rstudio needs
+        # same as Rstudio needs
         proxy-rewrite-rule: True
       pgadmin:
         name: pgAdmin
