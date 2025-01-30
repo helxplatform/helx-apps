@@ -200,16 +200,16 @@ contexts:
         services:
           filebrowser: "8888"
         count: 1
-      cloudbeaver:
-        name: cloudbeaver
-        description: cloudbeaver - A database administration program for multiple databases.
-        details: For testing 
-        docs: https://github.com/dbeaver/cloudbeaver
-        services:
-          cloudbeaver: "8978"
-        count: 1
-        # same as Rstudio needs
-        proxy-rewrite-rule: True
+      # cloudbeaver:
+      #   name: cloudbeaver
+      #   description: cloudbeaver - A database administration program for multiple databases.
+      #   details: For testing 
+      #   docs: https://github.com/dbeaver/cloudbeaver
+      #   services:
+      #     cloudbeaver: "8978"
+      #   count: 1
+      #   # same as Rstudio needs
+      #   proxy-rewrite-rule: True
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
