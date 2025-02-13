@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio:0.1.6"
+    image: "containers.renci.org/eds/eds-rstudio:latest"
     ports:
       - 8080:8080
     volumes:
@@ -12,7 +12,7 @@ services:
         resources:
           limits:
             cpus: '2'
-            memory: 2048M
+            memory: 128G
           reservations:
             cpus: '.5'
             memory: 1024M
