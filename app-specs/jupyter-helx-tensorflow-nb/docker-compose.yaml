@@ -15,8 +15,7 @@ services:
         limits:
           cpus: "4"
           memory: 8000M
-          ephemeralStorage: 512M
         reservations:
           cpus: "1"
           memory: 4000M
-          ephemeralStorage: 200M
+
