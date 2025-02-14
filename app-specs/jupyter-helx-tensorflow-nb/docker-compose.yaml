@@ -19,4 +19,4 @@ services:
         reservations:
           cpus: "1"
           memory: 4000M
-          ephemeralStorage: 128M
+          ephemeralStorage: 200M
