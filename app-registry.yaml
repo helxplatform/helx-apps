@@ -180,7 +180,6 @@ contexts:
       rstudio-server:
         ext:
           kube:
-            # readinessProbe: none
             readinessProbe:
               httpGet:
                 path: /
@@ -227,6 +226,8 @@ contexts:
           fsGroup: ""
   helx:
     name: HeLx App Registry
+    mixin:
+      - sys
     apps:
       filebrowser:
         name: File Browser
