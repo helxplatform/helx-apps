@@ -1,7 +1,7 @@
 version: "3"
 services:
   slicer:
-    image: "{{ helx_registry }}/helxplatform/slicer:82d053a-202309011316-dirty"
+    image: "{{ helx_registry }}/helxplatform/slicer:working-w-headless-user"
     ports:
       - 6901:6901
     volumes:

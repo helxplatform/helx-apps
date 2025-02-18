@@ -1,11 +1,15 @@
 version: "3"
 services:
   jupyter-helx-tensorflow-nb:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:develop-cuda-20230921"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:v0.1.0"
     ports:
       - 8888:8888
     volumes:
         - pvc://projects-pvc:/projects
+    # These env vars might be good if a GPU is not in use.  Maybe other times too.
+    # env:
+    #   - TF_ENABLE_ONEDNN_OPTS=0
+    #   - TF_CPP_MIN_LOG_LEVEL='2'
     deploy:
       resources:
         limits:
