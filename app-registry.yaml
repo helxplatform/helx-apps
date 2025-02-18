@@ -180,13 +180,13 @@ contexts:
       rstudio-server:
         ext:
           kube:
-            readinessProbe: none
-            # readinessProbe:
-            #   httpGet:
-            #     path: /
-            #     port: 8787
-            #   delay: 5
-            #   period: 5
+            # readinessProbe: none
+            readinessProbe:
+              httpGet:
+                path: /
+                port: 8787
+              delay: 5
+              period: 5
       rstudio-server-w-nginx:
         ext:
           kube:
