@@ -1,0 +1,24 @@
+version: "3"
+services:
+  jupyter-helx-py38-nb:
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:python-3.8-torch-1.7.1-cuda-10.2-v0.0.2"  
+    ports:
+      - 8888:8888
+    volumes:
+        - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4096M
+          ephemeralStorage: 4096Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
+        reservations:
+          cpus: '.5'
+          memory: 250M
+          ephemeralStorage: 256Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"

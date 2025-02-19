@@ -1,6 +1,5 @@
 version: '3.6'
 services:
-
    webtop:
       image: "{{ helx_registry }}/helxplatform/webtop/base:v0.0.2"
       container_name: webtop

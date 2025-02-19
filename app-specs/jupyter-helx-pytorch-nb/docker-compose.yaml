@@ -1,0 +1,25 @@
+version: "3"
+services:
+  jupyter-helx-pytorch-nb:
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-pytorch-notebook:202405021800-pytorch-nightly"
+    ports:
+      - 8888:8888
+    volumes:
+        - pvc://projects-pvc:/projects
+        # - pvc://persistent-scratch:/scratch
+    deploy:
+      resources:
+        limits:
+          cpus: '16'
+          memory: 32768M
+          ephemeralStorage: 4096Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
+        reservations:
+          cpus: '.5'
+          memory: 250M
+          ephemeralStorage: 256Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"

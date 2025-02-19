@@ -1,6 +1,5 @@
 version: '3.6'
 services:
-
    webtop-octave:
       image: "{{ helx_registry }}/helxplatform/webtop/octave:v0.0.2"
       container_name: webtop-octave
