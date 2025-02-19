@@ -10,7 +10,7 @@ services:
     ports:
       - 8787:8787
     volumes:
-      - pvc://projects-pvc:/projects
+      - pvc://projects-ees-pvc:/projects/ees
     deploy:
         resources:
           limits:
