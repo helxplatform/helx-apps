@@ -223,15 +223,68 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-helx-notebook:
-        name: Jupyter HeLx Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
+#      filebrowser:
+#        name: File Browser
+#        description: File Browser - a utility for browsing files through a web interface
+#        details: File Browser provides a web interface for browsing files in a cloud environment.
+#        docs: https://filebrowser.org/
+#        services:
+#          filebrowser: "8888"
+#        count: 1
+#      imagej:
+#        name: ImageJ Viewer
+#        description: Imagej is an image processor developed at NIH/LOCI.
+#        details: can display, edit, analyze, process, save and print 8-bit, 16-bit and 32-bit images. It can read many image formats.
+#        docs: https://imagej.nih.gov/ij/
+#        services:
+#          imagej: 8080
+#        count: 1
+      # TODO: separate napari and imagej, updating these appropriately.
+#      jupyter-datascience-db:
+#        name: Jupyter Data Science with SQLAlchemy
+#        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data with SQLAlchemy support.
+#        details: Includes R, Julia, and Python.
+#        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+#        services:
+#          jupyter-datascience-db: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      jupyter-helx-db-notebook:
+#        name: Jupyter HeLx Db Notebook
+#        description: Based on the Jupyter SciPy Notebook with some additional utilities for connecting with databases.
+#        details: Includes popular packages from the scientific Python ecosystem.
+#        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+#        services:
+#          jupyter-helx-db-notebook: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      jupyter-helx-notebook:
+#        name: Jupyter HeLx Notebook
+#        description: Based on the Jupyter SciPy Notebook.
+#        details: Includes popular packages from the scientific Python ecosystem.
+#        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+#        services:
+#          jupyter-helx-notebook: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      jupyter-helx-pytorch-nb:
+#        name: Jupyter HeLx pyTorch Notebook
+#        description: Based on the Jupyter SciPy Notebook.
+#        details: Includes pyTorch.
+#        docs: https://pytorch.org/
+#        services:
+#          jupyter-helx-pytorch-nb: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      jupyter-helx-tensorflow-nb:
+#        name: Jupyter HeLx Tensorflow Notebook
+#        description: Based on the Jupyter SciPy Notebook.
+#        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+#        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+#        services:
+#          jupyter-helx-tensorflow-nb: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
       jupyter-lab:
         name: Jupyter Lab
         description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
@@ -242,25 +295,67 @@ contexts:
         proxy-rewrite-rule: True
         gitea-integration: False
         count: 1
-      jupyter-r-notebook:
-        name: Jupyter R Notebook
-        description: Jupyter R Notebook - A Jupyter notebook with popular R packages.
-        details: Includes Notebook, Jupyter Lab, R interpreter, and misc packages from conda-forge.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-r-notebook
-        services:
-          jupyter-r-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      jupyter-helx-tensorflow-nb:
-        name: Jupyter HeLx Tensorflow Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-tensorflow-nb: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-
+#      jupyter-r-notebook:
+#        name: Jupyter R Notebook
+#        description: Jupyter R Notebook - A Jupyter notebook with popular R packages.
+#        details: Includes Notebook, Jupyter Lab, R interpreter, and misc packages from conda-forge.
+#        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-r-notebook
+#        services:
+#          jupyter-r-notebook: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      kstars:
+#        name: KStars And DS9
+#        description: Sample FITS image file handling software.
+#        details: FITS image file handling software and sample FITS files for demo.
+#        docs: https://www.loc.gov/preservation/digital/formats/fdd/fdd000317.shtml
+#        services:
+#          kstars: 8080
+#        count: 1
+#      napari:
+#        name: Napari Image Viewer
+#        description: Napari is a fast, interactive, multi-dimensional image viewer.
+#        details: It enables browsing, annotating, and analyzing large multi-dimensional images.
+#        docs: https://napari.org/
+#        services:
+#          napari : 8080
+#        count: 1
+#      nvidia-tensorflow:
+#        name: NVIDIA Tensorflow
+#        description: Includes support for using Tensorflow with CUDA.  Opens a tmux (terminal multiplexer) in a web terminal interface.
+#        details: The TensorFlow NGC Container is optimized for GPU acceleration, and contains a validated set of libraries that enable and optimize GPU performance.
+#        docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
+#        services:
+#          nvidia-tensorflow: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      nvidia-tensorflow-root:
+#        name: NVIDIA Tensorflow running as root
+#        description: Includes support for using Tensorflow with CUDA.  Opens a tmux (terminal multiplexer) in a web terminal interface.
+#        details: The TensorFlow NGC Container is optimized for GPU acceleration, and contains a validated set of libraries that enable and optimize GPU performance.
+#        docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
+#        services:
+#          nvidia-tensorflow-root: "8888"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      pgadmin:
+#        name: pgAdmin
+#        description: pgAdmin - A database administration program for PostgreSQL.
+#        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+#        docs: https://pgadmin.org/
+#        services:
+#          pgadmin: "8080"
+#        proxy-rewrite-rule: True
+#        count: 1
+#      rstudio-rocker:
+#        name: RStudio Server from rocker
+#        description: An integrated development environment for R.
+#        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+#        docs: https://www.rstudio.com/
+#        services:
+#          rstudio-rocker: "8080"
+#        count: 1
+#        proxy-rewrite-rule: True
       rstudio-server:
         name: RStudio Server
         description: An integrated development environment for R.
@@ -272,3 +367,55 @@ contexts:
         proxy-rewrite:
           enabled: true
           target: /
+#      rstudio-server-w-nginx:
+#        name: RStudio Server with a Nginx sidecar
+#        description: An integrated development environment for R.
+#        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+#        docs: https://www.rstudio.com/
+#        services:
+#          rstudio-server-w-nginx: "8080"
+#        count: 1
+#        # proxy-rewrite-rule: True
+#        proxy-rewrite:
+#          enabled: true
+#          target: /
+#      scout:
+#        name: SCOUT
+#        description: SCOUT is an open-source Python package for performing volumetric image analysis of intact cerebral organoids.
+#        details: A Ubuntu graphical desktop environment for experimenting with SCOUT application in the cloud.
+#        docs: https://chunglabmit.github.io/scout/#
+#        services:
+#          scout : 8080
+#        count: 1
+#      slicer:
+#        name: Slicer
+#        description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
+#        details: 3D Slicer is a free, open source software for visualization, processing, segmentation, registration, and analysis of medical, biomedical, and other 3D images and meshes; and planning and navigating image-guided procedures.
+#        docs: https://www.slicer.org/
+#        services:
+#          slicer: "6901"
+#        count: 1
+#      webtop:
+#        name: Webtop
+#        description: Webtop is a cloud native, browser accessible Linux desktop.
+#        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+#        docs: https://github.com/linuxserver/docker-webtop
+#        services:
+#          webtop: "3000"
+#        count: 1
+#      webtop-image-apps:
+#        name: Webtop Image Apps
+#        description: Webtop is a cloud native, browser accessible Linux desktop.
+#        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
+#        docs: https://github.com/linuxserver/docker-webtop
+#        services:
+#          webtop-image-apps: "3000"
+#        count: 1
+#      webtop-octave:
+#        name: Octave
+#        description: A scientific programming language largely compatible with MATLAB.
+#        details: GNU Octave is a high-level language, primarily intended for numerical computations.
+#        docs: https://www.gnu.org/software/octave
+#        services:
+#          webtop-octave : "3000"
+#        count: 1
