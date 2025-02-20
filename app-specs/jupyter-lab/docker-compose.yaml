@@ -1,7 +1,7 @@
 version: "0.0.1"
 services:
   jupyter-lab:
-    image: "containers.renci.org/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.1"
+    image: "containers.renci.org/helxplatform/jupyter/minimal-poetry-notebook:v0.0.6"
     container_name: jupyter-lab
 #    entrypoint:
 #      - /bin/bash
