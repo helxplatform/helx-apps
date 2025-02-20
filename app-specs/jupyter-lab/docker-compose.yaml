@@ -6,7 +6,7 @@ services:
     entrypoint:
       - /bin/bash
       - -c
-      - start-jupyter-lab.sh
+      - sleep infinity
     ports:
       - 8888:8888
     deploy:
