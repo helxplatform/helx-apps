@@ -1,7 +1,7 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "containers.renci.org/helxplatform/jupyter-lab:latest"
+    image: "containers.renci.org/helxplatform/jupyter-lab-prof:develop"
     container_name: jupyter-lab
     user: "jovyan:1136"
     entrypoint:
