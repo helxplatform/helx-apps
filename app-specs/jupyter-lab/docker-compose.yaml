@@ -1,7 +1,7 @@
 version: "0.1.0"
 services:
   jupyter-lab:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/jupyter-lab-professor:latest"
+    image: "containers.renci.org/helxplatform/jupyter-lab:latest"
     container_name: jupyter-lab
     user: "jovyan:1136"
     entrypoint:
@@ -13,8 +13,14 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2'
-          memory: 4096M
+          cpus: '4'
+          memory: 64000M
+          devices:
+            - capabilities: [ "gpu" ]
+              count: "1"
         reservations:
           cpus: '1'
           memory: 1000M
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
