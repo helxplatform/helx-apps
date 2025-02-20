@@ -1,9 +1,8 @@
-version: "0.1.0"
+version: "0.0.1"
 services:
   jupyter-lab:
-    image: "containers.renci.org/helxplatform/jupyter-lab-prof:develop"
+    image: "containers.renci.org/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.1"
     container_name: jupyter-lab
-    user: "jovyan:1136"
     entrypoint:
       - /bin/bash
       - -c
