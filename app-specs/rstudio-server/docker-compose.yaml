@@ -3,16 +3,16 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:v0.0.4"
+    image: "containers.renci.org/helxplatform/rstudio-server:v0.1.1"
     ports:
       - 8787:8787
     volumes:
-        - pvc://projects-pvc:/projects
+      - pvc://projects-pvc:/projects
     deploy:
-        resources:
-          limits:
-            cpus: '2'
-            memory: 2048M
-          reservations:
-            cpus: '.5'
-            memory: 1024M
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2048M
+        reservations:
+          cpus: ".5"
+          memory: 1024M
