@@ -3,10 +3,10 @@ services:
   jupyter-lab:
     image: "containers.renci.org/helxplatform/jupyter/minimal-poetry-notebook:v0.0.6"
     container_name: jupyter-lab
-#    entrypoint:
-#      - /bin/bash
-#      - -c
-#      - start-jupyter-lab.sh
+    entrypoint:
+      - /bin/bash
+      - -c
+      - start-jupyter-lab.sh
     ports:
       - 8888:8888
     volumes:
