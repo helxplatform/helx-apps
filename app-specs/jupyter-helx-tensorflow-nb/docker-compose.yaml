@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-helx-tensorflow-nb:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:v0.1.0"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.1"
     ports:
       - 8888:8888
     volumes:
