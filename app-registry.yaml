@@ -232,15 +232,6 @@ contexts:
           jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
-      jupyter-helx-tensorflow-nb:
-        name: Jupyter HeLx Tensorflow Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-tensorflow-nb: "8888"
-        proxy-rewrite-rule: True
-        count: 1
       jupyter-lab:
         name: Jupyter Lab
         description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
@@ -251,15 +242,6 @@ contexts:
         proxy-rewrite-rule: True
         gitea-integration: False
         count: 1
-      jupyter-nvidia-tf-nb:
-        name: Jupyter NVIDIA Tensorflow Notebook
-        description: NVIDIA's Tensorflow image.
-        details: Tensorflow image built by NVIDIA with CUDA support.
-        docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
-        services:
-          jupyter-nvidia-tf-nb: "8888"
-        proxy-rewrite-rule: True
-        count: 1
       jupyter-r-notebook:
         name: Jupyter R Notebook
         description: Jupyter R Notebook - A Jupyter notebook with popular R packages.
@@ -269,24 +251,6 @@ contexts:
           jupyter-r-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
-      nvidia-tensorflow:
-        name: NVIDIA Tensorflow
-        description: Includes support for using Tensorflow with CUDA.  Opens a tmux (terminal multiplexer) in a web terminal interface.
-        details: The TensorFlow NGC Container is optimized for GPU acceleration, and contains a validated set of libraries that enable and optimize GPU performance.
-        docs: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow
-        services:
-          nvidia-tensorflow: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      rstudio-rocker:
-        name: RStudio Server from rocker
-        description: An integrated development environment for R.
-        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
-        docs: https://www.rstudio.com/
-        services:
-          rstudio-rocker: "8080"
-        count: 1
-        proxy-rewrite-rule: True
       rstudio-server:
         name: RStudio Server
         description: An integrated development environment for R.
@@ -295,7 +259,6 @@ contexts:
         services:
           rstudio-server: "8787"
         count: 1
-        # proxy-rewrite-rule: True
         proxy-rewrite:
           enabled: true
           target: /
