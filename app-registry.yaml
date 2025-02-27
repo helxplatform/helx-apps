@@ -236,7 +236,7 @@ contexts:
         runAsGroup: 0
     name: HeLx App Registry
     apps:
-      jupyter-helx-nodebook:
+      jupyter-helx-notebook:
         name: jupyter2
         description: Based on the Jupyter SciPy Notebook.
         details: Includes popular packages from the scientific Python ecosystem. 
