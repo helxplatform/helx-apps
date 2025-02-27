@@ -236,6 +236,15 @@ contexts:
         runAsGroup: 0
     name: HeLx App Registry
     apps:
+      jupyter-helx-nodebook:
+        name: jupyter2
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem. 
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
