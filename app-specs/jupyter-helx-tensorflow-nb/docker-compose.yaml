@@ -1,21 +1,18 @@
-version: "3"
+version: "0.0.1"
 services:
   jupyter-helx-tensorflow-nb:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.1"
+    image: "containers.renci.org/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.1"
+    container_name: jupyter-lab
     ports:
       - 8888:8888
     volumes:
-        - pvc://projects-pvc:/projects
-    # These env vars might be good if a GPU is not in use.  Maybe other times too.
-    # env:
-    #   - TF_ENABLE_ONEDNN_OPTS=0
-    #   - TF_CPP_MIN_LOG_LEVEL='2'
+      - pvc://projects-pvc:/projects
     deploy:
       resources:
         limits:
           cpus: '4'
           memory: 8192M
-          ephemeralStorage: 4096Mi
+          ephemeralStorage: 2048Mi
           devices:
             - capabilities: ["gpu"]
               count: "1"
