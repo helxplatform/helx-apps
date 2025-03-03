@@ -6,12 +6,12 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - pvc://projects-pvc:/projects
+      - pvc://projects-ees-pvc:/projects/ees
     deploy:
       resources:
         limits:
           cpus: '4'
-          memory: 8192M
+          memory: 64000M
           ephemeralStorage: 2048Mi
           devices:
             - capabilities: ["gpu"]
