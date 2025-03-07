@@ -7,20 +7,20 @@ services:
       - 8888:8888
     volumes:
       - pvc://projects-ees-pvc:/projects/ees
-      - pvc://stdnfs:/tmp
+#      - pvc://stdnfs:/tmp
     deploy:
       resources:
         limits:
           cpus: '4'
           memory: 64000M
-          ephemeralStorage: 128Mi
+          ephemeralStorage: 1024Mi
           devices:
             - capabilities: ["gpu"]
               count: "1"
         reservations:
           cpus: '1'
           memory: 5000M
-          ephemeralStorage: 50Mi
+          ephemeralStorage: 256Mi
           devices:
             - capabilities: ["gpu"]
               count: "0"
