@@ -12,7 +12,7 @@ services:
         limits:
           cpus: '4'
           memory: 64000M
-          ephemeralStorage: 2048Mi
+          ephemeralStorage: 512Mi
           devices:
             - capabilities: ["gpu"]
               count: "1"
