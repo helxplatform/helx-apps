@@ -11,6 +11,7 @@ services:
       - 8787:8787
     volumes:
       - pvc://projects-ees-pvc:/projects/ees
+      - pvc://projects-prediction-work-pvc:/projects/prediction_work
     deploy:
         resources:
           limits:
