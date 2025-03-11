@@ -7,7 +7,7 @@ services:
       - 8888:8888
     volumes:
       - pvc://projects-ees-pvc:/projects/ees
-      - pvc://stdnfs/<user>/tmp:/tmp
+      - pvc://projects-prediction-work-pvc:/projects/prediction_work
     deploy:
       resources:
         limits:
