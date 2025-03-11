@@ -6,7 +6,6 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - pvc://projects-ees-pvc:/projects/ees
       - pvc://projects-prediction-work-pvc:/projects/prediction_work
     deploy:
       resources:
