@@ -14,4 +14,4 @@ services:
           memory: 8000M
         reservations:
           cpus: '.5'
-          memory: 512M
+          memory: 8000M
