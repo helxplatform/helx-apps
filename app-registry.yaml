@@ -274,7 +274,7 @@ contexts:
         details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-helx-notebook: "8888"
+          jupyter-helx-notebook-renci: "8888"
         proxy-rewrite-rule: True
         count: 1
 #      jupyter-helx-pytorch-nb:
