@@ -4,11 +4,14 @@ services:
     image: "containers.renci.org/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.1"
     ports:
       - 8888:8888
+    volumes:
+      - pvc://projects-ees-pvc:/projects/ees
+      - pvc://projects-prediction-work-pvc:/projects/prediction_work
     deploy:
       resources:
         limits:
           cpus: '4'
-          memory: 128000M
+          memory: 8000M
         reservations:
           cpus: '.5'
           memory: 8000M

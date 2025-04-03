@@ -259,9 +259,19 @@ contexts:
 #        proxy-rewrite-rule: True
 #        count: 1
       jupyter-helx-notebook:
-        name: Jupyter HeLx Notebook
+        name: Jupyter HeLx Notebook (8GB memory with TensorFlow)
+        description: Based on the Jupyter SciPy Notebook. Note this app is only provisioned with 8GB of memory.
+        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+
+      jupyter-helx-notebook-renci:
+        name: Jupyter HeLx Notebook (Access to /projects and includes TensorFlow)
         description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.
+        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
           jupyter-helx-notebook: "8888"
