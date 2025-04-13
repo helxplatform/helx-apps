@@ -149,6 +149,15 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      pgadmin:
+        ext:
+          kube:
+            readinessProbe:
+              httpGet:
+                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/misc/ping"
+                port: 8080
+              delay: 10
+              period: 10
   common:
     name: HeLx Common App Registry
     mixin:
