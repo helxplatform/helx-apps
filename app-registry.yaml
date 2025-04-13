@@ -94,6 +94,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-r-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       cloud-top:
         ext:
           kube:
@@ -121,7 +128,12 @@ contexts:
       rstudio-server:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              httpGet:
+                path: /
+                port: 8787
+              delay: 5
+              period: 5
       webtop:
         ext:
           kube:
@@ -141,7 +153,12 @@ contexts:
       pgadmin:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              httpGet:
+                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/misc/ping"
+                port: 8080
+              delay: 10
+              period: 10
   common:
     name: HeLx Common App Registry
     mixin:
@@ -505,6 +522,49 @@ contexts:
         services:
           cloud-top: 8080
         count: 1
+
+  ordrd:
+    name: UNC Clenical Health Records Analysis
+    mixin:
+      - sys
+    apps:
+      filebrowser:
+        name: File Browser
+        description: File Browser - a utility for browsing files through a web interface
+        details: File Browser provides a web interface for browsing files in a cloud environment.
+        docs: https://filebrowser.org/
+        services:
+          filebrowser: "8888"
+        count: 1
+      jupyter-helx-notebook:
+        name: Jupyter HeLx Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      pgadmin:
+        name: pgAdmin
+        description: pgAdmin - A database administration program for PostgreSQL.
+        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
+        docs: https://pgadmin.org/
+        services:
+          pgadmin: "8080"
+        proxy-rewrite-rule: True
+        count: 1
+      rstudio-server:
+        name: RStudio Server
+        description: An integrated development environment for R.
+        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+        docs: https://www.rstudio.com/
+        services:
+          rstudio-server: "8787"
+        count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
   tracs:
     name: TraCS
     mixin:
@@ -686,4 +746,13 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop: "3000"
+        count: 1
+      jupyter-r-notebook:
+        name: Jupyter R Notebook
+        description: Jupyter R Notebook - A Jupyter notebook with popular R packages.
+        details: Includes Notebook, Jupyter Lab, R interpreter, and misc packages from conda-forge.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-r-notebook
+        services:
+          jupyter-r-notebook: "8888"
+        proxy-rewrite-rule: True
         count: 1
