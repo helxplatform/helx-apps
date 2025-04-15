@@ -4,8 +4,8 @@ version: "3"
 services:
   rstudio-server:
     image: "containers.renci.org/helxplatform/rstudio-server:v0.2.1"
-    env:
-      - RSTUDIO_LOG_LEVEL=debug
+    # env:
+    #   - RSTUDIO_LOG_LEVEL=debug
     #   - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
     ports:
       - 8787:8787
