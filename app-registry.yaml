@@ -221,6 +221,16 @@ contexts:
           jupyter-helx-tensorflow-nb: "8888"
         proxy-rewrite-rule: True
         count: 1
+      jupyter-lab:
+        name: Jupyter Lab
+        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
+        details: Includes Python.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
+        services:
+          jupyter-lab: "8888"
+        proxy-rewrite-rule: True
+        gitea-integration: False
+        count: 1
       jupyter-minimal-notebook:
         name: Jupyter Minimal Notebook
         description: Jupyter Minimal Notebook - A minimal Jupyter notebook that has the base apps and some command-line tools.
@@ -264,4 +274,20 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop: "3000"
+        count: 1
+      webtop-image-apps:
+        name: Webtop Image Apps
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop-image-apps: "3000"
+        count: 1
+      webtop-octave:
+        name: Octave
+        description: A scientific programming language largely compatible with MATLAB.
+        details: GNU Octave is a high-level language, primarily intended for numerical computations.
+        docs: https://www.gnu.org/software/octave 
+        services:
+          webtop-octave : "3000"
         count: 1
