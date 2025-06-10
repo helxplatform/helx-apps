@@ -123,7 +123,8 @@ contexts:
           kube:
             readinessProbe:
               httpGet:
-                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/health-check"
+                # Need to use root path instead of default private url
+                path: "/"
                 port: "{{ system_port }}"
       webtop:
         ext:
