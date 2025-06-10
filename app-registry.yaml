@@ -121,7 +121,10 @@ contexts:
       rstudio-server:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              httpGet:
+                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/health-check"
+                port: "{{ system_port }}"
       webtop:
         ext:
           kube:
