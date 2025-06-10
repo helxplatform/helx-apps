@@ -121,11 +121,7 @@ contexts:
       rstudio-server:
         ext:
           kube:
-            readinessProbe:
-              httpGet:
-                # Need to use root path instead of default private url
-                path: "/"
-                port: "{{ system_port }}"
+            readinessProbe: none
       webtop:
         ext:
           kube:
