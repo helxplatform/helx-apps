@@ -137,11 +137,19 @@ contexts:
       webtop-pgadmin:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              httpGet:
+                # Need to use root path instead of default private url
+                path: "/"
+                port: "{{ system_port }}"
       pgadmin:
         ext:
           kube:
-            readinessProbe: none
+            readinessProbe:
+              httpGet:
+                # Root path creates orphan sessions on every probe
+                path: "/private/{{ system_name }}/{{ username }}/{{ identifier }}/misc/ping"
+                port: "{{ system_port }}"
   common:
     name: HeLx Common App Registry
     mixin:
