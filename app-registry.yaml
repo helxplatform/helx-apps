@@ -122,11 +122,11 @@ contexts:
         ext:
           kube:
             readinessProbe:
+              initialDelaySeconds: 30
               httpGet:
                 # Need to use root path instead of default private url
                 path: "/"
                 port: "{{ system_port }}"
-              initialDelaySeconds: 60
       webtop:
         ext:
           kube:
