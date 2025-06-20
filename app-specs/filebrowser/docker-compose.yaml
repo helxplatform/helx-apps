@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "{{ third_party_registry }}/hurlenko/filebrowser"
+    image: "containers.renci.org/helxplatform/third-party/filebrowser:security-upgrades"
     ports:
       - 8080:8080
     entrypoint:
