@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:security-upgrades-10-user-debug"
+    image: "containers.renci.org/helxplatform/rstudio-server:security-upgrades-chmod-debug"
     # env:
     #   - RSTUDIO_LOG_LEVEL=debug
     #   - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
