@@ -9,7 +9,7 @@ services:
       resources:
         limits:
           cpus: '4'
-          memory: 32000M
+          memory: 64000M
           ephemeralStorage: 1024Mi
           devices:
             - capabilities: ["gpu"]
