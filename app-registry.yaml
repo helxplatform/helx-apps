@@ -125,8 +125,8 @@ contexts:
           kube:
             livenessProbe:
               cmd: ["pgrep", "jupyter" ]
-              delay: 500
-              period: 500
+              delay: 5
+              period: 5
       jupyter-lab:
         ext:
           kube:
