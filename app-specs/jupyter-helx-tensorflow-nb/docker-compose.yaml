@@ -1,7 +1,7 @@
 version: "0.0.1"
 services:
   jupyter-helx-tensorflow-nb:
-    image: "containers.renci.org/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.2"
+    image: "containers.renci.org/helxplatform/jupyter/helx-notebook/helx-tensorflow-notebook:v0.2.2"
     container_name: jupyter-lab
     ports:
       - 8888:8888
