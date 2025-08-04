@@ -10,7 +10,7 @@ services:
         limits:
           cpus: '8'
           memory: 64000M
-          ephemeralStorage: 4096Mi
+          ephemeralStorage: 2048Mi
           devices:
             - capabilities: ["gpu"]
               count: "1"
