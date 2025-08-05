@@ -234,6 +234,11 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
+    atlas:
+      securityContext:
+        fsGroup: 0
+        runAsUser: 0
+        runAsGroup: 0
     name: HeLx App Registry
     apps:
       jupyter-helx-notebook:
@@ -288,6 +293,14 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop-image-apps: "3000"
+        count: 1
+      atlas:
+        name: ATLAS
+        description: ATLAS is a free, publicly available, web-based tool developed by the OHDSI community that facilitates the design and execution of analyses on standardized, patient-level, observational data in the CDM format.
+        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI. 
+        docs: https://ohdsi.org/software-tools/
+        services:
+          atlas: "8081"
         count: 1
   braini:
     extends:
