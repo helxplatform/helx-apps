@@ -1,16 +1,16 @@
-version: '3.7'
+version: "3.7"
 services:
   atlas:
-    image: containers.renci.org/helxplatform/ohdsi-atlas:0.1.0
+    image: containers.renci.org/helxplatform/ohdsi-atlas:test-2.14.1
     ports:
       - 8081:8081
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: "1"
           memory: 2000M
         reservations:
-          cpus: '1'
+          cpus: "1"
           memory: 2000M
   webapi:
     env:
@@ -28,8 +28,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: "1"
           memory: 9G
         reservations:
-          cpus: '1'
+          cpus: "1"
           memory: 9G

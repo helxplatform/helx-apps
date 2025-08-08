@@ -234,6 +234,11 @@ contexts:
         fsGroup: 0
         runAsUser: 0
         runAsGroup: 0
+    atlas:
+      securityContext:
+        runAsUser: 30000
+        runAsGroup: ""
+        fsGroup: ""
     name: HeLx App Registry
     apps:
       pgadmin:
@@ -279,6 +284,14 @@ contexts:
         docs: https://github.com/linuxserver/docker-webtop
         services:
           webtop-image-apps: "3000"
+        count: 1
+      atlas:
+        name: ATLAS
+        description: ATLAS is a free, publicly available, web-based tool developed by the OHDSI community that facilitates the design and execution of analyses on standardized, patient-level, observational data in the CDM format.
+        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI. 
+        docs: https://ohdsi.org/software-tools/
+        services:
+          atlas: "8081"
         count: 1
   braini:
     extends:
@@ -557,15 +570,15 @@ contexts:
         services:
           atlas: "8081"
         count: 1
-      rstudio-server:
-        name: RStudio Server
-        description: An integrated development environment for R.
-        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
-        docs: https://www.rstudio.com/
-        proxy-rewrite-rule: True
-        services:
-          rstudio-server: 8080
-        count: 1
+      # rstudio-server:
+      #   name: RStudio Server
+      #   description: An integrated development environment for R.
+      #   details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
+      #   docs: https://www.rstudio.com/
+      #   proxy-rewrite-rule: True
+      #   services:
+      #     rstudio-server: 8080
+      #   count: 1
   eduhelx-sandbox:
     name: UNC Helx for Education Sandbox
     webtop:
