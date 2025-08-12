@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-helx-notebook:
-    image: "containers.renci.org/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.1"
+    image: "containers.renci.org/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.2"
     ports:
       - 8888:8888
     deploy:
@@ -9,6 +9,8 @@ services:
         limits:
           cpus: '4'
           memory: 8000M
+          ephemeralStorage: 8000Mi
         reservations:
           cpus: '.5'
-          memory: 8000M
+          memory: 2560M
+          ephemeralStorage: 256Mi
