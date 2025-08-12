@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "docker.io/frostyfan109/filebrowser:trash.0"
+    image: "docker.io/frostyfan109/filebrowser:trash-8-12"
     ports:
       - 8080:8080
     entrypoint:
