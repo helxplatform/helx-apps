@@ -226,8 +226,8 @@ contexts:
         fsGroup: ""
     rstudio-server:
       securityContext:
-        fsGroup: 0
-        runAsUser: 0
+        fsGroup: 1136
+        runAsUser: 30000
         runAsGroup: 0
     webtop-image-apps:
       securityContext:
