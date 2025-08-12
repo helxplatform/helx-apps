@@ -247,7 +247,7 @@ contexts:
     name: HeLx App Registry
     apps:
       jupyter-helx-notebook:
-        name: jupyter2
+        name: Jupyter Notebook (Basic)
         description: Based on the Jupyter SciPy Notebook.
         details: Includes popular packages from the scientific Python ecosystem. 
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
