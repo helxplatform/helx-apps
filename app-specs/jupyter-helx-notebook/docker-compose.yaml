@@ -1,16 +1,16 @@
 version: "3"
 services:
   jupyter-helx-notebook:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:v0.1.1"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:v0.1.5"
     ports:
       - 8888:8888
     volumes:
-        - pvc://projects-pvc:/projects
+      - pvc://projects-pvc:/projects
     deploy:
       resources:
         limits:
-          cpus: '2'
+          cpus: "2"
           memory: 8192M
         reservations:
-          cpus: '1'
+          cpus: "1"
           memory: 8192M
