@@ -183,7 +183,7 @@ contexts:
     apps:
       jupyter-helx-tensorflow-nb:
         name: Jupyter HeLx Tensorflow Notebook
-        description: Based on the Jupyter SciPy Notebook.
+        description: Jupyter Environment with Tensorflow, Pytorch and Imaging models available for use.
         details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
@@ -198,14 +198,14 @@ contexts:
         services:
           filebrowser: "8888"
         count: 1
-      webtop-octave:
-        name: Octave
-        description: A scientific programming language largely compatible with MATLAB.
-        details: GNU Octave is a high-level language, primarily intended for numerical computations.
-        docs: https://www.gnu.org/software/octave 
-        services:
-          webtop-octave : "3000"
-        count: 1
+      # webtop-octave:
+      #   name: Octave
+      #   description: A scientific programming language largely compatible with MATLAB.
+      #   details: GNU Octave is a high-level language, primarily intended for numerical computations.
+      #   docs: https://www.gnu.org/software/octave 
+      #   services:
+      #     webtop-octave : "3000"
+      #   count: 1
   helx:
     extends:
       - common
@@ -275,30 +275,30 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
-      slicer:
-        name: Slicer
-        description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
-        details: 3D Slicer is a free, open source software for visualization, processing, segmentation, registration, and analysis of medical, biomedical, and other 3D images and meshes; and planning and navigating image-guided procedures.
-        docs: https://www.slicer.org/
-        services:
-          slicer: "6901"
-        count: 1
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop: "3000"
-        count: 1
-      webtop-image-apps:
-        name: Webtop Image Apps
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop-image-apps: "3000"
-        count: 1
+      # slicer:
+      #   name: Slicer
+      #   description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
+      #   details: 3D Slicer is a free, open source software for visualization, processing, segmentation, registration, and analysis of medical, biomedical, and other 3D images and meshes; and planning and navigating image-guided procedures.
+      #   docs: https://www.slicer.org/
+      #   services:
+      #     slicer: "6901"
+      #   count: 1
+      # webtop:
+      #   name: Webtop
+      #   description: Webtop is a cloud native, browser accessible Linux desktop.
+      #   details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+      #   docs: https://github.com/linuxserver/docker-webtop
+      #   services:
+      #     webtop: "3000"
+      #   count: 1
+      # webtop-image-apps:
+      #   name: Webtop Image Apps
+      #   description: Webtop is a cloud native, browser accessible Linux desktop.
+      #   details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
+      #   docs: https://github.com/linuxserver/docker-webtop
+      #   services:
+      #     webtop-image-apps: "3000"
+      #   count: 1
   braini:
     extends:
       - common
