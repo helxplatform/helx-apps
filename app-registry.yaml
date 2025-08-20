@@ -1,16 +1,16 @@
 ################################################################################
 ##
 ## HeLx Application Registry
-##  
+##
 ##   The registry consolidates metadata links to application specifications.
 ##   The registry's main components are:
 ##     * Metadata about the registry itself
 ##     * Repositories describing sources of application metadata.
 ##     * Sub-Registries providing contexts for sets of applications.
 ##
-##   Each application has an identifier, name, description, and a link to its 
-##   specification. Applications may currently be specified in the 
-##   docker-compose format though we also expect to broaden the scope of 
+##   Each application has an identifier, name, description, and a link to its
+##   specification. Applications may currently be specified in the
+##   docker-compose format though we also expect to broaden the scope of
 ##   apps to include launching websites and other methods.
 ##
 ##   When a platform launches an application, it needs to know what endpoints
@@ -69,49 +69,55 @@ contexts:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
+              cmd: ["pgrep", "jupyter"]
               delay: 5
               period: 5
       jupyter-datascience-db:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
+              cmd: ["pgrep", "jupyter"]
               delay: 5
               period: 5
       jupyter-education:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
+              cmd: ["pgrep", "jupyter"]
               delay: 5
               period: 5
       jupyter-helx-notebook:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
+              cmd: ["pgrep", "jupyter"]
               delay: 5
               period: 5
       jupyter-helx-db-notebook:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
+              cmd: ["pgrep", "jupyter"]
               delay: 5
               period: 5
       jupyter-helx-tensorflow-nb:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
+              cmd: ["pgrep", "jupyter"]
               delay: 5
               period: 5
       jupyter-lab:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter" ]
+              cmd: ["pgrep", "jupyter"]
+              delay: 5
+              period: 5
+            readinessProbe:
+              httpGet:
+                path: /lab
+                port: 8888
               delay: 5
               period: 5
       cloud-top:
@@ -192,9 +198,9 @@ contexts:
         name: Octave
         description: A scientific programming language largely compatible with MATLAB.
         details: GNU Octave is a high-level language, primarily intended for numerical computations.
-        docs: https://www.gnu.org/software/octave 
+        docs: https://www.gnu.org/software/octave
         services:
-          webtop-octave : "3000"
+          webtop-octave: "3000"
         count: 1
   helx:
     extends:
@@ -316,7 +322,7 @@ contexts:
         details: It enables browsing, annotating, and analyzing large multi-dimensional images.
         docs: https://napari.org/
         services:
-          napari : 8080
+          napari: 8080
         count: 1
       webtop:
         name: Webtop
@@ -340,8 +346,8 @@ contexts:
         details: A Ubuntu graphical desktop environment for experimenting with SCOUT application in the cloud.
         docs: https://chunglabmit.github.io/scout/#
         services:
-          scout : 8080
-        count: 1            
+          scout: 8080
+        count: 1
   bdc:
     extends:
       - common
@@ -377,8 +383,8 @@ contexts:
         details: Orchestrate Docker containers into reproducible workflows.
         docs: https://github.com/SciDAS/nextflow-api
         services:
-          nextflow : 8080
-        env: {"PVC_NAME": $STDNFS}
+          nextflow: 8080
+        env: { "PVC_NAME": $STDNFS }
         count: -1
       gsforge:
         name: GSForge
@@ -388,7 +394,7 @@ contexts:
         details: Offers new potential hypotheses for gene-trait causality.
         docs: https://systemsgenetics.github.io/GSForge/
         services:
-          gsforge : 8888
+          gsforge: 8888
         proxy-rewrite-rule: True
         count: -1
       cloud-top:
@@ -397,7 +403,7 @@ contexts:
         details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
         docs: https://helxplatform.github.io/cloudtop-docs/
         services:
-          cloud-top : 8080
+          cloud-top: 8080
         count: 1
   blackbalsam:
     extends:
@@ -416,7 +422,7 @@ contexts:
         docs: https://github.com/stevencox/blackbalsam
         serviceAccount: spark
         services:
-          blackbalsam : 8888
+          blackbalsam: 8888
         proxy-rewrite-rule: True
         count: -1
   restartr:
@@ -432,7 +438,7 @@ contexts:
         docs: https://github.com/stevencox/blackbalsam
         serviceAccount: spark
         services:
-          blackbalsam-clinical : 8888
+          blackbalsam-clinical: 8888
         proxy-rewrite-rule: True
         count: -1
       sas-studio:
@@ -552,7 +558,7 @@ contexts:
       atlas:
         name: ATLAS
         description: ATLAS is a free, publicly available, web-based tool developed by the OHDSI community that facilitates the design and execution of analyses on standardized, patient-level, observational data in the CDM format.
-        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI. 
+        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI.
         docs: https://ohdsi.org/software-tools/
         services:
           atlas: "8081"
