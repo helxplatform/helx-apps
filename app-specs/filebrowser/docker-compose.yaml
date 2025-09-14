@@ -1,7 +1,8 @@
 version: "3"
 services:
   filebrowser:
-    image: "wateim/filebrowser:jeffw"
+    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.1.8"
+#    image: "wateim/filebrowser:jeffw"
     ports:
       - 8080:8080
     entrypoint:
