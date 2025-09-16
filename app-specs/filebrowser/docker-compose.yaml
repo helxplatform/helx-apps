@@ -1,8 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.1.16"
-#    image: "wateim/filebrowser:jeffw"
+    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.1.17"
     ports:
       - 8080:8080
     entrypoint:
@@ -10,7 +9,7 @@ services:
       - -c
       - >
         ROOT_DIR=$(test -d /shared && echo "/home/${USER}" || echo "/home");
-        exec /filebrowser --noauth --root="${ROOT_DIR}" --address=0.0.0.0 --port=8080 --config=/settings.json --database="$HOME/.filebrowser/filebrowser.db"
+        exec /filebrowser --disable-exec=false --noauth --root="${ROOT_DIR}" --address=0.0.0.0 --port=8080 --config=/settings.json --database="$HOME/.filebrowser/filebrowser.db"
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
