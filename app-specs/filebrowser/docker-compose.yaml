@@ -1,13 +1,15 @@
 version: "3"
 services:
   filebrowser:
-    image: "{{ helx_registry }}/helxplatform/third-party/filebrowserv3.1.11"
+    image: "{{ helx_registry }}/helxplatform/third-party/filebrowser:v3.1.11"
     ports:
       - 8080:8080
     entrypoint:
       - /bin/sh
       - -c
-      - /filebrowser --noauth --root="/home" --address=0.0.0.0 --database=/config/filebrowser.db
+      - >
+        ROOT_DIR=$(test -d /shared && echo "/home/${USER}" || echo "/home");
+        exec /filebrowser --noauth --root="${ROOT_DIR}" --disable-exec=false --address=0.0.0.0 --port=8080 --database=/home/${USER}/.filebrowser/filebrowser.db;
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
