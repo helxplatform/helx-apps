@@ -1,15 +1,19 @@
 version: "3"
 services:
   filebrowser:
-    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.1.22"
+    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.1.26"
     ports:
       - 8080:8080
-    entrypoint:
-      - /bin/sh
-      - -c
-      - >
-        ROOT_DIR=$(test -d /shared && echo "/home/${USER}" || echo "/home");
-        exec /filebrowser --noauth --root="${ROOT_DIR}" --address=0.0.0.0 --port=8080 -c "/settings.json" -d "$HOME/.filebrowser/filebrowser.db"
+    # Using Dockerfile entrypoint that calls tini . . .
+    #entrypoint:
+    command:
+      - /filebrowser
+      - --noauth
+      - --root=${ROOT_DIR}
+      - --address=0.0.0.0
+      - --port=8080
+      - --database=/home/${USER}/.filebrowser/filebrowser.db
+      - --config=/settings.json
     volumes:
         - pvc://projects-pvc:/projects
     deploy:
