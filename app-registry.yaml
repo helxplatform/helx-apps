@@ -151,6 +151,14 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      vs-code:
+        ext:
+          kube:
+            readinessProbe: none
+            #  path: /healthz
+            #  port: 8080
+            #delay: 5
+            #period: 5
       webtop:
         ext:
           kube:
@@ -202,7 +210,7 @@ contexts:
       #   name: Octave
       #   description: A scientific programming language largely compatible with MATLAB.
       #   details: GNU Octave is a high-level language, primarily intended for numerical computations.
-      #   docs: https://www.gnu.org/software/octave 
+      #   docs: https://www.gnu.org/software/octave
       #   services:
       #     webtop-octave : "3000"
       #   count: 1
@@ -249,7 +257,7 @@ contexts:
       jupyter-helx-notebook:
         name: Jupyter Notebook (Basic)
         description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem. 
+        details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
           jupyter-helx-notebook: "8888"
@@ -275,6 +283,15 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+      vs-code:
+        name: code-server
+        description: VS Code in your browser.
+        details: A free, open source IDE which provides VS Code in a web browser. This version includes Python, Node.js, and golang, as well as some popular packages and extensions.
+        docs: https://coder.com/docs
+        services:
+          vs-code: "8080"
+        proxy-rewrite-rule: True
+        count: 1
       # slicer:
       #   name: Slicer
       #   description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
