@@ -1,0 +1,16 @@
+version: "3"
+services:
+  biome:
+    image: "{{ helx_registry }}/helxplatform/biome:test.0"
+    ports:
+      - 8888:8888
+    volumes:
+      - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 8192M
+        reservations:
+          cpus: "1"
+          memory: 8192M

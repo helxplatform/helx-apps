@@ -114,6 +114,10 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      biome:
+        ext:
+          kube:
+            readinessProbe: none
       cloud-top:
         ext:
           kube:
@@ -290,6 +294,15 @@ contexts:
         docs: https://coder.com/docs
         services:
           vs-code: "8080"
+        proxy-rewrite-rule: True
+        count: 1
+      biome:
+        name: Biome
+        description: AI-assisted notebook environment for Palimpzest.
+        details: Part of the ARPA-H Biomedical Data Fabric Toolbox. Specialized for usage with Palimpzest but also applicable to more general use cases through its Basic context. 
+        docs: https://coder.com/docs
+        services:
+          biome: "8888"
         proxy-rewrite-rule: True
         count: 1
       # slicer:
