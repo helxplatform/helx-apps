@@ -1,7 +1,7 @@
 version: "3"
 services:
   biome:
-    image: "{{ helx_registry }}/helxplatform/biome:test.0"
+    image: "docker.io/frostyfan109/bdf-pz:test.0"
     ports:
       - 8888:8888
     volumes:
