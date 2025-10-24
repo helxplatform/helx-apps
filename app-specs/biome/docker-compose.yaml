@@ -1,7 +1,7 @@
 version: "3"
 services:
   biome:
-    image: "docker.io/frostyfan109/bdf-pz:test-with-env"
+    image: "docker.io/frostyfan109/bdf-pz:test-with-env2"
     ports:
       - 8888:8888
     volumes:
