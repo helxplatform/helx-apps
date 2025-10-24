@@ -1,20 +1,20 @@
 version: "3"
 services:
   vs-code:
-    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.6"
+    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.7"
     ports:
       - 8080:8080
     # Use Dockerfile entrypoint but this set of command args
-    entrypoint: ["/bin/sh", "-c", "sleep infinity"]
+    #entrypoint: ["/bin/sh", "-c", "sleep infinity"]
     #entrypoint:
-    #command:
-    #  - --bind-addr
-    #  - 0.0.0.0:8080
-    #  - --auth
-    #  - none
-    #  - --cert
-    #  - "false"
-    #  - /home/$$USER
+    command:
+      - --bind-addr
+      - 0.0.0.0:8080
+      - --auth
+      - none
+      - --cert
+      - "false"
+      - /home/$$USER
     # Remove? #
     volumes:
       - pvc://projects-pvc:/projects
