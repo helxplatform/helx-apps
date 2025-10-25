@@ -1,13 +1,14 @@
 version: "3"
 services:
   vs-code:
-    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.8"
+    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.9"
     ports:
       - 8080:8080
     # Use Dockerfile entrypoint but this set of command args
-    #entrypoint: ["/bin/sh", "-c", "sleep infinity"]
+    #entrypoint: [ "/bin/sh", "-c", "sleep infinity" ]
     #entrypoint:
     command:
+      - /usr/bin/entrypoint.sh
       - --bind-addr
       - 0.0.0.0:8080
       - --auth
