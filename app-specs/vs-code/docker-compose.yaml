@@ -4,6 +4,9 @@ services:
     image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.9"
     ports:
       - 8080:8080
+    proxy_rewrite:
+      enabled: True
+      target: /
     # Use Dockerfile entrypoint but this set of command args
     #entrypoint: [ "/bin/sh", "-c", "sleep infinity" ]
     #entrypoint:
