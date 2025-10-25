@@ -15,7 +15,6 @@ services:
       - --cert
       - "false"
       - /home/$$USER
-    # Remove? #
     volumes:
       - pvc://projects-pvc:/projects
     deploy:
@@ -24,5 +23,5 @@ services:
           cpus: "2"
           memory: 8192M
         reservations:
-          cpus: "1"
+          cpus: "2"
           memory: 8192M
