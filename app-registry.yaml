@@ -303,7 +303,7 @@ contexts:
         docs: https://coder.com/docs
         services:
           biome: "8888"
-        proxy-rewrite-rule: True
+        proxy-rewrite-rule: False
         count: 1
       # slicer:
       #   name: Slicer
