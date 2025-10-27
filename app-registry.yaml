@@ -300,10 +300,10 @@ contexts:
         name: Biome
         description: AI-assisted notebook environment for Palimpzest.
         details: Part of the ARPA-H Biomedical Data Fabric Toolbox. Specialized for usage with Palimpzest but also applicable to more general use cases through its Basic context. 
-        docs: https://coder.com/docs
+        docs: https://jataware.github.io/beaker-kernel/
         services:
           biome: "8888"
-        proxy-rewrite-rule: False
+        proxy-rewrite-rule: True
         count: 1
       # slicer:
       #   name: Slicer
