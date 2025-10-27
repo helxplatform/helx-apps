@@ -1,21 +1,25 @@
 version: "3"
 services:
   vs-code:
-    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.6"
+    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.9"
     ports:
       - 8080:8080
+    proxy-rewrite-rule: True
+    proxy_rewrite:
+      enabled: True
+      target: /
     # Use Dockerfile entrypoint but this set of command args
-    entrypoint: ["/bin/sh", "-c", "sleep infinity"]
+    #entrypoint: [ "/bin/sh", "-c", "sleep infinity" ]
     #entrypoint:
-    #command:
-    #  - --bind-addr
-    #  - 0.0.0.0:8080
-    #  - --auth
-    #  - none
-    #  - --cert
-    #  - "false"
-    #  - /home/$$USER
-    # Remove? #
+    command:
+      - /usr/bin/entrypoint.sh
+      - --bind-addr
+      - 0.0.0.0:8080
+      - --auth
+      - none
+      - --cert
+      - "false"
+      - /home/$$USER
     volumes:
       - pvc://projects-pvc:/projects
     deploy:
@@ -24,5 +28,5 @@ services:
           cpus: "2"
           memory: 8192M
         reservations:
-          cpus: "1"
+          cpus: "2"
           memory: 8192M
