@@ -1,7 +1,7 @@
 version: "3"
 services:
   biome:
-    image: "docker.io/frostyfan109/bdf-pz:static-fixed.6"
+    image: "docker.io/frostyfan109/bdf-pz:10-28-25.0"
     ports:
       - 8888:8888
     volumes:
