@@ -1,7 +1,7 @@
 version: "3"
 services:
   slicer:
-    image: "{{ helx_registry }}/helxplatform/slicer:ldap-test"
+    image: "{{ helx_registry }}/helxplatform/slicer:ldap-test-1"
     ports:
       - 6901:6901
     volumes:
