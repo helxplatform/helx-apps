@@ -1,16 +1,11 @@
 version: "3"
 services:
   vs-code:
-    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.9"
+    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v0.0.10"
     ports:
       - 8080:8080
-    #proxy-rewrite-rule: false
-    #proxy_rewrite:
-    #  enabled: True
-    #  target: /
-    # Use Dockerfile entrypoint but this set of command args
     #entrypoint: [ "/bin/sh", "-c", "sleep infinity" ]
-    #entrypoint:
+    # Use Dockerfile entrypoint but this set of command args
     command:
       - /usr/bin/entrypoint.sh
       - --bind-addr
@@ -25,7 +20,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2"
+          cpus: "4"
           memory: 8192M
         reservations:
           cpus: "2"
