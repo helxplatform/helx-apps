@@ -258,15 +258,15 @@ contexts:
         runAsGroup: 0
     name: HeLx App Registry
     apps:
-      jupyter-helx-notebook:
-        name: Jupyter Notebook (Basic)
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
+      # jupyter-helx-notebook:
+      #   name: Jupyter Notebook (Basic)
+      #   description: Based on the Jupyter SciPy Notebook.
+      #   details: Includes popular packages from the scientific Python ecosystem.
+      #   docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+      #   services:
+      #     jupyter-helx-notebook: "8888"
+      #   proxy-rewrite-rule: True
+      #   count: 1
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
@@ -288,7 +288,7 @@ contexts:
           enabled: True
           target: /
       vs-code:
-        name: code-server
+        name: Visual Studio(VS) Code
         description: VS Code in your browser.
         details: A free, open source IDE which provides VS Code in a web browser. This version includes Python, Node.js, and golang, as well as some popular packages and extensions.
         docs: https://coder.com/docs
@@ -313,22 +313,6 @@ contexts:
         services:
           slicer: "6901"
         count: 1
-      # webtop:
-      #   name: Webtop
-      #   description: Webtop is a cloud native, browser accessible Linux desktop.
-      #   details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-      #   docs: https://github.com/linuxserver/docker-webtop
-      #   services:
-      #     webtop: "3000"
-      #   count: 1
-      # webtop-image-apps:
-      #   name: Webtop Image Apps
-      #   description: Webtop is a cloud native, browser accessible Linux desktop.
-      #   details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
-      #   docs: https://github.com/linuxserver/docker-webtop
-      #   services:
-      #     webtop-image-apps: "3000"
-      #   count: 1
   braini:
     extends:
       - common
