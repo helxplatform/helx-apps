@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "frostyfan109/filebrowser:trash-11-12-25.0"
+    image: "frostyfan109/filebrowser:trash-11-12-25.2"
     # image: "{{ helx_registry }}/helxplatform/third-party/filebrowser:trash-10-30-25"
     ports:
       - 8080:8080
