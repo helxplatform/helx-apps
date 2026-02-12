@@ -159,6 +159,14 @@ contexts:
                 port: 8080
               delay: 10
               period: 10
+      vs-code:
+        ext:
+          kube:
+            readinessProbe:
+              path: /healthz
+              port: 8080
+            delay: 5
+            period: 5
   common:
     name: HeLx Common App Registry
     mixin:
@@ -527,7 +535,7 @@ contexts:
         count: 1
 
   ordrd:
-    name: UNC Clenical Health Records Analysis
+    name: UNC Clinical Health Records Analysis
     mixin:
       - sys
     apps:
@@ -568,6 +576,15 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+      vs-code:
+        name: Visual Studio(VS) Code
+        description: VS Code in your browser.
+        details: A free, open source IDE which provides VS Code in a web browser. This version includes Python, Node.js, and golang, as well as some popular packages and extensions.
+        docs: https://coder.com/docs
+        services:
+          vs-code: "8080"
+        proxy-rewrite-rule: False
+        count: 1
   tracs:
     name: TraCS
     mixin:
