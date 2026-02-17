@@ -163,10 +163,11 @@ contexts:
         ext:
           kube:
             readinessProbe:
-              path: /healthz
-              port: 8080
-            delay: 5
-            period: 5
+              httpGet:
+                path: /healthz
+                port: 8080
+              delay: 5
+              period: 5
   common:
     name: HeLx Common App Registry
     mixin:
