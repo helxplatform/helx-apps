@@ -12,14 +12,14 @@ services:
         limits:
           cpus: "4"
           memory: 16384M
-          ephemeralStorage: 4096Mi
+          ephemeralStorage: 8192Mi
           devices:
             - capabilities: ["gpu"]
               count: "1"
         reservations:
           cpus: "1"
           memory: 4096M
-          ephemeralStorage: 2048Mi
+          ephemeralStorage: 4096Mi
           devices:
             - capabilities: ["gpu"]
               count: "0"
