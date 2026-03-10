@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.2.8"
+    image: "{{ third_party_registry }}/helxplatform/filebrowser:v3.2.8"
     ports:
       - 8080:8080
     # Using Dockerfile entrypoint that calls tini . . .
@@ -14,12 +14,12 @@ services:
       - --database=/home/$$USER/.filebrowser/filebrowser.db
       - --config=/settings.json
     volumes:
-        - pvc://projects-pvc:/projects
+      - pvc://projects-pvc:/projects
     deploy:
-        resources:
-          limits:
-            cpus: '2'
-            memory: 2048M
-          reservations:
-            cpus: '.5'
-            memory: 1024M
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2048M
+        reservations:
+          cpus: ".5"
+          memory: 1024M
