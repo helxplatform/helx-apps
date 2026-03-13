@@ -2,7 +2,7 @@ version: "3"
 services:
   jupyter-helx-tensorflow-nb:
     # image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.2"
-    image: "{{ azure_registry }}/helxplatform/jupyter/helx-notebook/ai-sandbox-notebook:v0.0.3"
+    image: "{{ azure_registry }}/helxplatform/jupyter/helx-notebook/ai-sandbox-notebook:v0.0.4"
     ports:
       - 8888:8888
     volumes:
