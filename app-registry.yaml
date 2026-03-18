@@ -168,6 +168,7 @@ contexts:
                 port: 8080
               delay: 5
               period: 5
+              failureThreshold: 12
   common:
     name: HeLx Common App Registry
     mixin:
