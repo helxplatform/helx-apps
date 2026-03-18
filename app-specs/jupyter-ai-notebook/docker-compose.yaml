@@ -1,0 +1,25 @@
+version: "3"
+services:
+  jupyter-ai-notebook:
+    # image: "{{ helx_registry }}/helxplatform/jupyter/helx-tensorflow-notebook:v0.2.2"
+    image: "{{ azure_registry }}/helxplatform/jupyter/helx-notebook/ai-sandbox-notebook:v0.0.9"
+    ports:
+      - 8888:8888
+    volumes:
+      - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: 16384M
+          ephemeralStorage: 8192Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
+        reservations:
+          cpus: "1"
+          memory: 4096M
+          ephemeralStorage: 8192Mi
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"

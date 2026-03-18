@@ -108,6 +108,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-ai-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-lab:
         ext:
           kube:
@@ -222,7 +229,7 @@ contexts:
   helx:
     extends:
       - common
-    jupyter-helx-tensorflow-nb:
+    jupyter-ai-notebook:
       securityContext:
         runAsUser: 30000
         runAsGroup: ""
@@ -304,6 +311,15 @@ contexts:
         docs: https://jataware.github.io/beaker-kernel/
         services:
           biome: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      jupyter-ai-notebook:
+        name: Jupyter AI Notebook
+        description: Jupyter Environment with AI libraries and tooling available.
+        details: Includes popular packages from the AI and scientific Python ecosystems. Jupyter's AI chat extension is also installed.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-ai-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       slicer:
