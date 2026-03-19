@@ -166,11 +166,12 @@ contexts:
       vs-code:
         ext:
           kube:
-            readinessProbe: none
-            #  path: /healthz
-            #  port: 8080
-            #delay: 5
-            #period: 5
+            readinessProbe:
+              httpGet:
+                path: /healthz
+                port: 8080
+              delay: 10
+              period: 10
       webtop:
         ext:
           kube:
