@@ -1,7 +1,7 @@
 version: "3"
 services:
   vs-code:
-    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v1.0.2"
+    image: "{{ helx_registry }}/helxplatform/third-party/vs-code:v1.0.5"
     ports:
       - 8080:8080
     #entrypoint: [ "/bin/sh", "-c", "sleep infinity" ]
