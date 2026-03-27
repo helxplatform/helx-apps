@@ -162,12 +162,12 @@ contexts:
       vs-code:
         ext:
           kube:
-            readinessProbe:
-              httpGet:
-                path: /healthz
-                port: 8080
-              delay: 10
-              period: 10
+            readinessProbe: none
+            #  httpGet:
+            #    path: /
+            #    port: 8080
+            #  delay: 10
+            #  period: 10
   common:
     name: HeLx Common App Registry
     mixin:
