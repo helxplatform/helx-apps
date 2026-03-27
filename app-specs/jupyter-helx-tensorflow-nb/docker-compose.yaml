@@ -13,13 +13,7 @@ services:
           cpus: "4"
           memory: 16384M
           ephemeralStorage: 8192Mi
-          devices:
-            - capabilities: ["gpu"]
-              count: "1"
         reservations:
-          cpus: "1"
-          memory: 4096M
+          cpus: "2"
+          memory: 8192M
           ephemeralStorage: 8192Mi
-          devices:
-            - capabilities: ["gpu"]
-              count: "0"
