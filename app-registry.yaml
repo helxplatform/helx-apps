@@ -108,6 +108,13 @@ contexts:
               cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
+      jupyter-ai-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
       jupyter-lab:
         ext:
           kube:
@@ -159,11 +166,12 @@ contexts:
       vs-code:
         ext:
           kube:
-            readinessProbe: none
-            #  path: /healthz
-            #  port: 8080
-            #delay: 5
-            #period: 5
+            readinessProbe:
+              httpGet:
+                path: /healthz
+                port: 8080
+              delay: 10
+              period: 10
       webtop:
         ext:
           kube:
@@ -194,13 +202,22 @@ contexts:
     mixin:
       - sys
     apps:
-      jupyter-helx-tensorflow-nb:
-        name: Jupyter HeLx Tensorflow Notebook
-        description: Jupyter Environment with Tensorflow, Pytorch and Imaging models available for use.
-        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+      # jupyter-helx-tensorflow-nb:
+      #   name: Jupyter HeLx Tensorflow Notebook
+      #   description: Jupyter Environment with Tensorflow, Pytorch and Imaging models available for use.
+      #   details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+      #   docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+      #   services:
+      #     jupyter-helx-tensorflow-nb: "8888"
+      #   proxy-rewrite-rule: True
+      #   count: 1
+      jupyter-ai-notebook:
+        name: Jupyter AI Notebook
+        description: Jupyter Environment with AI libraries and tooling available.
+        details: Includes popular packages from the AI and scientific Python ecosystems. Jupyter's AI chat extension is also installed.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-helx-tensorflow-nb: "8888"
+          jupyter-ai-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
@@ -222,7 +239,7 @@ contexts:
   helx:
     extends:
       - common
-    jupyter-helx-tensorflow-nb:
+    jupyter-ai-notebook:
       securityContext:
         runAsUser: 30000
         runAsGroup: ""
