@@ -331,6 +331,10 @@ contexts:
         services:
           slicer: "6901"
         count: 1
+  ai_sandbox:
+    extends:
+      - helx
+    name: AI Sandbox App Registry
   braini:
     extends:
       - common
