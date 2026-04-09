@@ -1,6 +1,6 @@
 version: "3"
 services:
-  biome:
+  palimpzest-biome:
     image: "docker.io/frostyfan109/bdf-pz:3-13-26.0"
     ports:
       - 8888:8888
