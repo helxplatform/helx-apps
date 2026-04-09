@@ -315,7 +315,7 @@ contexts:
         proxy-rewrite-rule: False
         count: 1
       biome:
-        name: Biome
+        name: Palimpzest Biome
         description: AI-assisted notebook environment for Palimpzest.
         details: Part of the ARPA-H Biomedical Data Fabric Toolbox. Specialized for usage with Palimpzest but also applicable to more general use cases through its Basic context. 
         docs: https://jataware.github.io/beaker-kernel/
