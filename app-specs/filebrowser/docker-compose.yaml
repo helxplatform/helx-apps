@@ -1,10 +1,11 @@
 version: "3"
 services:
   filebrowser:
-    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.4.4"
+    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.4.5"
     ports:
       - 8080:8080
-    # Using Dockerfile entrypoint that calls tini . . .
+    # Using Dockerfile entrypoint that calls tini.
+    entrypoint: [ "/bin/sh", "-c", "sleep infinity" ]
     command:
       - /filebrowser
       - --root=$$ROOT_DIR
