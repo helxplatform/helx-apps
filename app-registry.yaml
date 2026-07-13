@@ -214,6 +214,61 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+      cloudbeaver:
+        name: CloudBeaver
+        description: CloudBeaver - web-based database management for multiple databases.
+        details: A cloud database manager supporting PostgreSQL, MySQL, and other databases. Under development.
+        docs: https://github.com/dbeaver/cloudbeaver
+        services:
+          cloudbeaver: "8978"
+        count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop: "3000"
+        count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
+      webtop-octave:
+        name: Octave
+        description: A scientific programming language largely compatible with MATLAB.
+        details: GNU Octave is a high-level language, primarily intended for numerical computations, delivered via a Webtop desktop.
+        docs: https://www.gnu.org/software/octave
+        services:
+          webtop-octave: "3000"
+        count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
+      webtop-image-apps:
+        name: Webtop Image Apps
+        description: Webtop with additional image manipulation applications.
+        details: A Ubuntu graphical desktop environment with image manipulation applications added.
+        docs: https://github.com/linuxserver/docker-webtop
+        services:
+          webtop-image-apps: "3000"
+        count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
+      slicer:
+        name: Slicer
+        description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
+        details: 3D Slicer is a free, open source software for visualization, processing, segmentation, registration, and analysis of medical, biomedical, and other 3D images and meshes.
+        docs: https://www.slicer.org/
+        services:
+          slicer: "6901"
+        count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
   braini:
     extends:
       - common
