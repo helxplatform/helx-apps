@@ -5,16 +5,18 @@
 version: "3"
 services:
   jupyter-datascience-db:
-    image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.1.0"
+    image: "{{ helx_registry }}/helxplatform/jupyter-datascience-db:v0.0.16"
     entrypoint:
       - /usr/local/bin/start-jupyter-datascience-db.sh
     ports:
       - 8888:8888
+    volumes:
+         - pvc://helx-sidecar-test/sidecar:/sidecar
     deploy:
       resources:
         limits:
-          cpus: '2'
-          memory: 4096M
+          cpus: 1
+          memory: 4000M
         reservations:
-          cpus: '.1'
-          memory: 50M
+          cpus: 1
+          memory: 4000M

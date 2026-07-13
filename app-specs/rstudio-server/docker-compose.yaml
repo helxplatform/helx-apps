@@ -3,11 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:ordrd-v0.0.3"
-    # image: "joshuaseals/rstudio-server:latest"
-    # env:
-    #   - DELETE_DEFAULT_USER_HOME_IF_UNUSED=no
-    #   - RSTUDIO_LOG_LEVEL=debug
+    image: "containers.renci.org/helxplatform/rstudio-server:v0.2.2"
     ports:
       - 8787:8787
     volumes:
@@ -15,26 +11,8 @@ services:
     deploy:
         resources:
           limits:
-            cpus: '2'
-            memory: 12G
+            cpus: '8'
+            memory: 12000M
           reservations:
             cpus: '1'
-            memory: 6G
-# ---
-# # Docker compose formatted system.
-# version: "3"
-# services:
-#   rstudio-server:
-#     image: "containers.renci.org/helxplatform/rstudio:0.1.6"
-#     ports:
-#       - 8080:8080
-#     volumes:
-#         - pvc://projects-pvc:/projects
-#     deploy:
-#         resources:
-#           limits:
-#             cpus: '2'
-#             memory: 2048M
-#           reservations:
-#             cpus: '.5'
-#             memory: 1024M
+            memory: 2000M
