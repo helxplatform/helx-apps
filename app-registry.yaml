@@ -208,6 +208,9 @@ contexts:
         services:
           webtop-octave: "3000"
         count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
   helx:
     extends:
       - common
@@ -276,6 +279,9 @@ contexts:
         services:
           slicer: "6901"
         count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
       webtop:
         name: Webtop
         description: Webtop is a cloud native, browser accessible Linux desktop.
@@ -284,6 +290,9 @@ contexts:
         services:
           webtop: "3000"
         count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
       webtop-image-apps:
         name: Webtop Image Apps
         description: Webtop is a cloud native, browser accessible Linux desktop.
@@ -292,6 +301,9 @@ contexts:
         services:
           webtop-image-apps: "3000"
         count: 1
+        proxy-rewrite:
+          enabled: True
+          target: /
   braini:
     extends:
       - common
