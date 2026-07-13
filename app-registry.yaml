@@ -1,16 +1,16 @@
 ################################################################################
 ##
 ## HeLx Application Registry
-##
+##  
 ##   The registry consolidates metadata links to application specifications.
 ##   The registry's main components are:
 ##     * Metadata about the registry itself
 ##     * Repositories describing sources of application metadata.
 ##     * Sub-Registries providing contexts for sets of applications.
 ##
-##   Each application has an identifier, name, description, and a link to its
-##   specification. Applications may currently be specified in the
-##   docker-compose format though we also expect to broaden the scope of
+##   Each application has an identifier, name, description, and a link to its 
+##   specification. Applications may currently be specified in the 
+##   docker-compose format though we also expect to broaden the scope of 
 ##   apps to include launching websites and other methods.
 ##
 ##   When a platform launches an application, it needs to know what endpoints
@@ -69,61 +69,28 @@ contexts:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter"]
-              delay: 5
-              period: 5
-      jupyter-datascience-db:
-        ext:
-          kube:
-            livenessProbe:
-              cmd: ["pgrep", "jupyter"]
+              cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
       jupyter-education:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter"]
+              cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
       jupyter-helx-notebook:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter"]
+              cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
-      jupyter-helx-db-notebook:
-        ext:
-          kube:
-            livenessProbe:
-              cmd: ["pgrep", "jupyter"]
-              delay: 5
-              period: 5
-      jupyter-helx-tensorflow-nb:
-        ext:
-          kube:
-            livenessProbe:
-              cmd: ["pgrep", "jupyter"]
-              delay: 5
-              period: 5
-            # readinessProbe:
-            #   httpGet:
-            #     path: /lab
-            #     port: 8888
-            #   delay: 10
-            #   period: 5
       jupyter-lab:
         ext:
           kube:
             livenessProbe:
-              cmd: ["pgrep", "jupyter"]
-              delay: 5
-              period: 5
-            readinessProbe:
-              httpGet:
-                path: /lab
-                port: 8888
+              cmd: ["pgrep", "jupyter" ]
               delay: 5
               period: 5
       cloud-top:
@@ -154,10 +121,6 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      slicer:
-        ext:
-          kube:
-            readinessProbe: none
       webtop:
         ext:
           kube:
@@ -174,22 +137,29 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-      pgadmin:
+      cloudbeaver:
         ext:
           kube:
             readinessProbe: none
+      # pgadmin:
+      #   ext:
+      #     kube:
+      #       readinessProbe: none
+              # httpGet:
+              #   path: "/misc/ping"
+              #   port: "8080"
   common:
     name: HeLx Common App Registry
     mixin:
       - sys
     apps:
-      jupyter-helx-tensorflow-nb:
-        name: Jupyter HeLx Tensorflow Notebook
+      helx-helx-notebook:
+        name: Jupyter HeLx Notebook
         description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.  In addition to the Python packages normally installed in the SciPy image, tensorflow, keras, pytorch, nibabel and mlxtend are also installed.
+        details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-helx-tensorflow-nb: "8888"
+          jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
@@ -204,53 +174,42 @@ contexts:
         name: Octave
         description: A scientific programming language largely compatible with MATLAB.
         details: GNU Octave is a high-level language, primarily intended for numerical computations.
-        docs: https://www.gnu.org/software/octave
+        docs: https://www.gnu.org/software/octave 
         services:
-          webtop-octave: "3000"
+          webtop-octave : "3000"
         count: 1
-        proxy-rewrite:
-          enabled: True
-          target: /
-  helx:
-    extends:
-      - common
-    jupyter-helx-tensorflow-nb:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    pgadmin:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 30000
-        runAsGroup: 1136
-    slicer:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    rstudio-server:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 30000
-        runAsGroup: ""
-    webtop-image-apps:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    webtop-octave:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    webtop:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    name: HeLx App Registry
+  eduhelx-data720:
+    name: UNC Helx for Education DATA720
+    mixin:
+      - sys
     apps:
+      jupyter-helx-tensorflow-nb:
+        name: Jupyter HeLx TF Notebook
+        description: Based on the Jupyter SciPy Notebook.
+        details: Includes popular packages from the scientific Python ecosystem.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-helx-tensorflow-nb: "8888"
+        proxy-rewrite-rule: True
+        count: 1
+      filebrowser:
+        name: File Browser
+        description: File Browser - a utility for browsing files through a web interface
+        details: File Browser provides a web interface for browsing files in a cloud environment.
+        docs: https://filebrowser.org/
+        services:
+          filebrowser: "8888"
+        count: 1
+      # cloudbeaver:
+      #   name: cloudbeaver
+      #   description: cloudbeaver - A database administration program for multiple databases.
+      #   details: For testing 
+      #   docs: https://github.com/dbeaver/cloudbeaver
+      #   services:
+      #     cloudbeaver: "8978"
+      #   count: 1
+      #   # same as Rstudio needs
+      #   proxy-rewrite-rule: True
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
@@ -271,399 +230,24 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
-      slicer:
-        name: Slicer
-        description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
-        details: 3D Slicer is a free, open source software for visualization, processing, segmentation, registration, and analysis of medical, biomedical, and other 3D images and meshes; and planning and navigating image-guided procedures.
-        docs: https://www.slicer.org/
+  helx:
+    name: HeLx App Registry
+    mixin:
+      - sys
+    apps:
+      # ---- Kept from helx-demo (validated working under de-Ambassador) ----
+      webtop:
+        name: Webtop
+        description: Webtop is a cloud native, browser accessible Linux desktop.
+        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
+        docs: https://github.com/linuxserver/docker-webtop
         services:
-          slicer: "6901"
+          webtop: "3000"
         count: 1
+        # serves at root -> strip the /private prefix
         proxy-rewrite:
           enabled: True
           target: /
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop: "3000"
-        count: 1
-        proxy-rewrite:
-          enabled: True
-          target: /
-      webtop-image-apps:
-        name: Webtop Image Apps
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop-image-apps: "3000"
-        count: 1
-        proxy-rewrite:
-          enabled: True
-          target: /
-  braini:
-    extends:
-      - common
-    name: BRAIN-I App Registry
-    jupyter-ds:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-    webtop:
-      # The securityContext section needs to be in the primary context, not in an extended context.
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    webtop-image-apps:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    apps:
-      imagej:
-        name: ImageJ Viewer
-        description: Imagej is an image processor developed at NIH/LOCI.
-        details: can display, edit, analyze, process, save and print 8-bit, 16-bit and 32-bit images. It can read many image formats.
-        docs: https://imagej.nih.gov/ij/
-        services:
-          imagej: 8080
-        count: 1
-      # TODO: separate napari and imagej, updating these appropriately.
-      napari:
-        name: Napari Image Viewer
-        description: Napari is a fast, interactive, multi-dimensional image viewer.
-        details: It enables browsing, annotating, and analyzing large multi-dimensional images.
-        docs: https://napari.org/
-        services:
-          napari: 8080
-        count: 1
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop: "3000"
-        count: 1
-      webtop-image-apps:
-        name: Webtop Image Apps
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop-image-apps: "3000"
-        count: 1
-      scout:
-        name: SCOUT
-        description: SCOUT is an open-source Python package for performing volumetric image analysis of intact cerebral organoids.
-        details: A Ubuntu graphical desktop environment for experimenting with SCOUT application in the cloud.
-        docs: https://chunglabmit.github.io/scout/#
-        services:
-          scout: 8080
-        count: 1
-  bdc:
-    extends:
-      - common
-    name: BioData Catalyst App Registry
-    webtop:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    webtop-octave:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    apps:
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop: "3000"
-        count: 1
-  scidas:
-    extends:
-      - common
-      - blackbalsam
-    name: SciDAS App Registry
-    apps:
-      nextflow:
-        name: Nextflow API
-        description: Nextflow - A scalable workflow computational pipeline workspace.
-        details: Orchestrate Docker containers into reproducible workflows.
-        docs: https://github.com/SciDAS/nextflow-api
-        services:
-          nextflow: 8080
-        env: { "PVC_NAME": $STDNFS }
-        count: -1
-      gsforge:
-        name: GSForge
-        description: >
-          GSForge is a Python package that assists researchers in the selection of gene sets with
-          potential association to an experimental condition or phenotypic trait.
-        details: Offers new potential hypotheses for gene-trait causality.
-        docs: https://systemsgenetics.github.io/GSForge/
-        services:
-          gsforge: 8888
-        proxy-rewrite-rule: True
-        count: -1
-      cloud-top:
-        name: Cloud Top
-        description: CloudTop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://helxplatform.github.io/cloudtop-docs/
-        services:
-          cloud-top: 8080
-        count: 1
-  blackbalsam:
-    extends:
-      - common
-    name: RENCI Blackbalsam Registry
-    blackbalsam:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    apps:
-      blackbalsam:
-        name: Blackbalsam
-        description: An A.I., visualization, and parallel computing environment.
-        details: A.I.(Tensorflow,Keras,PyTorch,Gensim) Vis(Plotly,Bokeh,Seaborn) Compute(Spark).
-        docs: https://github.com/stevencox/blackbalsam
-        serviceAccount: spark
-        services:
-          blackbalsam: 8888
-        proxy-rewrite-rule: True
-        count: -1
-  restartr:
-    extends:
-      - common
-    sas-studio:
-      conn_string: "SASStudio"
-    apps:
-      blackbalsam-clinical:
-        name: Blackbalsam Clinical
-        description: An A.I., visualization, and parallel computing environment.
-        details: A.I.(Tensorflow,Keras,PyTorch,Gensim) Vis(Plotly,Bokeh,Seaborn) Compute(Spark).
-        docs: https://github.com/stevencox/blackbalsam
-        serviceAccount: spark
-        services:
-          blackbalsam-clinical: 8888
-        proxy-rewrite-rule: True
-        count: -1
-      sas-studio:
-        name: SAS Studio
-        description: Jump-start your data and analytics efforts with an interactive development environment.
-        details: SAS (previously "Statistical Analysis System") is a statistical software suite developed by SAS Institute for data management, advanced analytics, multivariate analysis, business intelligence, criminal investigation,and predictive analytics.
-        docs: http://documentation.sas.com/doc/en/sasstudiocdc/3.8/webeditorcdc/sasstudioov/aboutthedoc.htm#n1gj63gr3kst82n1k2uulv8jwcdg
-        env: { "CONN_STRING": "SASStudio" }
-        services:
-          sas-studio: 38080
-        proxy-rewrite-rule: True
-        count: -1
-    name: UNC Restarting Research
-  heal:
-    extends:
-      - common
-    name: NIH HEAL Initiative
-  argus:
-    extends:
-      - common
-    name: Argus Array
-    apps:
-      kstars:
-        name: KStars And DS9
-        description: Sample FITS image file handling software.
-        details: FITS image file handling software and sample FITS files for demo.
-        docs: https://www.loc.gov/preservation/digital/formats/fdd/fdd000317.shtml
-        services:
-          kstars: 8080
-        count: 1
-      cloud-top:
-        name: Cloud Top
-        description: CloudTop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://helxplatform.github.io/cloudtop-docs/
-        services:
-          cloud-top: 8080
-        count: 1
-  eduhelx:
-    name: UNC Helx for Education
-    mixin:
-      - sys
-    apps:
-      jupyter-education:
-        name: Jupyter Data Science for Education
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
-        details: Includes R, Julia, and Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-education: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      filebrowser:
-        name: File Browser
-        description: File Browser - a utility for browsing files through a web interface
-        details: File Browser provides a web interface for browsing files in a cloud environment.
-        docs: https://filebrowser.org/
-        services:
-          filebrowser: "8888"
-        count: 1
-      cloud-top:
-        name: Cloud Top
-        description: CloudTop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://helxplatform.github.io/cloudtop-docs/
-        services:
-          cloud-top: 8080
-        count: 1
-  eduhelx-dev:
-    name: EduHeLx Dev
-    mixin:
-      - sys
-    apps:
-      jupyter-lab:
-        name: Jupyter Lab
-        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
-        details: Includes Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-lab: "8888"
-        securityContext:
-          runAsUser: 1000
-          fsGroup: 1136
-        proxy-rewrite-rule: True
-        gitea-integration: True
-        count: 1
-      jupyter-education:
-        name: Jupyter Data Science for Education
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
-        details: Includes R, Julia, and Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-education: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      filebrowser:
-        name: File Browser
-        description: File Browser - a utility for browsing files through a web interface
-        details: File Browser provides a web interface for browsing files in a cloud environment.
-        docs: https://filebrowser.org/
-        services:
-          filebrowser: "8888"
-        count: 1
-      cloud-top:
-        name: Cloud Top
-        description: CloudTop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://helxplatform.github.io/cloudtop-docs/
-        services:
-          cloud-top: 8080
-        count: 1
-  tracs:
-    name: TraCS
-    mixin:
-      - sys
-    apps:
-      atlas:
-        name: ATLAS
-        description: ATLAS is a free, publicly available, web-based tool developed by the OHDSI community that facilitates the design and execution of analyses on standardized, patient-level, observational data in the CDM format.
-        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI.
-        docs: https://ohdsi.org/software-tools/
-        services:
-          atlas: "8081"
-        count: 1
-      rstudio-server:
-        name: RStudio Server
-        description: An integrated development environment for R.
-        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
-        docs: https://www.rstudio.com/
-        proxy-rewrite-rule: True
-        services:
-          rstudio-server: 8080
-        count: 1
-  eduhelx-sandbox:
-    name: UNC Helx for Education Sandbox
-    webtop:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    rstudio-server:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    mixin:
-      - sys
-    apps:
-      jupyter-education:
-        name: Jupyter Data Science for Education
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data.
-        details: Includes R, Julia, and Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-education: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      rstudio-server:
-        name: RStudio Server
-        description: An integrated development environment for R.
-        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
-        docs: https://www.rstudio.com/
-        proxy-rewrite-rule: True
-        services:
-          rstudio-server: "8080"
-        count: 1
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop: "3000"
-        count: 1
-  eduhelx-chip690:
-    name: UNC Helx for Education CHIP690
-    pgadmin:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    rstudio-server:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    mixin:
-      - sys
-    apps:
-      rstudio-server:
-        name: RStudio Server
-        description: An integrated development environment for R.
-        details: Has a console, syntax-highlighting editor that supports direct code execution, and tools for plotting, history, debugging and workspace management.
-        docs: https://www.rstudio.com/
-        proxy-rewrite-rule: True
-        services:
-          rstudio-server: "8080"
-        count: 1
-      jupyter-datascience-db:
-        name: Jupyter Data Science with SQLAlchemy
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data with SQLAlchemy support.
-        details: Includes R, Julia, and Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-datascience-db: "8888"
-        proxy-rewrite-rule: True
-        count: 1
       filebrowser:
         name: File Browser
         description: File Browser - a utility for browsing files through a web interface
@@ -678,72 +262,10 @@ contexts:
         details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
         docs: https://pgadmin.org/
         services:
-          pgadmin: "80"
+          pgadmin: "8080"
         proxy-rewrite-rule: True
         count: 1
-  testing:
-    extends:
-      - common
-    jupyter-datascience-db:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: 1136
-        fsGroup: 1136
-    jupyter-ds:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-helx-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    jupyter-minimal-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    pgadmin:
-      securityContext:
-        runAsUser: 30000
-        # runAsGroup: ""
-        # fsGroup: ""
-    rstudio-server:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    webtop:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    webtop-octave:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    name: Testing App Registry
-    apps:
-      jupyter-datascience-db:
-        name: Jupyter Data Science with SQLAlchemy
-        description: Jupyter DataScience - A Jupyter notebook for exploring and visualizing data with SQLAlchemy support.
-        details: Includes R, Julia, and Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-datascience-db: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      jupyter-helx-db-notebook:
-        name: Jupyter HeLx Db Notebook
-        description: Based on the Jupyter SciPy Notebook with some additional utilities for connecting with databases.
-        details: Includes popular packages from the scientific Python ecosystem.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-        services:
-          jupyter-helx-db-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
+      # ---- Images still being sorted out (routing configured) ----
       jupyter-helx-notebook:
         name: Jupyter HeLx Notebook
         description: Based on the Jupyter SciPy Notebook.
@@ -753,33 +275,6 @@ contexts:
           jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
-      jupyter-minimal-notebook:
-        name: Jupyter Minimal Notebook
-        description: Jupyter Minimal Notebook - A minimal Jupyter notebook that has the base apps and some command-line tools.
-        details: Includes Notebook, Jupyter Lab and Jupyter Hub with some command line tools.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-minimal-notebook
-        services:
-          jupyter-minimal-notebook: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      jupyter-lab:
-        name: Jupyter Lab
-        description: Jupyter Lab - A Jupyter Lab instance for exploring and visualizing data.
-        details: Includes Python.
-        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-datascience-notebook
-        services:
-          jupyter-lab: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      pgadmin:
-        name: pgAdmin
-        description: pgAdmin - A database administration program for PostgreSQL.
-        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
-        docs: https://pgadmin.org/
-        services:
-          pgadmin: "8080"
-        proxy-rewrite-rule: True
-        count: 1
       rstudio-server:
         name: RStudio Server
         description: An integrated development environment for R.
@@ -788,11 +283,19 @@ contexts:
         services:
           rstudio-server: "8787"
         count: 1
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
+        # serves at root -> strip the /private prefix
+        proxy-rewrite:
+          enabled: True
+          target: /
+      cloudbeaver:
+        name: CloudBeaver
+        description: CloudBeaver - web-based database management for multiple databases.
+        details: A cloud database manager supporting PostgreSQL, MySQL, and other databases.
+        docs: https://github.com/dbeaver/cloudbeaver
         services:
-          webtop: "3000"
+          cloudbeaver: "8978"
         count: 1
+        # cloudbeaver serves at root -> strip (verify)
+        proxy-rewrite:
+          enabled: True
+          target: /
