@@ -214,6 +214,10 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+        securityContext:
+          runAsUser: 30000
+          runAsGroup: 0
+          fsGroup: 0
       cloudbeaver:
         name: CloudBeaver
         description: CloudBeaver - web-based database management for multiple databases.
