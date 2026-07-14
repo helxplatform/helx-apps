@@ -230,9 +230,7 @@ contexts:
         services:
           cloudbeaver: "8978"
         count: 1
-        proxy-rewrite:
-          enabled: True
-          target: /
+        proxy-rewrite-rule: True
       webtop:
         name: Webtop
         description: Webtop is a cloud native, browser accessible Linux desktop.
