@@ -194,6 +194,10 @@ contexts:
           jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
+        securityContext:
+          runAsUser: 30000
+          runAsGroup: 0
+          fsGroup: 0
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
