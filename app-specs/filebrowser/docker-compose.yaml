@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "{{ helx_registry }}/helxplatform/third-party/filebrowser:security-upgrades-8-3"
+    image: "{{ helx_registry }}/helxplatform/filebrowser:security-upgrades-8-3"
     ports:
       - 8080:8080
     entrypoint:
