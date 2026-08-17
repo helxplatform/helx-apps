@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   pgadmin:
-    image: "containers.renci.org/helxplatform/pgadmin4:helx-1.1.1"
+    image: "containers.renci.org/helxplatform/pgadmin4:v9.1.26"  # temporarily using version tag to fix caching issue.
     pull_policy: always
     container_name: pgadmin
     ports:
