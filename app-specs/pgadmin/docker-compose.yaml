@@ -2,6 +2,7 @@ version: '3.6'
 services:
   pgadmin:
     image: "containers.renci.org/helxplatform/pgadmin4:helx-1.1.1"
+    pull_policy: always
     container_name: pgadmin
     ports:
       - 8080:8080
