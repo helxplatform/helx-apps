@@ -142,6 +142,15 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      vs-code:
+        ext:
+          kube:
+            readinessProbe:
+              httpGet:
+                path: /healthz
+                port: 8080
+              delay: 10
+              period: 10
   common:
     name: HeLx Common App Registry
     mixin:
@@ -214,6 +223,15 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+      vs-code:
+        name: Visual Studio(VS) Code
+        description: VS Code in your browser.
+        details: A free, open source IDE which provides VS Code in a web browser. This version includes Python, Node.js, and golang, as well as some popular packages and extensions.
+        docs: https://coder.com/docs
+        services:
+          vs-code: "8080"
+        proxy-rewrite-rule: False
+        count: 1
   braini:
     extends:
       - common
