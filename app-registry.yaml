@@ -151,6 +151,13 @@ contexts:
                 port: 8080
               delay: 10
               period: 10
+      jupyter-ai-notebook:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "jupyter" ]
+              delay: 5
+              period: 5
   common:
     name: HeLx Common App Registry
     mixin:
@@ -194,13 +201,13 @@ contexts:
         services:
           filebrowser: "8888"
         count: 1
-      jupyter-helx-notebook:
-        name: Jupyter HeLx Notebook
-        description: Based on the Jupyter SciPy Notebook.
-        details: Includes popular packages from the scientific Python ecosystem.
+      jupyter-ai-notebook:
+        name: Jupyter AI Notebook
+        description: Jupyter Environment with AI libraries and tooling available.
+        details: Includes popular packages from the AI and scientific Python ecosystems. Jupyter's AI chat extension is also installed.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-helx-notebook: "8888"
+          jupyter-ai-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       pgadmin:

@@ -1,0 +1,16 @@
+version: "3"
+services:
+  jupyter-ai-notebook:
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/ai-sandbox-notebook:collab-8-4"
+    ports:
+      - 8888:8888
+    volumes:
+      - pvc://projects-pvc:/projects
+    deploy:
+      resources:
+        limits:
+          cpus: "8"
+          memory: 16000M
+        reservations:
+          cpus: "2"
+          memory: 2000M
