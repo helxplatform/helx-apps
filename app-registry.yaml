@@ -237,6 +237,9 @@ contexts:
         docs: https://coder.com/docs
         services:
           vs-code: "8080"
+        proxy-rewrite:
+          enabled: true
+          target: /
         proxy-rewrite-rule: False
         count: 1
   braini:
