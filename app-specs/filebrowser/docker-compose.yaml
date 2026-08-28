@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "containers.renci.org/helxplatform/third-party/filebrowser:v3.3.0"
+    image: "containers.renci.org/helxplatform/filebrowser:helx-1.1.1"
     ports:
       - 8080:8080
     entrypoint:
