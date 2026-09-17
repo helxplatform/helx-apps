@@ -4,8 +4,6 @@ services:
     image: "aisandboxrencitgt.azurecr.io/vivarium-workbench:latest"
     ports:
       - 8000:8000
-    volumes:
-      - pvc://stdnfs:/workspace
     deploy:
       resources:
         limits:
