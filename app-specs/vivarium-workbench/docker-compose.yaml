@@ -1,0 +1,16 @@
+version: "3"
+services:
+  vivarium-workbench:
+    image: "aisandboxrencitgt.azurecr.io/vivarium-workbench:latest"
+    ports:
+      - 8000:8000
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4000M
+          ephemeralStorage: 4000Mi
+        reservations:
+          cpus: '.25'
+          memory: 512M
+          ephemeralStorage: 256Mi
