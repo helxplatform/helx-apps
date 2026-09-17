@@ -163,6 +163,13 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      vivarium-workbench:
+        ext:
+          kube:
+            livenessProbe:
+              cmd: ["pgrep", "-f", "vivarium-workbench"]
+              delay: 10
+              period: 5
       vs-code:
         ext:
           kube:
@@ -305,6 +312,15 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+      vivarium-workbench:
+        name: Vivarium Workbench
+        description: A web-based dashboard for exploring and running process-bigraph simulations with the bigraph-loom graph viewer.
+        details: Browse the process and type registry, explore composites visually, run studies, and read investigation reports. Includes the viva-tumor-tcell model.
+        docs: https://github.com/vivarium-collective/vivarium-workbench
+        services:
+          vivarium-workbench: "8000"
+        proxy-rewrite-rule: True
+        count: 1
       vs-code:
         name: Visual Studio(VS) Code
         description: VS Code in your browser.
