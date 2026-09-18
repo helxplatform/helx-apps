@@ -168,7 +168,7 @@ contexts:
           kube:
             livenessProbe:
               cmd: ["pgrep", "-f", "vivarium-workbench"]
-              delay: 10
+              delay: 30
               period: 5
       vs-code:
         ext:
