@@ -7,10 +7,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2'
-          memory: 4000M
-          ephemeralStorage: 4000Mi
+          cpus: "4"
+          memory: 8192M
+          ephemeralStorage: 8192Mi
         reservations:
-          cpus: '.25'
-          memory: 512M
-          ephemeralStorage: 256Mi
+          cpus: "1"
+          memory: 4096M
+          ephemeralStorage: 8192Mi
