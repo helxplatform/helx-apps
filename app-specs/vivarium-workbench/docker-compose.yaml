@@ -4,6 +4,17 @@ services:
     image: "aisandboxrencitgt.azurecr.io/vivarium-workbench:latest"
     ports:
       - 8000:8000
+    # Healthcheck: process-existence check rather than HTTP GET.
+    # vivarium-workbench's GET / runs discover_generators() which scans all
+    # installed packages — under simulation load this takes 2-3s, exceeding
+    # Tycho's default readiness probe timeout (1s) and causing spurious
+    # not-ready events. A process check is instant and sufficient.
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f vivarium-workbench > /dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
     deploy:
       resources:
         limits:
