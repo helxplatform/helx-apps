@@ -167,10 +167,6 @@ contexts:
         ext:
           kube:
             readinessProbe: none
-            livenessProbe:
-              cmd: ["pgrep", "-f", "vivarium-workbench"]
-              delay: 30
-              period: 5
       vs-code:
         ext:
           kube:
