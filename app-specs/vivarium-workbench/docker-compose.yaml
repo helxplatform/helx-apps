@@ -16,14 +16,14 @@ services:
           ephemeralStorage: 8192Mi
     ext:
       kube:
-        readinessProbe:
+        readiness_probe:
           httpGet:
             path: /
             port: 8000
           delay: 20
           period: 5
           threshold: 12
-        livenessProbe:
+        liveness_probe:
           httpGet:
             path: /
             port: 8000
