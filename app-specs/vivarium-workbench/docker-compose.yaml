@@ -14,19 +14,3 @@ services:
           cpus: "1"
           memory: 4000M
           ephemeralStorage: 8192Mi
-    ext:
-      kube:
-        readiness_probe:
-          httpGet:
-            path: /
-            port: 8000
-          delay: 20
-          period: 5
-          threshold: 12
-        liveness_probe:
-          httpGet:
-            path: /
-            port: 8000
-          delay: 60
-          period: 10
-          threshold: 3
