@@ -60,7 +60,7 @@ repositories:
 settings:
   helx_registry: containers.renci.org
   third_party_registry: docker.io
-  azure_registry: aisandboxregistry.azurecr.io
+  azure_registry: aisandboxrencitgt.azurecr.io
 contexts:
   # The common context provides a convenient base set of applications.
   # Other contexts can extend it to include these apps.
@@ -163,6 +163,14 @@ contexts:
         ext:
           kube:
             readinessProbe: none
+      vivarium-workbench:
+        ext:
+          kube:
+            readinessProbe: none
+            livenessProbe:
+              cmd: ["pgrep", "-f", "vivarium-workbench"]
+              delay: 60
+              period: 10
       vs-code:
         ext:
           kube:
@@ -305,6 +313,15 @@ contexts:
         proxy-rewrite:
           enabled: True
           target: /
+      vivarium-workbench:
+        name: Vivarium Workbench
+        description: A web-based dashboard for exploring and running process-bigraph simulations with the bigraph-loom graph viewer.
+        details: Browse the process and type registry, explore composites visually, run studies, and read investigation reports. Includes the viva-tumor-tcell model.
+        docs: https://github.com/vivarium-collective/vivarium-workbench
+        services:
+          vivarium-workbench: "8000"
+        proxy-rewrite-rule: True
+        count: 1
       vs-code:
         name: Visual Studio(VS) Code
         description: VS Code in your browser.
@@ -312,7 +329,9 @@ contexts:
         docs: https://coder.com/docs
         services:
           vs-code: "8080"
-        proxy-rewrite-rule: False
+        proxy-rewrite:
+          enabled: true
+          target: /
         count: 1
       palimpzest-biome:
         name: Biome
