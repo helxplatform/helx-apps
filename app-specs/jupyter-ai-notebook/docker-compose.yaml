@@ -11,6 +11,12 @@ services:
         limits:
           cpus: "8"
           memory: 16000M
+          devices:
+            - capabilities: ["gpu"]
+              count: "1"
         reservations:
           cpus: "2"
           memory: 8000M
+          devices:
+            - capabilities: ["gpu"]
+              count: "0"
