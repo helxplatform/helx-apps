@@ -1,7 +1,7 @@
 version: "3"
 services:
   vivarium-workbench:
-    image: "aisandboxrencitgt.azurecr.io/vivarium-workbench:latest"
+    image: "aisandboxrencitgt.azurecr.io/vivarium-workbench:0.0.1"
     ports:
       - 8000:8000
     deploy:
