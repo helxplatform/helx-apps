@@ -1,7 +1,7 @@
 version: "3.0"
 services:
   ohif-viewer:
-    image: "{{ helx_registry }}/helxplatform/ohif-viewer:v0.1.1"
+    image: "{{ helx_registry }}/helxplatform/ohif-viewer:filesystem-support.0"
     container_name: ohif-viewer
     ports:
       - 8080:8080
