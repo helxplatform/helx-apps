@@ -192,36 +192,6 @@ contexts:
   helx:
     extends:
       - common
-    jupyter-helx-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    pgadmin:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 30000
-        runAsGroup: 1136
-    rstudio-server:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    webtop-image-apps:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    webtop-octave:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
-    webtop:
-      securityContext:
-        fsGroup: 0
-        runAsUser: 0
-        runAsGroup: 0
     name: HeLx App Registry
     apps:
       pgadmin:
@@ -240,27 +210,10 @@ contexts:
         docs: https://www.rstudio.com/
         services:
           rstudio-server: "8787"
-        # proxy-rewrite-rule: True
+        count: 1
         proxy-rewrite:
           enabled: True
           target: /
-        count: 1
-      webtop:
-        name: Webtop
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop: "3000"
-        count: 1
-      webtop-image-apps:
-        name: Webtop Image Apps
-        description: Webtop is a cloud native, browser accessible Linux desktop.
-        details: A Ubuntu graphical desktop environment for experimenting with native applications in the cloud.  Additional image manipulation applications have been added to webtop.
-        docs: https://github.com/linuxserver/docker-webtop
-        services:
-          webtop-image-apps: "3000"
-        count: 1
   braini:
     extends:
       - common
