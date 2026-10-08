@@ -1,16 +1,16 @@
 ################################################################################
 ##
 ## HeLx Application Registry
-##  
+##
 ##   The registry consolidates metadata links to application specifications.
 ##   The registry's main components are:
 ##     * Metadata about the registry itself
 ##     * Repositories describing sources of application metadata.
 ##     * Sub-Registries providing contexts for sets of applications.
 ##
-##   Each application has an identifier, name, description, and a link to its 
-##   specification. Applications may currently be specified in the 
-##   docker-compose format though we also expect to broaden the scope of 
+##   Each application has an identifier, name, description, and a link to its
+##   specification. Applications may currently be specified in the
+##   docker-compose format though we also expect to broaden the scope of
 ##   apps to include launching websites and other methods.
 ##
 ##   When a platform launches an application, it needs to know what endpoints
@@ -185,7 +185,7 @@ contexts:
         name: Octave
         description: A scientific programming language largely compatible with MATLAB.
         details: GNU Octave is a high-level language, primarily intended for numerical computations.
-        docs: https://www.gnu.org/software/octave 
+        docs: https://www.gnu.org/software/octave
         services:
           webtop-octave : "3000"
         count: 1
@@ -200,7 +200,7 @@ contexts:
         details: Includes popular packages from the scientific Python ecosystem.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-helx-notebook: "8888"
+          jupyter-ai-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       pgadmin:
@@ -284,7 +284,7 @@ contexts:
         docs: https://chunglabmit.github.io/scout/#
         services:
           scout : 8080
-        count: 1            
+        count: 1
   bdc:
     extends:
       - common
@@ -538,7 +538,7 @@ contexts:
       atlas:
         name: ATLAS
         description: ATLAS is a free, publicly available, web-based tool developed by the OHDSI community that facilitates the design and execution of analyses on standardized, patient-level, observational data in the CDM format.
-        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI. 
+        details: ATLAS is deployed as a web application in combination with the OHDSI WebAPI.
         docs: https://ohdsi.org/software-tools/
         services:
           atlas: "8081"
