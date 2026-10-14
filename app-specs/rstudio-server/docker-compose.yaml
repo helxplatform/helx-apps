@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "{{ azure_registry }}/helxplatform/rstudio-server:helx-1.1.1"
+    image: "{{ azure_registry }}/helxplatform/rstudio-server:test_12"
     ports:
       - 8787:8787
     volumes:

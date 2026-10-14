@@ -211,13 +211,13 @@ contexts:
       #     jupyter-helx-tensorflow-nb: "8888"
       #   proxy-rewrite-rule: True
       #   count: 1
-      jupyter-ai-notebook:
-        name: Jupyter AI Notebook
+      jupyter-helx-notebook:
+        name: Jupyter Helx Notebook
         description: Jupyter Environment with AI libraries and tooling available.
         details: Includes popular packages from the AI and scientific Python ecosystems. Jupyter's AI chat extension is also installed.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
-          jupyter-ai-notebook: "8888"
+          jupyter-helx-notebook: "8888"
         proxy-rewrite-rule: True
         count: 1
       filebrowser:
@@ -239,26 +239,16 @@ contexts:
   helx:
     extends:
       - common
-    jupyter-ai-notebook:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
-    pgadmin:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 30000
-        runAsGroup: 1136
     slicer:
       securityContext:
         runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
-    rstudio-server:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 30000
-        runAsGroup: 0
+    # rstudio-server:
+    #   securityContext:
+    #     fsGroup: 1136
+    #     runAsUser: 30000
+    #     runAsGroup: 0
     webtop-image-apps:
       securityContext:
         fsGroup: 0
@@ -276,15 +266,6 @@ contexts:
         runAsGroup: 0
     name: HeLx App Registry
     apps:
-      # jupyter-helx-notebook:
-      #   name: Jupyter Notebook (Basic)
-      #   description: Based on the Jupyter SciPy Notebook.
-      #   details: Includes popular packages from the scientific Python ecosystem.
-      #   docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
-      #   services:
-      #     jupyter-helx-notebook: "8888"
-      #   proxy-rewrite-rule: True
-      #   count: 1
       pgadmin:
         name: pgAdmin
         description: pgAdmin - A database administration program for PostgreSQL.
@@ -356,6 +337,15 @@ contexts:
         runAsUser: 0
         runAsGroup: 0
     apps:
+      jupyter-ai-notebook:
+        name: Jupyter AI Notebook
+        description: Jupyter Environment with AI libraries and tooling available.
+        details: Includes popular packages from the AI and scientific Python ecosystems. Jupyter's AI chat extension is also installed.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-ai-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
       imagej:
         name: ImageJ Viewer
         description: Imagej is an image processor developed at NIH/LOCI.
