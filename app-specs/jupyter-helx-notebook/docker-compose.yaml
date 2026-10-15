@@ -1,7 +1,8 @@
 version: "3"
 services:
   jupyter-helx-notebook:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:helx-1.1.1"
+    image: "{{ helx_registry }}/helxplatform/jupyter/ordr-d:ordrd-test-azure
+#   image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:helx-1.1.1"
     ports:
       - 8888:8888
     volumes:
