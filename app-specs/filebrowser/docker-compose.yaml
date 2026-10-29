@@ -1,7 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    image: "{{ azure_registry }}/helxplatform/filebrowser:test_7"
+    image: "{{ helx_registry }}/helxplatform/filebrowser:master-8dfdd86e"
     ports:
       - 8080:8080
     # Using Dockerfile entrypoint that calls tini . . .

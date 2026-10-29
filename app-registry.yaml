@@ -213,8 +213,8 @@ contexts:
       #   count: 1
       jupyter-helx-notebook:
         name: Jupyter Helx Notebook
-        description: Jupyter Environment with AI libraries and tooling available.
-        details: Includes popular packages from the AI and scientific Python ecosystems. Jupyter's AI chat extension is also installed.
+        description: Jupyter Environment with helpful libraries and tooling available.
+        details: Includes popular packages from scientific Python ecosystems.
         docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
         services:
           jupyter-helx-notebook: "8888"
@@ -316,6 +316,16 @@ contexts:
     extends:
       - helx
     name: AI Sandbox App Registry
+    apps:
+      jupyter-ai-notebook:
+        name: Jupyter AI Notebook
+        description: Jupyter Environment with AI libraries and tooling available.
+        details: Includes popular packages from the AI and scientific Python ecosystems. Jupyter's AI chat extension is also installed.
+        docs: https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook
+        services:
+          jupyter-ai-notebook: "8888"
+        proxy-rewrite-rule: True
+        count: 1
   braini:
     extends:
       - common
