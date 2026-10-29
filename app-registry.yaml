@@ -359,6 +359,10 @@ contexts:
     extends:
       - helx
     name: AI Sandbox App Registry
+  mism_sandbox:
+    extends:
+      - helx
+    name: MISM Sandbox App Registry
   braini:
     extends:
       - common
