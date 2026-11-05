@@ -3,11 +3,29 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:helx-1.1.1"
+    # UNCDSR-182: helx-1.1.1 predates the read-only-rootfs Dockerfile fix
+    # (/etc/passwd.default backup). This is the tag actually built+pushed
+    # with that fix.
+    image: "containers.renci.org/helxplatform/rstudio-server:vUNCDSR-182-readonly-rfs"
     ports:
       - 8787:8787
     volumes:
         - pvc://projects-pvc:/projects
+        # UNCDSR-182: readOnlyRootFilesystem below means these all start out
+        # empty on every boot. /etc/passwd is a pre-existing file in the
+        # image that 10-user.sh rewrites, so it needs seeding (same reason
+        # and mechanism as jupyter-helx-notebook's /etc/passwd -- see that
+        # app-spec's comment). /etc/rstudio is a whole-directory mount, not
+        # seeded here: start-last.sh already restores it from a pristine
+        # backup baked at /etc/rstudio-defaults before rewriting rserver.conf.
+        # The /var/* paths and /tmp just need to exist and be writable, no
+        # pre-existing content to preserve.
+        - emptyDirSeeded://rstudio-etc-passwd/passwd:/etc/passwd
+        - emptyDir://rstudio-etc:/etc/rstudio
+        - emptyDir://rstudio-var-log:/var/log/rstudio/rstudio-server
+        - emptyDir://rstudio-var-lib:/var/lib/rstudio-server
+        - emptyDir://rstudio-var-run:/var/run/rstudio-server
+        - emptyDir://rstudio-tmp:/tmp
     deploy:
         resources:
           limits:
@@ -16,3 +34,7 @@ services:
           reservations:
             cpus: '1'
             memory: 2000M
+# UNCDSR-182: top-level, not per-service -- see jupyter-helx-notebook's
+# app-spec comment for why.
+security_context:
+  readOnlyRootFilesystem: true

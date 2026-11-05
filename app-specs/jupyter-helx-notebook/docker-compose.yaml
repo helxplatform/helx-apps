@@ -1,11 +1,27 @@
 version: "3"
 services:
   jupyter-helx-notebook:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook:helx-1.1.1"
+    # UNCDSR-182: jupyter/helx-notebook has no tag with the read-only-rootfs
+    # Dockerfile fix (/etc/passwd.default, /etc/group.default backups) baked
+    # in, and no such variant exists in jupyter-helx-notebook/ to build one
+    # from. jupyter/cdsr is built FROM minimal-poetry-notebook, which has the
+    # fix, and is the image actually built+pushed for this remediation.
+    image: "{{ helx_registry }}/helxplatform/jupyter/cdsr:vUNCDSR-182-readonly-rfs"
     ports:
       - 8888:8888
     volumes:
         - pvc://projects-pvc:/projects
+        # UNCDSR-182: readOnlyRootFilesystem below means /etc/passwd and
+        # /etc/group start out empty on every boot (they're emptyDir-backed,
+        # subPath-mounted onto files that already exist in the image, which
+        # Kubernetes can't do cleanly without this). Tycho seeds the real
+        # content (baked into the image at /etc/passwd.default and
+        # /etc/group.default) via an extra init container before anything
+        # subPath-mounts them -- see emptyDirSeeded:// in tycho/model.py and
+        # tycho/template/pod.yaml.
+        - emptyDirSeeded://jupyter-etc-passwd/passwd:/etc/passwd
+        - emptyDirSeeded://jupyter-etc-group/group:/etc/group
+        - emptyDir://jupyter-tmp:/tmp
     deploy:
       resources:
         limits:
@@ -14,4 +30,9 @@ services:
         reservations:
           cpus: '2'
           memory: 2000M
+# UNCDSR-182: top-level, not per-service -- Tycho's System.parse reads
+# security_context from the top of the parsed spec (system.get("security_context", {})),
+# not nested under a service.
+security_context:
+  readOnlyRootFilesystem: true
 
