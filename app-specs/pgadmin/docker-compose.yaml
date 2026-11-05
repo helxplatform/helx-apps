@@ -1,10 +1,37 @@
 version: '3.6'
 services:
   pgadmin:
-    image: "containers.renci.org/helxplatform/pgadmin4:v9.1.27"
+    # UNCDSR-182: v9.1.27 predates both this remediation's base-image bump
+    # (bullseye's apt signing had lapsed) and the read-only-rootfs hardening
+    # the pgadmin4-ldap maintainers already landed upstream (PUID/PGID
+    # handling, PGADMIN_CUSTOM_CONFIG_DISTRO_FILE, CAP_NET_BIND_SERVICE
+    # fallback, etc.) -- this tag is rebuilt from the current pgadmin4-ldap
+    # master, which already carries all of that.
+    image: "containers.renci.org/helxplatform/pgadmin4:vUNCDSR-182-readonly-rfs"
     container_name: pgadmin
     ports:
       - 8080:8080
+    environment:
+      # entrypoint.sh already supports redirecting config_distro.py (which
+      # otherwise lives inside the whole, large /pgadmin4 application tree --
+      # subPath can't cleanly replace a file that already exists in the
+      # image) to a path that doesn't pre-exist in the image.
+      - PGADMIN_CUSTOM_CONFIG_DISTRO_FILE=/pgadmin-distro-config/config_distro.py
+      # Postfix (password-reset emails) needs its own writable spool/config
+      # paths under read-only root; out of scope for this fix since
+      # PGADMIN_DEFAULT_EMAIL/PASSWORD-based login doesn't depend on it.
+      # Disabling is the vendor-supported way to skip it cleanly rather than
+      # leaving it half-broken.
+      - PGADMIN_DISABLE_POSTFIX=1
+    volumes:
+        - emptyDir://pgadmin-distro-config:/pgadmin-distro-config
+        # /var/lib/pgadmin holds pgadmin4.db (sqlite) and the server/prefs
+        # import markers entrypoint.sh writes on first launch. The vendor
+        # image already declares this as a VOLUME; nothing here needs to
+        # pre-exist, so a plain emptyDir is enough -- matches today's
+        # behavior, which doesn't persist this across pod restarts either.
+        - emptyDir://pgadmin-var-lib:/var/lib/pgadmin
+        - emptyDir://pgadmin-tmp:/tmp
     deploy:
       resources:
         limits:
@@ -13,3 +40,7 @@ services:
         reservations:
           cpus: '1'
           memory: 2000M
+# UNCDSR-182: top-level, not per-service -- see jupyter-helx-notebook's
+# app-spec comment for why.
+security_context:
+  readOnlyRootFilesystem: true
