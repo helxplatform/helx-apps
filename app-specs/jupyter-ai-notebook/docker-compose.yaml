@@ -1,7 +1,7 @@
 version: "3"
 services:
   jupyter-ai-notebook:
-    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/ai-sandbox-notebook:v0.2.1"
+    image: "{{ helx_registry }}/helxplatform/jupyter/helx-notebook/ai-sandbox-notebook:codeburst-1112.0"
     # image: "{{ azure_registry }}/helxplatform/jupyter/helx-notebook/ai-sandbox-notebook:v0.1.2"
     ports:
       - 8888:8888
