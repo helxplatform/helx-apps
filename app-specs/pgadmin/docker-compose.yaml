@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   pgadmin:
-    image: "{{ helx_registry }}/helxplatform/pgadmin4-ldap:master-482ca534a"
+    image: "{{ helx_registry }}/helxplatform/pgadmin4-ldap:master-820c85547"
     container_name: pgadmin
     ports:
       - 8080:8080
