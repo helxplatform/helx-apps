@@ -247,6 +247,15 @@ contexts:
           ohif-viewer: "8080"
         proxy-rewrite-rule: True
         count: 1
+      qupath:
+        name: QuPath
+        description: QuPath - open source software for bioimage analysis.
+        details: Whole slide and microscopy image viewing and annotation, cell detection, pixel and object classification, and batch processing by scripting.
+        docs: https://qupath.readthedocs.io/
+        services:
+          qupath: "8080"
+        proxy-rewrite-rule: True
+        count: 1
   braini:
     extends:
       - common
