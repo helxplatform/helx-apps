@@ -1,11 +1,7 @@
 version: "3"
 services:
   filebrowser:
-    # UNCDSR-182: helx-1.1.1 predates the read-only-rootfs fix (settings.json
-    # relocated under $HOME/.filebrowser instead of the image root -- see
-    # docker/debian/init.sh and setup-trash.sh). This is the tag actually
-    # built+pushed with that fix; confirmed /init.sh (invoked below) has it.
-    image: "{{ helx_registry }}/helxplatform/filebrowser:vUNCDSR-182-readonly-rfs"
+    image: "{{ helx_registry }}/helxplatform/filebrowser:v3.6.0"
     ports:
       - 8080:8080
     entrypoint:
@@ -16,12 +12,11 @@ services:
         exec tini -- /init.sh /filebrowser --noauth --root="${ROOT_DIR}" --address=0.0.0.0 --port=8080 --database=/home/${USER}/.filebrowser/filebrowser.db;
     volumes:
         - pvc://projects-pvc:/projects
-        # UNCDSR-182: the only writable paths filebrowser needs (database and
-        # settings.json, per init.sh/setup-trash.sh) are already relocated
-        # under $HOME, which Tycho already backs with a writable PVC
-        # regardless of readOnlyRootFilesystem -- no new volume needed for
-        # those. /tmp is a plain safety net (Go's os.TempDir(), used by
-        # upload/extract paths).
+        # UNCDSR-182: the writable paths filebrowser needs (filebrowser.db and
+        # settings.json, already exist under $HOME, which Tycho backs with a
+        # writable PVC, so they don't need a new volume.
+        # Adding /tmp as a safety net (Go's os.TempDir(), used by
+        # upload/extract paths):
         - emptyDir://filebrowser-tmp:/tmp
     deploy:
         resources:
@@ -31,7 +26,6 @@ services:
           reservations:
             cpus: '.5'
             memory: 1000M
-# UNCDSR-182: top-level, not per-service -- see jupyter-helx-notebook's
-# app-spec comment for why.
+# UNCDSR-182: Make filesytem read-only:
 security_context:
   readOnlyRootFilesystem: true

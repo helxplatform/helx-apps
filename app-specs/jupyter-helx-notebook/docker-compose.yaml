@@ -4,9 +4,9 @@ services:
     # UNCDSR-182: jupyter/helx-notebook has no tag with the read-only-rootfs
     # Dockerfile fix (/etc/passwd.default, /etc/group.default backups) baked
     # in, and no such variant exists in jupyter-helx-notebook/ to build one
-    # from. jupyter/cdsr is built FROM minimal-poetry-notebook, which has the
-    # fix, and is the image actually built+pushed for this remediation.
-    image: "{{ helx_registry }}/helxplatform/jupyter/cdsr:vUNCDSR-182-readonly-rfs"
+    # jupyter/cdsr is built FROM minimal-poetry-notebook, which has the
+    # Dockerfile fix to provide /etc/passwd.default, /etc/group.default
+    image: "{{ helx_registry }}/helxplatform/jupyter/cdsr:v0.1.0"
     ports:
       - 8888:8888
     volumes:
