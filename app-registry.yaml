@@ -257,16 +257,6 @@ contexts:
         runAsUser: 30000
         runAsGroup: ""
         fsGroup: ""
-    pgadmin:
-      securityContext:
-        fsGroup: 1136
-        runAsUser: 30000
-        runAsGroup: 1136
-    slicer:
-      securityContext:
-        runAsUser: 30000
-        runAsGroup: ""
-        fsGroup: ""
     rstudio-server:
       securityContext:
         fsGroup: 1136
@@ -298,15 +288,6 @@ contexts:
       #     jupyter-helx-notebook: "8888"
       #   proxy-rewrite-rule: True
       #   count: 1
-      pgadmin:
-        name: pgAdmin
-        description: pgAdmin - A database administration program for PostgreSQL.
-        details: pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world.
-        docs: https://pgadmin.org/
-        services:
-          pgadmin: "8080"
-        proxy-rewrite-rule: True
-        count: 1
       rstudio-server:
         name: RStudio Server
         description: An integrated development environment for R.
@@ -337,23 +318,6 @@ contexts:
         proxy-rewrite:
           enabled: true
           target: /
-        count: 1
-      palimpzest-biome:
-        name: Biome
-        description: AI-assisted notebook environment for Palimpzest.
-        details: Part of the ARPA-H Biomedical Data Fabric Toolbox. Specialized for usage with Palimpzest but also applicable to more general use cases through its Basic context. 
-        docs: https://jataware.github.io/beaker-kernel/
-        services:
-          palimpzest-biome: "8888"
-        proxy-rewrite-rule: True
-        count: 1
-      slicer:
-        name: Slicer
-        description: Slicer, or 3D Slicer, is a free, open source software package for visualization and image analysis.
-        details: 3D Slicer is a free, open source software for visualization, processing, segmentation, registration, and analysis of medical, biomedical, and other 3D images and meshes; and planning and navigating image-guided procedures.
-        docs: https://www.slicer.org/
-        services:
-          slicer: "6901"
         count: 1
   ai_sandbox:
     extends:
