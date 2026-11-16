@@ -5,14 +5,12 @@ services:
     ports:
       - 8080:8080
     # Using Dockerfile entrypoint that calls tini . . .
-    #entrypoint:
-    command:
-      - /filebrowser
-      - --root=$$ROOT_DIR
-      - --address=0.0.0.0
-      - --port=8080
-      - --database=/home/$$USER/.filebrowser/filebrowser.db
-      - --config=/settings.json
+    entrypoint:
+      - /bin/sh
+      - -c
+      - >
+        ROOT_DIR=$(test -d /shared && echo "/home/${USER}" || echo "/home");
+        exec tini -- /init.sh /filebrowser --noauth --root="${ROOT_DIR}" --address=0.0.0.0 --port=8080 --database=/home/${USER}/.filebrowser/filebrowser.db;
     volumes:
       - pvc://projects-pvc:/projects
     deploy:
