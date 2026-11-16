@@ -3,7 +3,7 @@
 version: "3"
 services:
   rstudio-server:
-    image: "containers.renci.org/helxplatform/rstudio-server:v0.2.4"
+    image: "containers.renci.org/helxplatform/rstudio-server:v0.2.5"
     ports:
       - 8787:8787
     volumes:
@@ -23,6 +23,9 @@ services:
         - emptyDir://rstudio-var-lib:/var/lib/rstudio-server
         - emptyDir://rstudio-var-run:/var/run/rstudio-server
         - emptyDir://rstudio-tmp:/tmp
+        # nginx (start-last.sh) opens its default error log here before
+        # reading its config; without a writable dir it logs a harmless alert.
+        - emptyDir://rstudio-var-log-nginx:/var/log/nginx
     deploy:
         resources:
           limits:
