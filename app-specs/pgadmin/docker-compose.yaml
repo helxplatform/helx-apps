@@ -7,7 +7,7 @@ services:
     # handling, PGADMIN_CUSTOM_CONFIG_DISTRO_FILE, CAP_NET_BIND_SERVICE
     # fallback, etc.) -- this tag is rebuilt from the current pgadmin4-ldap
     # master, which already carries all of that.
-    image: "containers.renci.org/helxplatform/pgadmin4:vUNCDSR-182-readonly-rfs-2"
+    image: "containers.renci.org/helxplatform/pgadmin4:v9.1.28"
     container_name: pgadmin
     ports:
       - 8080:8080
